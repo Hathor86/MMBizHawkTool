@@ -37,7 +37,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
             <Image.Effect>
-                <Tools:GrayscaleEffect />
+                <Tools:GrayscaleEffect/>                
             </Image.Effect>
         </Image>
         <Image x:Name="heroBow" Grid.Column="1" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hero's Bow.png" RenderTransformOrigin="0.7,0.7" >

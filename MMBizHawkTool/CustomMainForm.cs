@@ -1,4 +1,5 @@
-﻿using BizHawk.Emulation.Common;
+﻿using BizHawk.Client.Common;
+using BizHawk.Emulation.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,12 +16,15 @@ namespace BizHawk.Client.EmuHawk
     {
         [RequiredService]
         private IMemoryDomains _memoryDomains { get; set; }
+		[RequiredService]
+		private IEmulator _emu { get; set; }
 
-		
-        public CustomMainForm()
+		Watch w;
+
+		public CustomMainForm()
         {
 			InitializeComponent();
-			
+
 		}
 
         public bool UpdateBefore
@@ -43,12 +47,20 @@ namespace BizHawk.Client.EmuHawk
 
         public void Restart()
         {
-
-        }
+			w = Watch.GenerateWatch(_memoryDomains.MainMemory, 0x1EF6E1, Watch.WatchSize.Byte, Watch.DisplayType.Signed, "", true);
+		}
 
         public void UpdateValues()
         {
-
+			w.Update();
+			if(w.Value == 1)
+			{
+				((MMBizHawkTool.Controls.ItemsPanel)this.elementHost1.Child).heroBow.Effect = null;
+			}
+			else
+			{
+				((MMBizHawkTool.Controls.ItemsPanel)this.elementHost1.Child).heroBow.Effect = new MMBizHawkTool.Tools.GrayscaleEffect();
+			}
         }
     }
 }
