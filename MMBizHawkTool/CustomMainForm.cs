@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BizHawk.Emulation.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,15 @@ namespace BizHawk.Client.EmuHawk
 {
     public partial class CustomMainForm : Form, IToolForm, ICustomGameTool
     {
+        [RequiredService]
+        private IMemoryDomains _memoryDomains { get; set; }
+
+		
         public CustomMainForm()
         {
-            InitializeComponent();
-        }
+			InitializeComponent();
+			
+		}
 
         public bool UpdateBefore
         {
@@ -32,17 +38,17 @@ namespace BizHawk.Client.EmuHawk
 
         public void FastUpdate()
         {
-           
+
         }
 
         public void Restart()
         {
-            
+
         }
 
         public void UpdateValues()
         {
-           
+
         }
     }
 }

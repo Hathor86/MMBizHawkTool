@@ -1,0 +1,15 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMBizHawkTool.Controls"
+             xmlns:Tools="clr-namespace:MMBizHawkTool.Tools" x:Class="MMBizHawkTool.Controls.QuestStatusPanel"
+             mc:Ignorable="d" 
+             d:DesignHeight="328" d:DesignWidth="489">
+    <Grid Margin="0,0,0,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/MMBizHawkTool;component/Resources/Images/Backgrounds/Quest.png" Stretch="Uniform"/>
+        </Grid.Background>
+    </Grid>
+</UserControl>

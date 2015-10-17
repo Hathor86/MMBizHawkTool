@@ -28,11 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "CustomMainForm";
+			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+			this.itemsPanel1 = new MMBizHawkTool.Controls.ItemsPanel();
+			this.SuspendLayout();
+			// 
+			// elementHost1
+			// 
+			this.elementHost1.Location = new System.Drawing.Point(2, 12);
+			this.elementHost1.Name = "elementHost1";
+			this.elementHost1.Size = new System.Drawing.Size(243, 163);
+			this.elementHost1.TabIndex = 0;
+			this.elementHost1.Text = "elementHost1";
+			this.elementHost1.Child = this.itemsPanel1;
+			// 
+			// CustomMainForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(284, 261);
+			this.Controls.Add(this.elementHost1);
+			this.Name = "CustomMainForm";
+			this.Text = "CustomMainForm";
+			this.ResumeLayout(false);
+
         }
 
-        #endregion
-    }
+		#endregion
+
+		private System.Windows.Forms.Integration.ElementHost elementHost1;
+		private MMBizHawkTool.Controls.ItemsPanel itemsPanel1;
+	}
 }

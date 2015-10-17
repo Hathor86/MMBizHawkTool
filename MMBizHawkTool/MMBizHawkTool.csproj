@@ -30,21 +30,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BizHawk.Emulation.Common">
+      <HintPath>..\..\BizHawk\output\BizHawk.Emulation.Common.dll</HintPath>
+    </Reference>
     <Reference Include="EmuHawk">
       <HintPath>..\..\BizHawk\output\EmuHawk.exe</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ItemsPanel.xaml.cs">
+      <DependentUpon>ItemsPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\QuestStatusPanel.xaml.cs">
+      <DependentUpon>QuestStatusPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,8 +67,147 @@
       <DependentUpon>CustomMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\GrayscaleEffect.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomMainForm.resx">
+      <DependentUpon>CustomMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Resource Include="Resources\Images\Backgrounds\Items.png" />
+    <Resource Include="Resources\Images\Backgrounds\Map.png" />
+    <Resource Include="Resources\Images\Backgrounds\Masks.png" />
+    <Resource Include="Resources\Images\Backgrounds\Quest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\ItemsPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\QuestStatusPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Tools\GrayscaleEffect.fx" />
+    <Resource Include="Tools\GrayscaleEffect.ps" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Items\Big Poe.png" />
+    <Resource Include="Resources\Icons\Items\Blue Fire.png" />
+    <Resource Include="Resources\Icons\Items\Blue Potion.png" />
+    <Resource Include="Resources\Icons\Items\Bomb.png" />
+    <Resource Include="Resources\Icons\Items\Bombchu.png" />
+    <Resource Include="Resources\Icons\Items\Bug.png" />
+    <Resource Include="Resources\Icons\Items\Chateau Romani.png" />
+    <Resource Include="Resources\Icons\Items\Deku Nut.png" />
+    <Resource Include="Resources\Icons\Items\Deku Stick.png" />
+    <Resource Include="Resources\Icons\Items\Empty Bottle.png" />
+    <Resource Include="Resources\Icons\Items\Fairy Ocarina %28Unused%29.png" />
+    <Resource Include="Resources\Icons\Items\Fairy Slingshot %28Unused%29.png" />
+    <Resource Include="Resources\Icons\Items\Fairy.png" />
+    <Resource Include="Resources\Icons\Items\Fire Arrow.png" />
+    <Resource Include="Resources\Icons\Items\Fish.png" />
+    <Resource Include="Resources\Icons\Items\Great Fairy%27s Sword.png" />
+    <Resource Include="Resources\Icons\Items\Green Potion.png" />
+    <Resource Include="Resources\Icons\Items\Half Milk.png" />
+    <Resource Include="Resources\Icons\Items\Hero%27s Bow.png" />
+    <Resource Include="Resources\Icons\Items\Hookshot %28Unused%29.png" />
+    <Resource Include="Resources\Icons\Items\Hookshot.png" />
+    <Resource Include="Resources\Icons\Items\Hot Spring Water.png" />
+    <Resource Include="Resources\Icons\Items\Hylian Loach.png" />
+    <Resource Include="Resources\Icons\Items\Ice Arrow.png" />
+    <Resource Include="Resources\Icons\Items\Land Title Deed.png" />
+    <Resource Include="Resources\Icons\Items\Lens of Truth.png" />
+    <Resource Include="Resources\Icons\Items\Letter to Kafei.png" />
+    <Resource Include="Resources\Icons\Items\Light Arrow.png" />
+    <Resource Include="Resources\Icons\Items\Magic Beans.png" />
+    <Resource Include="Resources\Icons\Items\Magical Mushroom.png" />
+    <Resource Include="Resources\Icons\Items\Milk.png" />
+    <Resource Include="Resources\Icons\Items\Moon%27s Tear.png" />
+    <Resource Include="Resources\Icons\Items\Moonstone %28Unused%29.png" />
+    <Resource Include="Resources\Icons\Items\Mountain Title Deed.png" />
+    <Resource Include="Resources\Icons\Items\Ocarina of Time.png" />
+    <Resource Include="Resources\Icons\Items\Ocean Title Deed.png" />
+    <Resource Include="Resources\Icons\Items\Pendant of Memories.png" />
+    <Resource Include="Resources\Icons\Items\Pictograph Box.png" />
+    <Resource Include="Resources\Icons\Items\Poe.png" />
+    <Resource Include="Resources\Icons\Items\Powder Keg.png" />
+    <Resource Include="Resources\Icons\Items\Red Potion.png" />
+    <Resource Include="Resources\Icons\Items\Room Key.png" />
+    <Resource Include="Resources\Icons\Items\Sea Horse.png" />
+    <Resource Include="Resources\Icons\Items\Special Delivery to Mama.png" />
+    <Resource Include="Resources\Icons\Items\Spring Water.png" />
+    <Resource Include="Resources\Icons\Items\Swamp Title Deed.png" />
+    <Resource Include="Resources\Icons\Items\Zora Egg.png" />
+    <Resource Include="Resources\Icons\Masks\All-Night Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Blast Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Bremen Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Bunny Hood.png" />
+    <Resource Include="Resources\Icons\Masks\Captain%27s Hat.png" />
+    <Resource Include="Resources\Icons\Masks\Circus Leader%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Couple%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Deku Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Don Gero%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Fierce Deity%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Garo%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Giant%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Gibdo Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Goron Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Great Fairy%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Kafei%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Kamaro%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Keaton Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Mask of Scents.png" />
+    <Resource Include="Resources\Icons\Masks\Mask of Truth.png" />
+    <Resource Include="Resources\Icons\Masks\Postman%27s Hat.png" />
+    <Resource Include="Resources\Icons\Masks\Romani%27s Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Stone Mask.png" />
+    <Resource Include="Resources\Icons\Masks\Zora Mask.png" />
+    <Resource Include="Resources\Icons\Quest\Adult%27s Wallet.png" />
+    <Resource Include="Resources\Icons\Quest\Bomb Bag 20.png" />
+    <Resource Include="Resources\Icons\Quest\Bomb Bag 30.png" />
+    <Resource Include="Resources\Icons\Quest\Bomb Bag 40.png" />
+    <Resource Include="Resources\Icons\Quest\Bombers%27 Notebook.png" />
+    <Resource Include="Resources\Icons\Quest\Boss Key.png" />
+    <Resource Include="Resources\Icons\Quest\Boss Room Key %28Unused%29.png" />
+    <Resource Include="Resources\Icons\Quest\Dungeon Map.png" />
+    <Resource Include="Resources\Icons\Quest\Elegy of Emptiness.png" />
+    <Resource Include="Resources\Icons\Quest\EmptyCDown.png" />
+    <Resource Include="Resources\Icons\Quest\EmptyCLeft.png" />
+    <Resource Include="Resources\Icons\Quest\EmptyCRight.png" />
+    <Resource Include="Resources\Icons\Quest\Epona%27s Song %28Edit%29.png" />
+    <Resource Include="Resources\Icons\Quest\Fierce Deity%27s Sword.png" />
+    <Resource Include="Resources\Icons\Quest\Fishing Pole %28Unused%29.png" />
+    <Resource Include="Resources\Icons\Quest\Gilded Sword.png" />
+    <Resource Include="Resources\Icons\Quest\Goht%27s Remains.png" />
+    <Resource Include="Resources\Icons\Quest\Goron Lullaby.png" />
+    <Resource Include="Resources\Icons\Quest\Gray Note.png" />
+    <Resource Include="Resources\Icons\Quest\Kokiri Sword.png" />
+    <Resource Include="Resources\Icons\Quest\Mirror Shield.png" />
+    <Resource Include="Resources\Icons\Quest\Odolwa%27s Remains.png" />
+    <Resource Include="Resources\Icons\Quest\Quiver 30.png" />
+    <Resource Include="Resources\Icons\Quest\Quiver 40.png" />
+    <Resource Include="Resources\Icons\Quest\Quiver 50.png" />
+    <Resource Include="Resources\Icons\Quest\Razor Sword.png" />
+    <Resource Include="Resources\Icons\Quest\Rupee Icon %28Blue%29.png" />
+    <Resource Include="Resources\Icons\Quest\Rupee Icon %28Green%29.png" />
+    <Resource Include="Resources\Icons\Quest\Rupee Icon %28Red%29.png" />
+    <Resource Include="Resources\Icons\Quest\Small Key.png" />
+    <Resource Include="Resources\Icons\Quest\Sonata of Awakening.png" />
+    <Resource Include="Resources\Icons\Quest\Song of Healing %28Edit%29.png" />
+    <Resource Include="Resources\Icons\Quest\Song of Soaring %28Edit%29.png" />
+    <Resource Include="Resources\Icons\Quest\Song of Storms %28Edit%29.png" />
+    <Resource Include="Resources\Icons\Quest\Song of Time %28Edit%29.png" />
+    <Resource Include="Resources\Icons\Quest\Stray Fairy %28left%29.png" />
+    <Resource Include="Resources\Icons\Quest\Stray Fairy %28middle%29.png" />
+    <Resource Include="Resources\Icons\Quest\Stray Fairy %28right%29.png" />
+    <Resource Include="Resources\Icons\Quest\Twinmold%27s Remains.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo "$(SolutionDir)MMBizHawkTool/Tools/GrayscaleEffect.ps" "$(SolutionDir)MMBizHawkTool/Tools/GrayscaleEffect.fx"</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
