@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Param>
+  <ItemPanel>
+    <RamWatch Item="Ocarina" Adress="1EF6E0" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="HeroBow" Adress="1EF6E1" WatchSize="Byte" DisplayType="Signed" />
+  </ItemPanel>
+</Param>

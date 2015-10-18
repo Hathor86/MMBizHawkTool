@@ -7,9 +7,9 @@
              xmlns:Tools="clr-namespace:MMBizHawkTool.Tools" x:Class="MMBizHawkTool.Controls.ItemsPanel"
              mc:Ignorable="d" 
              d:DesignHeight="280" d:DesignWidth="425">
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.Background>
-            <ImageBrush Stretch="Uniform" ImageSource="/MMBizHawkTool;component/Resources/Images/Backgrounds/Items.png"/>
+            <ImageBrush x:Name="background" Stretch="Uniform" ImageSource="/MMBizHawkTool;component/Resources/Images/Backgrounds/Items.png"/>
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
@@ -93,6 +93,240 @@
             </Image.Effect>
         </Image>
         <Image x:Name="questItem1" Grid.Column="5" Grid.Row="0" RenderTransformOrigin="0.7,0.7" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="bomb" Grid.Column="0" Grid.Row="1" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Bomb.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="bombchu" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Bombchu.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="dekuStick" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Deku Stick.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="dekuNut" Grid.Column="3" Grid.Row="1" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Deku Nut.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="magicBean" Grid.Column="4" Grid.Row="1" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Magic Beans.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="questItem2" Grid.Column="5" Grid.Row="1" RenderTransformOrigin="0.7,0.7">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="powderKeg" Grid.Column="0" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Powder Keg.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="pictoBox" Grid.Column="1" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Pictograph Box.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="lensOfTruth" Grid.Column="2" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Lens of Truth.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="hooskshot" Grid.Column="3" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hookshot.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="greatFairySword" Grid.Column="4" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Great Fairy's Sword.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="questItem3" Grid.Column="5" Grid.Row="2" RenderTransformOrigin="0.7,0.7" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="bottle1" Grid.Column="0" Grid.Row="3" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="bottle2" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="bottle3" Grid.Column="2" Grid.Row="3" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="bottle4" Grid.Column="3" Grid.Row="3" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="bottle5" Grid.Column="4" Grid.Row="3" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Effect>
+                <Tools:GrayscaleEffect />
+            </Image.Effect>
+        </Image>
+        <Image x:Name="bottle6" Grid.Column="5" Grid.Row="3" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
