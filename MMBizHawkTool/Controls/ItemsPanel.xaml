@@ -9,7 +9,7 @@
              d:DesignHeight="280" d:DesignWidth="425">
     <Grid x:Name="mainGrid">
         <Grid.Background>
-            <ImageBrush x:Name="background" Stretch="Uniform" ImageSource="/MMBizHawkTool;component/Resources/Images/Backgrounds/Items.png"/>
+            <ImageBrush x:Name="background" ImageSource="/MMBizHawkTool;component/Resources/Images/Backgrounds/Items.png"/>
         </Grid.Background>
 
         <Grid.ColumnDefinitions>

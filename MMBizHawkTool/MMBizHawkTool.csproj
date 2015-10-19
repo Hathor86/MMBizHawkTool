@@ -74,6 +74,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\DataDictionnary.cs" />
     <Compile Include="Tools\GrayscaleEffect.cs" />
+    <Compile Include="Tools\Interfaces\IMMPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomMainForm.resx">
@@ -213,7 +214,10 @@
   <ItemGroup>
     <Content Include="param.xml">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Icons\Items\Gold Dust.png" />
+    <Resource Include="Resources\Icons\Items\Deku Princess.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
