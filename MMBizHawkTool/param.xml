@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Param>
   <Panel Type="Item">
-    <RamWatch Item="ocarina" Adress="1EF6E0" WatchSize="Byte" DisplayType="Signed" />
-    <RamWatch Item="heroBow" Adress="1EF6E1" WatchSize="Byte" DisplayType="Signed" />
-    <RamWatch Item="fireArrow" Adress="1EF6E2" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="ocarina" Address="1EF6E0" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="heroBow" Address="1EF6E1" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="fireArrow" Address="1EF6E2" WatchSize="Byte" DisplayType="Signed" />
+
+    <RamWatch Item="arrows" Address="1EF711" WatchSize="Byte" DisplayType="Signed" />
+  </Panel>
+  <Panel Type="Common">
+    <RamWatch Item="MagicAmount" Address="1EF6A9" WatchSize="Byte" DisplayType="Unsigned" />
   </Panel>
 </Param>

@@ -75,7 +75,7 @@ namespace BizHawk.Client.EmuHawk
 					case "Item":
 						foreach (XmlElement watchNode in panelNode.ChildNodes)
 						{
-							if (long.TryParse(watchNode.Attributes["Adress"].Value, NumberStyles.HexNumber, ci, out address)
+							if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
 								&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
 								&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 							{
@@ -91,23 +91,37 @@ namespace BizHawk.Client.EmuHawk
 						}
 						break;
 
+					case "Common":
+						foreach (XmlElement watchNode in panelNode.ChildNodes)
+						{
+							if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
+								&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+								&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+							{
+								watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
+								if(watchNode.Attributes["Item"].Value == "MagicAmount")
+								{
+									ItemsPanel.MagicAmountAddress = address;
+                                }
+								
+							}
+						}
+						break;
+
 					default:
 						break;
 				}
+			}
+
+			Parallel.ForEach<Watch>(watchList, w => w.Update());
+			foreach (IMMPanel panel in paneList)
+			{
+				panel.UpdateItems(watchList);
 			}
 		}
 
 		public void UpdateValues()
 		{
-			/*w.Update();
-			if(w.Value == 1)
-			{
-				((MMBizHawkTool.Controls.ItemsPanel)this.elementHost1.Child).heroBow.Effect = null;
-			}
-			else
-			{
-				((MMBizHawkTool.Controls.ItemsPanel)this.elementHost1.Child).heroBow.Effect = new MMBizHawkTool.Tools.GrayscaleEffect();
-			}*/
 			Parallel.ForEach<Watch>(watchList, w => w.Update());
 
 			IEnumerable<Watch> changes = from w in watchList

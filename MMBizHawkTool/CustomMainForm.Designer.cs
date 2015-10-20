@@ -28,28 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
 			this.itemsPanel1 = new MMBizHawkTool.Controls.ItemsPanel();
+			this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+			this.questStatusPanel1 = new MMBizHawkTool.Controls.QuestStatusPanel();
+			this.elementHost3 = new System.Windows.Forms.Integration.ElementHost();
+			this.masksPanel1 = new MMBizHawkTool.Controls.MasksPanel();
+			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 2;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Controls.Add(this.elementHost1, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.elementHost2, 0, 1);
+			this.tableLayoutPanel1.Controls.Add(this.elementHost3, 1, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 2;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(521, 413);
+			this.tableLayoutPanel1.TabIndex = 1;
 			// 
 			// elementHost1
 			// 
 			this.elementHost1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.elementHost1.Location = new System.Drawing.Point(0, 0);
+			this.elementHost1.Location = new System.Drawing.Point(3, 3);
 			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(284, 261);
+			this.elementHost1.Size = new System.Drawing.Size(254, 200);
 			this.elementHost1.TabIndex = 0;
 			this.elementHost1.Text = "elementHost1";
 			this.elementHost1.Child = this.itemsPanel1;
+			// 
+			// elementHost2
+			// 
+			this.elementHost2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost2.Location = new System.Drawing.Point(3, 209);
+			this.elementHost2.Name = "elementHost2";
+			this.elementHost2.Size = new System.Drawing.Size(254, 201);
+			this.elementHost2.TabIndex = 1;
+			this.elementHost2.Text = "elementHost2";
+			this.elementHost2.Child = this.questStatusPanel1;
+			// 
+			// elementHost3
+			// 
+			this.elementHost3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost3.Location = new System.Drawing.Point(263, 3);
+			this.elementHost3.Name = "elementHost3";
+			this.elementHost3.Size = new System.Drawing.Size(255, 200);
+			this.elementHost3.TabIndex = 2;
+			this.elementHost3.Text = "elementHost3";
+			this.elementHost3.Child = this.masksPanel1;
 			// 
 			// CustomMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 261);
-			this.Controls.Add(this.elementHost1);
+			this.ClientSize = new System.Drawing.Size(521, 413);
+			this.Controls.Add(this.tableLayoutPanel1);
 			this.Name = "CustomMainForm";
 			this.Text = "CustomMainForm";
+			this.tableLayoutPanel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -58,5 +102,10 @@
 
 		private System.Windows.Forms.Integration.ElementHost elementHost1;
 		private MMBizHawkTool.Controls.ItemsPanel itemsPanel1;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.Integration.ElementHost elementHost2;
+		private MMBizHawkTool.Controls.QuestStatusPanel questStatusPanel1;
+		private System.Windows.Forms.Integration.ElementHost elementHost3;
+		private MMBizHawkTool.Controls.MasksPanel masksPanel1;
 	}
 }

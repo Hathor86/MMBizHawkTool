@@ -62,6 +62,9 @@
     <Compile Include="Controls\ItemsPanel.xaml.cs">
       <DependentUpon>ItemsPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MasksPanel.xaml.cs">
+      <DependentUpon>MasksPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\QuestStatusPanel.xaml.cs">
       <DependentUpon>QuestStatusPanel.xaml</DependentUpon>
     </Compile>
@@ -90,12 +93,32 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\MasksPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\QuestStatusPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Fonts\DejaVuSansMono-Bold.ttf" />
+    <None Include="Resources\Licenses\DejaVu-Fonts\AUTHORS">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Licenses\DejaVu-Fonts\BUGS">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Licenses\DejaVu-Fonts\LICENSE">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Licenses\DejaVu-Fonts\NEWS">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Licenses\DejaVu-Fonts\README">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Tools\GrayscaleEffect.fx" />
     <Resource Include="Tools\GrayscaleEffect.ps" />
   </ItemGroup>
@@ -216,9 +239,19 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Licenses\DejaVu-Fonts\langcover.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Licenses\DejaVu-Fonts\status.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Licenses\DejaVu-Fonts\unicover.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\Icons\Items\Gold Dust.png" />
     <Resource Include="Resources\Icons\Items\Deku Princess.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo "$(SolutionDir)MMBizHawkTool/Tools/GrayscaleEffect.ps" "$(SolutionDir)MMBizHawkTool/Tools/GrayscaleEffect.fx"</PreBuildEvent>

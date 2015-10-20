@@ -21,7 +21,7 @@ namespace MMBizHawkTool.Controls
 	/// <summary>
 	/// Interaction logic for ItemsPanel.xaml
 	/// </summary>
-	public partial class ItemsPanel : UserControl, IMMPanel
+	public partial class MasksPanel : UserControl, IMMPanel
 	{
 		#region Fields
 
@@ -34,7 +34,7 @@ namespace MMBizHawkTool.Controls
 
 		#region cTor(s)
 
-		public ItemsPanel()
+		public MasksPanel()
 		{
 			InitializeComponent();
 		}
@@ -94,7 +94,7 @@ namespace MMBizHawkTool.Controls
 				_AmmoTextBoxes[z.Address ?? -1].Text = z.ValueString;
             }
 
-			if(itemsAdresses.Any<Watch>(z => z.Address == MagicAmountAddress))
+			/*if(itemsAdresses.Any<Watch>(z => z.Address == MagicAmountAddress))
 			{
 				int magic = itemsAdresses.Where<Watch>(z => z.Address == MagicAmountAddress).First<Watch>().Value ?? 1;
 				if(magic == 0)
@@ -104,7 +104,7 @@ namespace MMBizHawkTool.Controls
 				fireArrowsCount.Text = Math.Floor(magic / 4f).ToString();
 				iceArrowsCount.Text = Math.Floor(magic / 4f).ToString();
 				lightArrowsCount.Text = Math.Floor(magic / 8f).ToString();
-			}
+			}*/
         }
 
 		#endregion
