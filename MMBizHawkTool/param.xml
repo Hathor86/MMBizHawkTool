@@ -4,8 +4,61 @@
     <RamWatch Item="ocarina" Address="1EF6E0" WatchSize="Byte" DisplayType="Signed" />
     <RamWatch Item="heroBow" Address="1EF6E1" WatchSize="Byte" DisplayType="Signed" />
     <RamWatch Item="fireArrow" Address="1EF6E2" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="iceArrow" Address="1EF6E3" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="lightArrow" Address="1EF6E4" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="questItem1" Address="1EF6E5" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bomb" Address="1EF6E6" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bombchu" Address="1EF6E7" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="dekuStick" Address="1EF6E8" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="dekuNut" Address="1EF6E9" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="magicBean" Address="1EF6EA" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="questItem2" Address="1EF6EB" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="powderKeg" Address="1EF6EC" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="pictoBox" Address="1EF6ED" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="lensOfTruth" Address="1EF6EE" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="hookshot" Address="1EF6EF" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="greatFairySword" Address="1EF6F0" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="questItem3" Address="1EF6F1" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bottle1" Address="1EF6F2" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bottle2" Address="1EF6F3" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bottle3" Address="1EF6F4" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bottle4" Address="1EF6F5" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bottle5" Address="1EF6F6" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bottle6" Address="1EF6F7" WatchSize="Byte" DisplayType="Signed" />
 
     <RamWatch Item="arrows" Address="1EF711" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bombCount" Address="1EF716" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bombchuCount" Address="1EF717" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="dekuStickuCount" Address="1EF718" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="dekuNutCount" Address="1EF719" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="magicBeanCount" Address="1EF71A" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="powderKegCount" Address="1EF71C" WatchSize="Byte" DisplayType="Signed" />
+  </Panel>
+  <Panel Type="Mask">
+    <RamWatch Item="postmanHat" Address="1EF6F8" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="allnightMask" Address="1EF6F9" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="blastMask" Address="1EF6FA" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="stoneMask" Address="1EF6FB" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="greatFairyMask" Address="1EF6FC" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="dekuMask" Address="1EF6FD" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="keatonMask" Address="1EF6FE" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bremenMask" Address="1EF6FF" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="bunnyHood" Address="1EF700" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="donGeroMask" Address="1EF701" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="maskOfScents" Address="1EF702" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="goronMask" Address="1EF703" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="romaniMask" Address="1EF704" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="circuLeaderMask" Address="1EF705" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="kafeiMask" Address="1EF706" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="coupleMask" Address="1EF707" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="maskOfTruth" Address="1EF708" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="zoraMask" Address="1EF709" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="kamaroMask" Address="1EF70A" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="gibdoMask" Address="1EF70B" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="garoMask" Address="1EF70C" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="captainHat" Address="1EF70D" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="giantMask" Address="1EF70E" WatchSize="Byte" DisplayType="Signed" />
+    <RamWatch Item="fierceDeityMask" Address="1EF70F" WatchSize="Byte" DisplayType="Signed" />
   </Panel>
   <Panel Type="Common">
     <RamWatch Item="MagicAmount" Address="1EF6A9" WatchSize="Byte" DisplayType="Unsigned" />

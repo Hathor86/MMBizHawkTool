@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MMBizHawkTool.Tools.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,17 +13,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BizHawk.Client.Common;
 
 namespace MMBizHawkTool.Controls
 {
 	/// <summary>
 	/// Interaction logic for QuestStatusPanel.xaml
 	/// </summary>
-	public partial class QuestStatusPanel : UserControl
+	public partial class QuestStatusPanel : UserControl, IMMPanel
 	{
 		public QuestStatusPanel()
 		{
 			InitializeComponent();
         }
+
+		public void AddToDictionnary(long address, string imageName)
+		{
+			
+		}
+
+		public void UpdateItems(IEnumerable<Watch> itemsAdresses)
+		{
+			
+		}
 	}
 }

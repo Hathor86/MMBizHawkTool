@@ -72,6 +72,33 @@ namespace MMBizHawkTool.Tools
 			ResourceIndex.Add(49, "/MMBizHawkTool;component/Resources/Icons/Items/Moonstone (Unused).png");
 			#endregion Items
 
+			#region Masks
+			ResourceIndex.Add(50, "/MMBizHawkTool;component/Resources/Icons/Masks/Deku Mask.png");
+			ResourceIndex.Add(51, "/MMBizHawkTool;component/Resources/Icons/Masks/Goron Mask.png");
+			ResourceIndex.Add(52, "/MMBizHawkTool;component/Resources/Icons/Masks/Zora Mask.png");
+			ResourceIndex.Add(53, "/MMBizHawkTool;component/Resources/Icons/Masks/Fierce Deity's Mask.png");
+			ResourceIndex.Add(54, "/MMBizHawkTool;component/Resources/Icons/Masks/Mask of Truth.png");
+			ResourceIndex.Add(55, "/MMBizHawkTool;component/Resources/Icons/Masks/Kafei's Mask.png");
+			ResourceIndex.Add(56, "/MMBizHawkTool;component/Resources/Icons/Masks/All-Night Mask.png");
+			ResourceIndex.Add(57, "/MMBizHawkTool;component/Resources/Icons/Masks/Bunny Hood.png");
+			ResourceIndex.Add(58, "/MMBizHawkTool;component/Resources/Icons/Masks/Keaton Mask.png");
+			ResourceIndex.Add(59, "/MMBizHawkTool;component/Resources/Icons/Masks/Garo's Mask.png");
+			ResourceIndex.Add(60, "/MMBizHawkTool;component/Resources/Icons/Masks/Romani's Mask.png");
+			ResourceIndex.Add(61, "/MMBizHawkTool;component/Resources/Icons/Masks/Circus Leader's Mask.png");
+			ResourceIndex.Add(62, "/MMBizHawkTool;component/Resources/Icons/Masks/Postman's Hat.png");
+			ResourceIndex.Add(63, "/MMBizHawkTool;component/Resources/Icons/Masks/Couple's Mask.png");
+			ResourceIndex.Add(64, "/MMBizHawkTool;component/Resources/Icons/Masks/Great Fairy's Mask.png");
+			ResourceIndex.Add(65, "/MMBizHawkTool;component/Resources/Icons/Masks/Gibdo Mask.png");
+			ResourceIndex.Add(66, "/MMBizHawkTool;component/Resources/Icons/Masks/Don Gero's Mask.png");
+			ResourceIndex.Add(67, "/MMBizHawkTool;component/Resources/Icons/Masks/Kamaro's Mask.png");
+			ResourceIndex.Add(68, "/MMBizHawkTool;component/Resources/Icons/Masks/Captain's Hat.png");
+			ResourceIndex.Add(69, "/MMBizHawkTool;component/Resources/Icons/Masks/Stone Mask.png");
+			ResourceIndex.Add(70, "/MMBizHawkTool;component/Resources/Icons/Masks/Bremen Mask.png");
+			ResourceIndex.Add(71, "/MMBizHawkTool;component/Resources/Icons/Masks/Blast Mask.png");
+			ResourceIndex.Add(72, "/MMBizHawkTool;component/Resources/Icons/Masks/Mask of Scents.png");
+			ResourceIndex.Add(73, "/MMBizHawkTool;component/Resources/Icons/Masks/Giant's Mask.png");
+			#endregion Masks
+
 			#endregion ResourceIndex
 		}
 		#endregion

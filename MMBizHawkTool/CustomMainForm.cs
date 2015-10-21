@@ -57,6 +57,8 @@ namespace BizHawk.Client.EmuHawk
 		public void Restart()
 		{
 			paneList.Add(elementHost1.Child as IMMPanel);
+			paneList.Add(elementHost2.Child as IMMPanel);
+			paneList.Add(elementHost3.Child as IMMPanel);
 
 			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			path = Path.Combine(path, "param.xml");
@@ -72,7 +74,7 @@ namespace BizHawk.Client.EmuHawk
 			{
 				switch (panelNode.Attributes["Type"].Value)
 				{
-					case "Item":
+					case "Item":					
 						foreach (XmlElement watchNode in panelNode.ChildNodes)
 						{
 							if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
@@ -83,6 +85,25 @@ namespace BizHawk.Client.EmuHawk
 								foreach (IMMPanel panel in paneList)
 								{
 									if (panel is ItemsPanel)
+									{
+										panel.AddToDictionnary(address, watchNode.Attributes["Item"].Value);
+									}
+								}
+							}
+						}
+						break;
+
+					case "Mask":
+						foreach (XmlElement watchNode in panelNode.ChildNodes)
+						{
+							if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
+								&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+								&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+							{
+								watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
+								foreach (IMMPanel panel in paneList)
+								{
+									if (panel is MasksPanel)
 									{
 										panel.AddToDictionnary(address, watchNode.Attributes["Item"].Value);
 									}

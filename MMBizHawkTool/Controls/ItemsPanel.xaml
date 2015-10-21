@@ -343,7 +343,7 @@
                 <Tools:GrayscaleEffect />
             </Image.Effect>
         </Image>
-        <Image x:Name="hooskshot" Grid.Column="3" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hookshot.png" >
+        <Image x:Name="hookshot" Grid.Column="3" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hookshot.png" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
