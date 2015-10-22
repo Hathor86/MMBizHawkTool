@@ -66,53 +66,27 @@ namespace BizHawk.Client.EmuHawk
 			XmlDocument param = new XmlDocument();
 			param.Load(path);
 
-			long address;
-			Watch.WatchSize wSize;
-			Watch.DisplayType dType;
-			CultureInfo ci = new CultureInfo("en-US");
 			foreach (XmlElement panelNode in param.DocumentElement.ChildNodes)
 			{
 				switch (panelNode.Attributes["Type"].Value)
 				{
-					case "Item":					
-						foreach (XmlElement watchNode in panelNode.ChildNodes)
-						{
-							if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
-								&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
-								&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
-							{
-								watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
-								foreach (IMMPanel panel in paneList)
-								{
-									if (panel is ItemsPanel)
-									{
-										panel.AddToDictionnary(address, watchNode.Attributes["Item"].Value);
-									}
-								}
-							}
-						}
+					case "Item":
+						PopulatePanel<ItemsPanel>(panelNode.ChildNodes);
+                        break;
+						
+					case "Mask":
+						PopulatePanel<MasksPanel>(panelNode.ChildNodes);
 						break;
 
-					case "Mask":
-						foreach (XmlElement watchNode in panelNode.ChildNodes)
-						{
-							if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
-								&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
-								&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
-							{
-								watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
-								foreach (IMMPanel panel in paneList)
-								{
-									if (panel is MasksPanel)
-									{
-										panel.AddToDictionnary(address, watchNode.Attributes["Item"].Value);
-									}
-								}
-							}
-						}
+					case "Quest":
+						PopulatePanel<QuestStatusPanel>(panelNode.ChildNodes);
 						break;
 
 					case "Common":
+						long address;
+						Watch.WatchSize wSize;
+						Watch.DisplayType dType;
+						CultureInfo ci = new CultureInfo("en-US");
 						foreach (XmlElement watchNode in panelNode.ChildNodes)
 						{
 							if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
@@ -151,6 +125,36 @@ namespace BizHawk.Client.EmuHawk
 			foreach (IMMPanel panel in paneList)
 			{
 				panel.UpdateItems(changes);
+			}
+		}
+
+		/// <summary>
+		/// Initialize a type of panel with content passed in parameters
+		/// </summary>
+		/// <typeparam name="T">An IMMPanel</typeparam>
+		/// <param name="panelNode">Panel XmlNodes from param.xml</param>
+		private void PopulatePanel<T>(XmlNodeList panelNode) where T:IMMPanel
+		{
+			long address;
+			Watch.WatchSize wSize;
+			Watch.DisplayType dType;
+			CultureInfo ci = new CultureInfo("en-US");
+
+			foreach (XmlElement watchNode in panelNode)
+			{
+				if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
+					&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+					&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+				{
+					watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
+					foreach (IMMPanel panel in paneList)
+					{
+						if (panel is T)
+						{
+							panel.AddToDictionnary(address, watchNode.Attributes["Item"].Value);
+						}
+					}
+				}
 			}
 		}
 

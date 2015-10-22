@@ -60,6 +60,9 @@
     <RamWatch Item="giantMask" Address="1EF70E" WatchSize="Byte" DisplayType="Signed" />
     <RamWatch Item="fierceDeityMask" Address="1EF70F" WatchSize="Byte" DisplayType="Signed" />
   </Panel>
+  <Panel Type="Quest">
+    <RamWatch Item="questStatus" Address="1EF72C" WatchSize="DWord" DisplayType="Unsigned" />
+  </Panel>
   <Panel Type="Common">
     <RamWatch Item="MagicAmount" Address="1EF6A9" WatchSize="Byte" DisplayType="Unsigned" />
   </Panel>
