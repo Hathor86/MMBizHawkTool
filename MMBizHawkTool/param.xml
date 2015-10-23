@@ -65,5 +65,6 @@
   </Panel>
   <Panel Type="Common">
     <RamWatch Item="MagicAmount" Address="1EF6A9" WatchSize="Byte" DisplayType="Unsigned" />
+    <RamWatch Item="OverallVelocity" Address="3FFE20" WatchSize="DWord" DisplayType="Float" />
   </Panel>
 </Param>

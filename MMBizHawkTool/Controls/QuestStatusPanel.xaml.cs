@@ -48,20 +48,17 @@ namespace MMBizHawkTool.Controls
 			handledStatus.Add(QuestStatus.HP1, hp1);
 			handledStatus.Add(QuestStatus.HP2, hp2);
 			handledStatus.Add(QuestStatus.HP1 | QuestStatus.HP2, hp3);
-			//handledStatus.Add(QuestStatus.LullabyIntro, null2);
+			handledStatus.Add(QuestStatus.LullabyIntro, lullabyIntro);
 			handledStatus.Add(QuestStatus.NewWaveBossaNova, newWaveBossaNova);
 			handledStatus.Add(QuestStatus.OathToOrder, oathToOrder);
 			handledStatus.Add(QuestStatus.OdolwaRemains, odolwaRemains);
-			//handledStatus.Add(QuestStatus.SariaSong, odolwaRemains);
+			handledStatus.Add(QuestStatus.SariaSong, sariaSong);
 			handledStatus.Add(QuestStatus.SonataOfAwakening, sonataOfAwakening);
 			handledStatus.Add(QuestStatus.SongOfHealing, songOfHealing);
 			handledStatus.Add(QuestStatus.SongOfSoaring, songOfSoaring);
 			handledStatus.Add(QuestStatus.SongOfStorm, songOfStorm);
-			//handledStatus.Add(QuestStatus.SongOfSun, songOfStorm);
+			handledStatus.Add(QuestStatus.SongOfSun, songOfSun);
 			handledStatus.Add(QuestStatus.TwinmoldRemains, twinmoldRemains);
-			//handledStatus.Add(QuestStatus., twinmoldRemains);
-
-
 		}
 
 		#endregion
@@ -76,7 +73,8 @@ namespace MMBizHawkTool.Controls
 		public void UpdateItems(IEnumerable<Watch> itemsAdresses)
 		{
 			IEnumerable<Watch> statusWatch = itemsAdresses.Where<Watch>(w => (w.Address ?? 0) == QuestStatusPanel.address);
-			if (statusWatch.Any<Watch>())
+			otherStatus.Text = string.Empty;
+            if (statusWatch.Any<Watch>())
             {
 				currentStatus = (QuestStatus)Convert.ToUInt32(statusWatch.First<Watch>().Value ?? 0);
 			}
@@ -90,7 +88,8 @@ namespace MMBizHawkTool.Controls
 				{
 					handledStatus[status].Effect = QuestStatusPanel.grayscaleEffect;
 				}
-			}
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, status.ToString());
+            }
 		}
 
 		#endregion

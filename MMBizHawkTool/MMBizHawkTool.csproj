@@ -89,6 +89,9 @@
     <Compile Include="Controls\QuestStatusPanel.xaml.cs">
       <DependentUpon>QuestStatusPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SpeedPanel.xaml.cs">
+      <DependentUpon>SpeedPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CustomMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +131,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\SpeedPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Fonts\DejaVuSansMono-Bold.ttf" />
@@ -147,6 +154,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Tools\GrayscaleEffect.fx" />
+    <Resource Include="Resources\Images\Misc\Arrow.png" />
     <Resource Include="Tools\GrayscaleEffect.ps" />
   </ItemGroup>
   <ItemGroup>

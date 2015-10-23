@@ -59,6 +59,7 @@ namespace BizHawk.Client.EmuHawk
 			paneList.Add(elementHost1.Child as IMMPanel);
 			paneList.Add(elementHost2.Child as IMMPanel);
 			paneList.Add(elementHost3.Child as IMMPanel);
+			paneList.Add(elementHost4.Child as IMMPanel);
 
 			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			path = Path.Combine(path, "param.xml");
@@ -72,8 +73,8 @@ namespace BizHawk.Client.EmuHawk
 				{
 					case "Item":
 						PopulatePanel<ItemsPanel>(panelNode.ChildNodes);
-                        break;
-						
+						break;
+
 					case "Mask":
 						PopulatePanel<MasksPanel>(panelNode.ChildNodes);
 						break;
@@ -94,11 +95,17 @@ namespace BizHawk.Client.EmuHawk
 								&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 							{
 								watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
-								if(watchNode.Attributes["Item"].Value == "MagicAmount")
+								switch (watchNode.Attributes["Item"].Value)
 								{
-									ItemsPanel.MagicAmountAddress = address;
-                                }
-								
+									case "MagicAmount":
+										ItemsPanel.MagicAmountAddress = address;
+										break;
+
+									case "OverallVelocity":
+										((SpeedPanel)elementHost4.Child).AddToDictionnary(address, string.Empty);
+                                        break;
+								}
+
 							}
 						}
 						break;
@@ -133,7 +140,7 @@ namespace BizHawk.Client.EmuHawk
 		/// </summary>
 		/// <typeparam name="T">An IMMPanel</typeparam>
 		/// <param name="panelNode">Panel XmlNodes from param.xml</param>
-		private void PopulatePanel<T>(XmlNodeList panelNode) where T:IMMPanel
+		private void PopulatePanel<T>(XmlNodeList panelNode) where T : IMMPanel
 		{
 			long address;
 			Watch.WatchSize wSize;
