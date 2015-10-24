@@ -160,6 +160,9 @@
     <None Include="Resources\Licenses\DejaVu-Fonts\README">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Resources\Licenses\Licence.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Tools\Effects\GrayscaleEffect.fx" />
     <Resource Include="Resources\Images\Misc\Arrow.png" />
     <Resource Include="Tools\Effects\GrayscaleEffect.ps" />

@@ -1,4 +1,22 @@
-﻿using BizHawk.Client.Common;
+﻿/*
+	MMBizHawkTool, a BizHawk plugin specific to The Legend of Zelda: Majora's Mask
+    Copyright (C) 2015  François Guiot
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+*/
+using BizHawk.Client.Common;
 using BizHawk.Emulation.Common;
 using MMBizHawkTool.Controls;
 using MMBizHawkTool.Controls.Panels;
@@ -38,8 +56,6 @@ namespace BizHawk.Client.EmuHawk
 		public CustomMainForm()
 		{
 			InitializeComponent();
-
-
 		}
 		#endregion
 
@@ -141,6 +157,14 @@ namespace BizHawk.Client.EmuHawk
 			}
 		}
 
+		public string GetDisclaimer()
+		{
+			return string.Format(@"MMBizhawkTool version {0}, Copyright (C) 2015 François Guiot
+    MMBizhawkTool comes with ABSOLUTELY NO WARRANTY; for details double clic on title bar.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; double clic on title bar for details.", Assembly.GetExecutingAssembly().GetName().Version);
+		}
+
 		/// <summary>
 		/// Initialize a type of panel with content passed in parameters
 		/// </summary>
@@ -171,6 +195,11 @@ namespace BizHawk.Client.EmuHawk
 			}
 		}
 
+		private void CustomMainForm_MouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			System.Windows.MessageBox.Show(new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("MMBizhawkTool.Resources.Liences.Lence.txt")).ReadToEnd());
+		}
+
 		#endregion
 
 		#region Properties
@@ -183,6 +212,6 @@ namespace BizHawk.Client.EmuHawk
 			}
 		}
 
-		#endregion
+		#endregion		
 	}
 }
