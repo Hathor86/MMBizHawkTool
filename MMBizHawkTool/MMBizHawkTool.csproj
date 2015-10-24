@@ -77,19 +77,22 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ItemsPanel.xaml.cs">
+    <Compile Include="Controls\Misc\MapOwl.xaml.cs">
+      <DependentUpon>MapOwl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Panels\ItemsPanel.xaml.cs">
       <DependentUpon>ItemsPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MasksPanel.xaml.cs">
+    <Compile Include="Controls\Panels\MasksPanel.xaml.cs">
       <DependentUpon>MasksPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MapPanel.xaml.cs">
+    <Compile Include="Controls\Panels\MapPanel.xaml.cs">
       <DependentUpon>MapPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\QuestStatusPanel.xaml.cs">
+    <Compile Include="Controls\Panels\QuestStatusPanel.xaml.cs">
       <DependentUpon>QuestStatusPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SpeedPanel.xaml.cs">
+    <Compile Include="Controls\Panels\SpeedPanel.xaml.cs">
       <DependentUpon>SpeedPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomMainForm.cs">
@@ -102,7 +105,7 @@
     <Compile Include="Tools\DataDictionnary.cs" />
     <Compile Include="Tools\Enums\Owl.cs" />
     <Compile Include="Tools\Enums\QuestStatus.cs" />
-    <Compile Include="Tools\GrayscaleEffect.cs" />
+    <Compile Include="Tools\Effects\GrayscaleEffect.cs" />
     <Compile Include="Tools\Interfaces\IMMPanel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -115,23 +118,27 @@
     <Resource Include="Resources\Images\Backgrounds\Quest.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\ItemsPanel.xaml">
+    <Page Include="Controls\Misc\MapOwl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MasksPanel.xaml">
+    <Page Include="Controls\Panels\ItemsPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\MapPanel.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\QuestStatusPanel.xaml">
+    <Page Include="Controls\Panels\MasksPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\SpeedPanel.xaml">
+    <Page Include="Controls\Panels\MapPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Panels\QuestStatusPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Panels\SpeedPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,9 +160,9 @@
     <None Include="Resources\Licenses\DejaVu-Fonts\README">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Tools\GrayscaleEffect.fx" />
+    <None Include="Tools\Effects\GrayscaleEffect.fx" />
     <Resource Include="Resources\Images\Misc\Arrow.png" />
-    <Resource Include="Tools\GrayscaleEffect.ps" />
+    <Resource Include="Tools\Effects\GrayscaleEffect.ps" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\Items\Big Poe.png" />
@@ -280,6 +287,7 @@
     <Resource Include="Resources\Icons\Quest\New Wave Bossa Nova.png" />
     <Resource Include="Resources\Icons\Quest\Lullaby Intro %28Edit%29.png" />
     <Resource Include="Resources\Icons\Quest\Oath to Order.png" />
+    <Resource Include="Resources\Icons\Maps\Owl.png" />
     <Content Include="Resources\Licenses\DejaVu-Fonts\langcover.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -295,7 +303,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo "$(SolutionDir)MMBizHawkTool/Tools/GrayscaleEffect.ps" "$(SolutionDir)MMBizHawkTool/Tools/GrayscaleEffect.fx"</PreBuildEvent>
+    <PreBuildEvent>"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.ps" "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.fx"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

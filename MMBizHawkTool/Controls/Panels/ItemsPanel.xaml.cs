@@ -16,16 +16,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MMBizHawkTool.Controls
+namespace MMBizHawkTool.Controls.Panels
 {
 	/// <summary>
 	/// Interaction logic for ItemsPanel.xaml
 	/// </summary>
-	public partial class MasksPanel : UserControl, IMMPanel
+	public partial class ItemsPanel : UserControl, IMMPanel
 	{
 		#region Fields
 
 		private Dictionary<long, Image> _HandledItems = new Dictionary<long, Image>();
+		private Dictionary<long, TextBox> _AmmoTextBoxes = new Dictionary<long, TextBox>();
 
 		private bool editMode = false;
 
@@ -33,7 +34,7 @@ namespace MMBizHawkTool.Controls
 
 		#region cTor(s)
 
-		public MasksPanel()
+		public ItemsPanel()
 		{
 			InitializeComponent();
 		}
@@ -50,10 +51,16 @@ namespace MMBizHawkTool.Controls
 		/// <param name="imageName">Name of the Image Control</param>
 		public void AddToDictionnary(long address, string imageName)
 		{
-			Image c = (Image)FindName(imageName);
-			_HandledItems.Add(address, c);
-
-
+			object c = FindName(imageName);
+			if(c.GetType() == typeof(Image))
+			{
+				_HandledItems.Add(address, (Image)c);
+			}
+			else if (c.GetType() == typeof(TextBox))
+			{
+				_AmmoTextBoxes.Add(address, (TextBox)c);
+			}
+            
 		}
 
 		/// <summary>
@@ -81,8 +88,24 @@ namespace MMBizHawkTool.Controls
 				{
 					_HandledItems[z.Address ?? -1].Source = null;
 				}
-			}			
-		}
+			}
+			foreach (Watch z in itemsAdresses.Where<Watch>(w => _AmmoTextBoxes.ContainsKey(w.Address ?? -1)))
+			{
+				_AmmoTextBoxes[z.Address ?? -1].Text = z.ValueString;
+            }
+
+			if(itemsAdresses.Any<Watch>(z => z.Address == MagicAmountAddress))
+			{
+				int magic = itemsAdresses.Where<Watch>(z => z.Address == MagicAmountAddress).First<Watch>().Value ?? 1;
+				if(magic == 0)
+				{
+					magic = 1;
+				}
+				fireArrowsCount.Text = Math.Floor(magic / 4f).ToString();
+				iceArrowsCount.Text = Math.Floor(magic / 4f).ToString();
+				lightArrowsCount.Text = Math.Floor(magic / 8f).ToString();
+			}
+        }
 
 		#endregion
 

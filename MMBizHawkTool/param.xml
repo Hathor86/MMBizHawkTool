@@ -63,6 +63,9 @@
   <Panel Type="Quest">
     <RamWatch Item="questStatus" Address="1EF72C" WatchSize="DWord" DisplayType="Unsigned" />
   </Panel>
+  <Panel Type="Map">
+    <RamWatch Item="owlStatus" Address="1EF6B6" WatchSize="Word" DisplayType="Unsigned" />
+  </Panel>
   <Panel Type="Common">
     <RamWatch Item="MagicAmount" Address="1EF6A9" WatchSize="Byte" DisplayType="Unsigned" />
     <RamWatch Item="OverallVelocity" Address="3FFE20" WatchSize="DWord" DisplayType="Float" />

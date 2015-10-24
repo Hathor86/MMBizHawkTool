@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MMBizHawkTool.Controls"
-             xmlns:Tools="clr-namespace:MMBizHawkTool.Tools" x:Class="MMBizHawkTool.Controls.ItemsPanel"
+             xmlns:local="clr-namespace:MMBizHawkTool.Controls.Panels"
+             xmlns:Tools="clr-namespace:MMBizHawkTool.Tools" x:Class="MMBizHawkTool.Controls.Panels.ItemsPanel"
              mc:Ignorable="d" 
              d:DesignHeight="280" d:DesignWidth="425">
     <Grid x:Name="mainGrid">
@@ -26,7 +26,6 @@
             <RowDefinition Height="70*" />
             <RowDefinition Height="70*" />
         </Grid.RowDefinitions>
-
         <Image x:Name="ocarina" Grid.Column="0" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Ocarina of Time.png" RenderTransformOrigin="1.0,0.7" >
             <Image.RenderTransform>
                 <TransformGroup>
@@ -36,9 +35,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect/>
-            </Image.Effect>
         </Image>
         <Image x:Name="heroBow" Grid.Column="1" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hero's Bow.png" RenderTransformOrigin="0.7,0.8" >
             <Image.RenderTransform>
@@ -49,9 +45,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="1" Grid.Row="0" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -73,9 +66,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="2" Grid.Row="0" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -97,9 +87,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="3" Grid.Row="0" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -121,9 +108,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="4" Grid.Row="0" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -145,9 +129,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="bomb" Grid.Column="0" Grid.Row="1" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Bomb.png" >
             <Image.RenderTransform>
@@ -158,9 +139,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="0" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -182,9 +160,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -206,9 +181,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -230,9 +202,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="3" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -254,9 +223,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="4" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -278,9 +244,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="powderKeg" Grid.Column="0" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Powder Keg.png" >
             <Image.RenderTransform>
@@ -291,9 +254,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="0" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -315,9 +275,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Viewbox Grid.Column="1" Grid.Row="2" RenderTransformOrigin="0.5,0.5">
             <Viewbox.RenderTransform>
@@ -339,9 +296,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="hookshot" Grid.Column="3" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hookshot.png" >
             <Image.RenderTransform>
@@ -352,9 +306,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="greatFairySword" Grid.Column="4" Grid.Row="2" RenderTransformOrigin="0.7,0.7" Source="/MMBizHawkTool;component/Resources/Icons/Items/Great Fairy's Sword.png" >
             <Image.RenderTransform>
@@ -365,9 +316,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="questItem3" Grid.Column="5" Grid.Row="2" RenderTransformOrigin="0.7,0.7" >
             <Image.RenderTransform>
@@ -378,9 +326,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="bottle1" Grid.Column="0" Grid.Row="3" RenderTransformOrigin="0.7,0.3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
             <Image.RenderTransform>
@@ -391,9 +336,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="bottle2" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.7,0.3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
             <Image.RenderTransform>
@@ -404,9 +346,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="bottle3" Grid.Column="2" Grid.Row="3" RenderTransformOrigin="0.7,0.3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
             <Image.RenderTransform>
@@ -417,9 +356,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="bottle4" Grid.Column="3" Grid.Row="3" RenderTransformOrigin="0.7,0.3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
             <Image.RenderTransform>
@@ -430,9 +366,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="bottle5" Grid.Column="4" Grid.Row="3" RenderTransformOrigin="0.7,0.3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
             <Image.RenderTransform>
@@ -443,9 +376,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
         <Image x:Name="bottle6" Grid.Column="5" Grid.Row="3" RenderTransformOrigin="0.3,0.3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" >
             <Image.RenderTransform>
@@ -456,9 +386,6 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
         </Image>
     </Grid>
 </UserControl>

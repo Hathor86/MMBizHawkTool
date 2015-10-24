@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MMBizHawkTool.Controls"
-             xmlns:Tools="clr-namespace:MMBizHawkTool.Tools" x:Class="MMBizHawkTool.Controls.QuestStatusPanel"
+             xmlns:local="clr-namespace:MMBizHawkTool.Controls.Panels"
+             xmlns:Tools="clr-namespace:MMBizHawkTool.Tools" x:Class="MMBizHawkTool.Controls.Panels.QuestStatusPanel"
              mc:Ignorable="d" 
              d:DesignHeight="328" d:DesignWidth="489">
     <Grid Margin="0,0,0,0">

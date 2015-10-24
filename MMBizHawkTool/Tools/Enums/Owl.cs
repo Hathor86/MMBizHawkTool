@@ -10,15 +10,15 @@ namespace MMBizHawkTool.Tools.Enums
 	public enum Owl
 	{
 		GreatBay = 1,
-		ZoraCape,
-		Snowhead,
-		MountainVillage,
-		ClockTown,
-		MilkRoad,
-		Woodfall,
-		SouthernSwamp,
-		IkanaCanyon,
-		StoneTower,
-		HiddenOwl
+		ZoraCape = 2,
+		Snowhead = 4,
+		MountainVillage = 8,
+		ClockTown = 16,
+		MilkRoad = 32,
+		Woodfall = 64,
+		SouthernSwamp = 128,
+		IkanaCanyon = 256,
+		StoneTower = 512,
+		HiddenOwl = 32768
 	}
 }

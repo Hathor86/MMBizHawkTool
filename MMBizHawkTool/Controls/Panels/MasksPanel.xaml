@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MMBizHawkTool.Controls"
-             xmlns:Tools="clr-namespace:MMBizHawkTool.Tools" x:Class="MMBizHawkTool.Controls.MasksPanel"
+             xmlns:local="clr-namespace:MMBizHawkTool.Controls.Panels"
+             xmlns:Tools="clr-namespace:MMBizHawkTool.Tools" x:Class="MMBizHawkTool.Controls.Panels.MasksPanel"
              mc:Ignorable="d" 
              d:DesignHeight="280" d:DesignWidth="425">
     <Grid x:Name="mainGrid">
@@ -35,10 +35,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect/>
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="allnightMask" Grid.Column="1" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Masks/All-Night Mask.png" RenderTransformOrigin="0.5,0.7" >
             <Image.RenderTransform>
@@ -48,10 +45,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>           
         </Image>   
         <Image x:Name="blastMask" Grid.Column="2" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Blast Mask.png" RenderTransformOrigin="0.5,0.7" >
             <Image.RenderTransform>
@@ -61,10 +55,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="stoneMask" Grid.Column="3" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Stone Mask.png" RenderTransformOrigin="0.5,0.7" >
             <Image.RenderTransform>
@@ -74,10 +65,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>        
         <Image x:Name="greatFairyMask" Grid.Column="4" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Great Fairy's Mask.png" RenderTransformOrigin="0.5,0.7" >
             <Image.RenderTransform>
@@ -87,10 +75,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="dekuMask" Grid.Column="5" Grid.Row="0" RenderTransformOrigin="0.1,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Deku Mask.png" >
             <Image.RenderTransform>
@@ -100,10 +85,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="keatonMask" Grid.Column="0" Grid.Row="1" RenderTransformOrigin="0.7,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Keaton Mask.png" >
             <Image.RenderTransform>
@@ -113,10 +95,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="bremenMask" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Bremen Mask.png" >
             <Image.RenderTransform>
@@ -126,10 +105,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="bunnyHood" Grid.Column="2" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Bunny Hood.png" >
             <Image.RenderTransform>
@@ -139,10 +115,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="donGeroMask" Grid.Column="3" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Don Gero's Mask.png" >
             <Image.RenderTransform>
@@ -152,10 +125,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="maskOfScents" Grid.Column="4" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Mask of Scents.png" >
             <Image.RenderTransform>
@@ -165,10 +135,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="goronMask" Grid.Column="5" Grid.Row="1" RenderTransformOrigin="0.1,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Goron Mask.png">
             <Image.RenderTransform>
@@ -178,10 +145,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="romaniMask" Grid.Column="0" Grid.Row="2" RenderTransformOrigin="0.7,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Romani's Mask.png" >
             <Image.RenderTransform>
@@ -191,10 +155,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="circuLeaderMask" Grid.Column="1" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Circus Leader's Mask.png" >
             <Image.RenderTransform>
@@ -204,10 +165,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="kafeiMask" Grid.Column="2" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Kafei's Mask.png" >
             <Image.RenderTransform>
@@ -217,10 +175,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="coupleMask" Grid.Column="3" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Couple's Mask.png" >
             <Image.RenderTransform>
@@ -230,10 +185,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="maskOfTruth" Grid.Column="4" Grid.Row="2" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Mask of Truth.png" >
             <Image.RenderTransform>
@@ -243,10 +195,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="zoraMask" Grid.Column="5" Grid.Row="2" RenderTransformOrigin="0.1,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Zora Mask.png" >
             <Image.RenderTransform>
@@ -256,10 +205,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>           
         </Image>
         <Image x:Name="kamaroMask" Grid.Column="0" Grid.Row="3" RenderTransformOrigin="0.7,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Kamaro's Mask.png" >
             <Image.RenderTransform>
@@ -269,10 +215,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="gibdoMask" Grid.Column="1" Grid.Row="3" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Gibdo Mask.png" >
             <Image.RenderTransform>
@@ -282,10 +225,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="garoMask" Grid.Column="2" Grid.Row="3" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Garo's Mask.png" >
             <Image.RenderTransform>
@@ -295,10 +235,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="captainHat" Grid.Column="3" Grid.Row="3" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Captain's Hat.png" >
             <Image.RenderTransform>
@@ -308,10 +245,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="giantMask" Grid.Column="4" Grid.Row="3" RenderTransformOrigin="0.5,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Giant's Mask.png" >
             <Image.RenderTransform>
@@ -321,10 +255,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
         <Image x:Name="fierceDeityMask" Grid.Column="5" Grid.Row="3" RenderTransformOrigin="0.1,0.5" Source="/MMBizHawkTool;component/Resources/Icons/Masks/Fierce Deity's Mask.png" >
             <Image.RenderTransform>
@@ -334,10 +265,7 @@
                     <RotateTransform/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <Tools:GrayscaleEffect />
-            </Image.Effect>
+            </Image.RenderTransform>            
         </Image>
     </Grid>
 </UserControl>

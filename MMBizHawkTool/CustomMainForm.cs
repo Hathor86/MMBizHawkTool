@@ -1,6 +1,7 @@
 ﻿using BizHawk.Client.Common;
 using BizHawk.Emulation.Common;
 using MMBizHawkTool.Controls;
+using MMBizHawkTool.Controls.Panels;
 using MMBizHawkTool.Tools.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,7 @@ namespace BizHawk.Client.EmuHawk
 			paneList.Add(elementHost2.Child as IMMPanel);
 			paneList.Add(elementHost3.Child as IMMPanel);
 			paneList.Add(elementHost4.Child as IMMPanel);
+			paneList.Add(elementHost5.Child as IMMPanel);
 
 			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			path = Path.Combine(path, "param.xml");
@@ -83,6 +85,10 @@ namespace BizHawk.Client.EmuHawk
 						PopulatePanel<QuestStatusPanel>(panelNode.ChildNodes);
 						break;
 
+					case "Map":
+						PopulatePanel<MapPanel>(panelNode.ChildNodes);
+						break;
+
 					case "Common":
 						long address;
 						Watch.WatchSize wSize;
@@ -102,7 +108,7 @@ namespace BizHawk.Client.EmuHawk
 										break;
 
 									case "OverallVelocity":
-										((SpeedPanel)elementHost4.Child).AddToDictionnary(address, string.Empty);
+										((SpeedPanel)elementHost5.Child).AddToDictionnary(address, string.Empty);
                                         break;
 								}
 
