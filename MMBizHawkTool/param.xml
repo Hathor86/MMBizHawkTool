@@ -67,7 +67,10 @@
     <RamWatch Item="owlStatus" Address="1EF6B6" WatchSize="Word" DisplayType="Unsigned" />
   </Panel>
   <Panel Type="Common">
-    <RamWatch Item="MagicAmount" Address="1EF6A9" WatchSize="Byte" DisplayType="Unsigned" />
-    <RamWatch Item="OverallVelocity" Address="3FFE20" WatchSize="DWord" DisplayType="Float" />
+    <RamWatch Item="magicAmount" Address="1EF6A9" WatchSize="Byte" DisplayType="Unsigned" />
+    <RamWatch Item="xVelocity" Address="3FFE14" WatchSize="DWord" DisplayType="Float" />
+    <RamWatch Item="yVelocity" Address="3FFE18" WatchSize="DWord" DisplayType="Float" />
+    <RamWatch Item="zVelocity" Address="3FFE1C" WatchSize="DWord" DisplayType="Float" />
+    <RamWatch Item="overallVelocity" Address="3FFE20" WatchSize="DWord" DisplayType="Float" />
   </Panel>
 </Param>

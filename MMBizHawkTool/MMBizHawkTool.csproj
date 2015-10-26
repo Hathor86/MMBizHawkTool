@@ -92,6 +92,9 @@
     <Compile Include="Controls\Panels\QuestStatusPanel.xaml.cs">
       <DependentUpon>QuestStatusPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Misc\SpeedViewer.xaml.cs">
+      <DependentUpon>SpeedViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Panels\SpeedPanel.xaml.cs">
       <DependentUpon>SpeedPanel.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Misc\SpeedViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Panels\SpeedPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -145,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Fonts\DejaVuSansMono-Bold.ttf" />
+    <Resource Include="Resources\Fonts\DejaVuSans.ttf" />
     <None Include="Resources\Licenses\DejaVu-Fonts\AUTHORS">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

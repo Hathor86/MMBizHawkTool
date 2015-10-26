@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="MMBizHawkTool.Controls.Misc.SpeedViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMBizHawkTool.Controls.Misc"
+             mc:Ignorable="d" 
+             d:DesignHeight="140" d:DesignWidth="220">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30px" />
+            <ColumnDefinition Width="90*" />
+        </Grid.ColumnDefinitions>
+        
+        <Label x:Name="label" Content="Title" Grid.Column="0" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans">
+            <Label.LayoutTransform>
+                <RotateTransform Angle="-90" />
+            </Label.LayoutTransform>
+        </Label>
+        <Image x:Name="arrow" Width="65" Height="109" Grid.Column="1" Source="/MMBizHawkTool;component/Resources/Images/Misc/Arrow.png" RenderTransformOrigin="0.5,1">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1"/>
+                    <TranslateTransform Y="-20"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label x:Name="speedText" Content="00.00"  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono"/>
+    </Grid>
+</UserControl>

@@ -1,25 +1,25 @@
-﻿<UserControl x:Class="MMBizHawkTool.Controls.Panels.SpeedPanel"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MMBizHawkTool.Controls.Panels"
+             xmlns:Misc="clr-namespace:MMBizHawkTool.Controls.Misc" x:Class="MMBizHawkTool.Controls.Panels.SpeedPanel"
              mc:Ignorable="d" 
-             d:DesignHeight="140" d:DesignWidth="220">
-    <Grid Background="White">
-        <Image x:Name="arrow" Width="65" Height =" 109" Source="/MMBizHawkTool;component/Resources/Images/Misc/Arrow.png" RenderTransformOrigin="0.5,1">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="1"/>
-                    <TranslateTransform Y="-20"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Effect>
-                <DropShadowEffect />
-            </Image.Effect>
-        </Image>
-        <Label x:Name="sppedText" Content="Label"  HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono"/>
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*" />
+            <RowDefinition Height="33*" />
+            <RowDefinition Height="33*" />
+        </Grid.RowDefinitions>
+        <Misc:SpeedViewer x:Name="xVelocity" Grid.Column="0" Grid.Row="0" Label="X Velocity"/>
+        <Misc:SpeedViewer x:Name="yVelocity" Grid.Column="0" Grid.Row="1" Label="Y Velocity"/>
+        <Misc:SpeedViewer x:Name="zVelocity" Grid.Column="0" Grid.Row="2" Label="Z Velocity"/>
+        <Misc:SpeedViewer x:Name="overallVelocity" Grid.Column="1" Grid.RowSpan="3" Label="Overall Velocity"/>
     </Grid>
 </UserControl>

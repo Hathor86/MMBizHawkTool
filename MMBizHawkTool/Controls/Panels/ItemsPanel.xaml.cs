@@ -1,22 +1,4 @@
-﻿/*
-	MMBizHawkTool, a BizHawk plugin specific to The Legend of Zelda: Majora's Mask
-    Copyright (C) 2015  François Guiot
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License along
-    with this program; if not, write to the Free Software Foundation, Inc.,
-    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-*/
-using BizHawk.Client.Common;
+﻿using BizHawk.Client.Common;
 using MMBizHawkTool.Tools;
 using MMBizHawkTool.Tools.Interfaces;
 using System;
@@ -95,26 +77,26 @@ namespace MMBizHawkTool.Controls.Panels
 		/// <param name="itemsAdresses">RAM watch address</param>
 		public void UpdateItems(IEnumerable<Watch> itemsAdresses)
 		{
-			foreach (Watch z in itemsAdresses.Where<Watch>(w => _HandledItems.ContainsKey(w.Address ?? 0)))
+			foreach (Watch z in itemsAdresses.Where<Watch>(w => _HandledItems.ContainsKey((long)w.Address)))
 			{
-				if (DataDictionnary.ResourceIndex.ContainsKey(z.Value ?? -1))
+				if (DataDictionnary.ResourceIndex.ContainsKey((int)z.Value))
 				{
-					_HandledItems[z.Address ?? -1].Source = new BitmapImage(new Uri(string.Format(@"pack://application:,,,{0}", DataDictionnary.ResourceIndex[z.Value ?? 0])));
-					_HandledItems[z.Address ?? -1].Effect = null;
+					_HandledItems[(long)z.Address].Source = new BitmapImage(new Uri(string.Format(@"pack://application:,,,{0}", DataDictionnary.ResourceIndex[(int)z.Value])));
+					_HandledItems[(long)z.Address].Effect = null;
 				}
 				else
 				{
-					_HandledItems[z.Address ?? -1].Source = null;
+					_HandledItems[(long)z.Address].Source = null;
 				}
 			}
-			foreach (Watch z in itemsAdresses.Where<Watch>(w => _AmmoTextBoxes.ContainsKey(w.Address ?? -1)))
+			foreach (Watch z in itemsAdresses.Where<Watch>(w => _AmmoTextBoxes.ContainsKey((long)w.Address)))
 			{
-				_AmmoTextBoxes[z.Address ?? -1].Text = z.ValueString;
+				_AmmoTextBoxes[(long)z.Address].Text = z.ValueString;
             }
 
 			if(itemsAdresses.Any<Watch>(z => z.Address == MagicAmountAddress))
 			{
-				int magic = itemsAdresses.Where<Watch>(z => z.Address == MagicAmountAddress).First<Watch>().Value ?? 1;
+				int magic = (int)itemsAdresses.Where<Watch>(z => z.Address == MagicAmountAddress).First<Watch>().Value;
 				if(magic == 0)
 				{
 					magic = 1;

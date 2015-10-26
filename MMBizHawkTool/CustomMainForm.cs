@@ -80,7 +80,7 @@ namespace BizHawk.Client.EmuHawk
 			paneList.Add(elementHost5.Child as IMMPanel);
 
 			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-			path = Path.Combine(path, "param.xml");
+			path = Path.Combine(path, "MMBizHawkTool", "param.xml");
 
 			XmlDocument param = new XmlDocument();
 			param.Load(path);
@@ -119,12 +119,15 @@ namespace BizHawk.Client.EmuHawk
 								watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
 								switch (watchNode.Attributes["Item"].Value)
 								{
-									case "MagicAmount":
+									case "magicAmount":
 										ItemsPanel.MagicAmountAddress = address;
 										break;
 
-									case "OverallVelocity":
-										((SpeedPanel)elementHost5.Child).AddToDictionnary(address, string.Empty);
+									case "xVelocity":
+									case "yVelocity":
+									case "zVelocity":
+									case "overallVelocity":
+										((SpeedPanel)elementHost5.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
                                         break;
 								}
 
