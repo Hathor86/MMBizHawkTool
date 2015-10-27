@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MMBizHawkTool.Controls.Misc
+namespace MMBizHawkTool.Controls.Components
 {
 	/// <summary>
 	/// Interaction logic for MapOwl.xaml
@@ -52,11 +52,11 @@ namespace MMBizHawkTool.Controls.Misc
 		{
 			get
 			{
-				return location.Content.ToString();				
+				return locationText.Text;				
 			}
 			set
 			{
-				location.Content = value;
+				locationText.Text = value;               
 			}
 		}	
 

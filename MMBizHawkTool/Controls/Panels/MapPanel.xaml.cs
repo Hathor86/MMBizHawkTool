@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BizHawk.Client.Common;
 using MMBizHawkTool.Tools.Enums;
-using MMBizHawkTool.Controls.Misc;
+using MMBizHawkTool.Controls.Components;
 
 namespace MMBizHawkTool.Controls.Panels
 {

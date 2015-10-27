@@ -15,7 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BizHawk.Client.Common;
 
-namespace MMBizHawkTool.Controls.Misc
+namespace MMBizHawkTool.Controls.Components
 {
 	/// <summary>
 	/// Interaction logic for SpeedViewer.xaml
