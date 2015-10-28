@@ -9,7 +9,7 @@
              d:DesignHeight="328" d:DesignWidth="489">
     <Grid Margin="0,0,0,0">
         <Grid.Background>
-            <ImageBrush ImageSource="/MMBizHawkTool;component/Resources/Images/Backgrounds/Map.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/MMBizHawkTool;component/Resources/Images/Backgrounds/Map.png" Stretch="UniformToFill" />
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
@@ -33,7 +33,7 @@
             <RowDefinition Height="12.5*"/>
             <RowDefinition Height="12.5*"/>
         </Grid.RowDefinitions>
-        <Misc:MapOwl x:Name="greatBay" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1" Grid.Row="4" Location="Great Bay">
+        <Misc:MapOwl x:Name="greatBay" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1" Grid.Row="4" Location="Great Bay">            
             <Misc:MapOwl.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>

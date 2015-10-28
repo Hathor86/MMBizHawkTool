@@ -80,6 +80,12 @@
     <Compile Include="Controls\Components\MapOwl.xaml.cs">
       <DependentUpon>MapOwl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Components\SmallKeyCounter.xaml.cs">
+      <DependentUpon>SmallKeyCounter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Components\StrayFairyCounter.xaml.cs">
+      <DependentUpon>StrayFairyCounter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Panels\ItemsPanel.xaml.cs">
       <DependentUpon>ItemsPanel.xaml</DependentUpon>
     </Compile>
@@ -122,6 +128,14 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\Components\MapOwl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Components\SmallKeyCounter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Components\StrayFairyCounter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
