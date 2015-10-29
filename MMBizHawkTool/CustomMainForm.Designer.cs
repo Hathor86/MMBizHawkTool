@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.elementHost6 = new System.Windows.Forms.Integration.ElementHost();
-			this.strayFairyCounter1 = new MMBizHawkTool.Controls.Components.StrayFairyCounter();
 			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
 			this.itemsPanel1 = new MMBizHawkTool.Controls.Panels.ItemsPanel();
 			this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
@@ -41,6 +39,8 @@
 			this.mapPanel1 = new MMBizHawkTool.Controls.Panels.MapPanel();
 			this.elementHost5 = new System.Windows.Forms.Integration.ElementHost();
 			this.speedPanel1 = new MMBizHawkTool.Controls.Panels.SpeedPanel();
+			this.elementHost6 = new System.Windows.Forms.Integration.ElementHost();
+			this.hiddenQuestStatusPanel1 = new MMBizHawkTool.Controls.Panels.HiddenQuestStatusPanel();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -64,15 +64,6 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(521, 413);
 			this.tableLayoutPanel1.TabIndex = 1;
-			// 
-			// elementHost6
-			// 
-			this.elementHost6.Location = new System.Drawing.Point(349, 209);
-			this.elementHost6.Name = "elementHost6";
-			this.elementHost6.Size = new System.Drawing.Size(169, 100);
-			this.elementHost6.TabIndex = 5;
-			this.elementHost6.Text = "elementHost6";
-			this.elementHost6.Child = this.strayFairyCounter1;
 			// 
 			// elementHost1
 			// 
@@ -124,6 +115,16 @@
 			this.elementHost5.Text = "elementHost5";
 			this.elementHost5.Child = this.speedPanel1;
 			// 
+			// elementHost6
+			// 
+			this.elementHost6.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.elementHost6.Location = new System.Drawing.Point(349, 209);
+			this.elementHost6.Name = "elementHost6";
+			this.elementHost6.Size = new System.Drawing.Size(169, 201);
+			this.elementHost6.TabIndex = 5;
+			this.elementHost6.Text = "elementHost6";
+			this.elementHost6.Child = this.hiddenQuestStatusPanel1;
+			// 
 			// CustomMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +153,6 @@
 		private System.Windows.Forms.Integration.ElementHost elementHost5;
 		private MMBizHawkTool.Controls.Panels.SpeedPanel speedPanel1;
 		private System.Windows.Forms.Integration.ElementHost elementHost6;
-		private MMBizHawkTool.Controls.Components.StrayFairyCounter strayFairyCounter1;
+		private MMBizHawkTool.Controls.Panels.HiddenQuestStatusPanel hiddenQuestStatusPanel1;
 	}
 }

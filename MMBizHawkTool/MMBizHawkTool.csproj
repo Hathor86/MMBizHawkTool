@@ -80,11 +80,11 @@
     <Compile Include="Controls\Components\MapOwl.xaml.cs">
       <DependentUpon>MapOwl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Components\SmallKeyCounter.xaml.cs">
-      <DependentUpon>SmallKeyCounter.xaml</DependentUpon>
+    <Compile Include="Controls\Components\TempleStatus.xaml.cs">
+      <DependentUpon>TempleStatus.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Components\StrayFairyCounter.xaml.cs">
-      <DependentUpon>StrayFairyCounter.xaml</DependentUpon>
+    <Compile Include="Controls\Panels\HiddenQuestStatusPanel.xaml.cs">
+      <DependentUpon>HiddenQuestStatusPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Panels\ItemsPanel.xaml.cs">
       <DependentUpon>ItemsPanel.xaml</DependentUpon>
@@ -131,11 +131,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Components\SmallKeyCounter.xaml">
+    <Page Include="Controls\Components\TempleStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Components\StrayFairyCounter.xaml">
+    <Page Include="Controls\Panels\HiddenQuestStatusPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

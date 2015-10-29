@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MMBizHawkTool.Controls.Components
+namespace MMBizHawkTool.Controls.Panels
 {
 	/// <summary>
-	/// Interaction logic for StrayFairyCounter.xaml
+	/// Interaction logic for HiddenQuestStatusPanel.xaml
 	/// </summary>
-	public partial class StrayFairyCounter : UserControl
+	public partial class HiddenQuestStatusPanel : UserControl
 	{
-		public StrayFairyCounter()
+		public HiddenQuestStatusPanel()
 		{
 			InitializeComponent();
 		}
