@@ -19,8 +19,9 @@ namespace MMBizHawkTool.Tools.Effects
 		private static PixelShader _pixelShader = new PixelShader() { UriSource = new Uri(@"pack://application:,,,/MMBizHawkTool;component/Tools/Effects/HSVEffect.ps") };
 		public static readonly DependencyProperty InputProperty = ShaderEffect.RegisterPixelShaderSamplerProperty("Input", typeof(HSVEffect), 0);
 		public static readonly DependencyProperty HueProperty = DependencyProperty.Register("Hue", typeof(double), typeof(HSVEffect), new UIPropertyMetadata(0.0, PixelShaderConstantCallback(0), CoerceHue));
-		public static readonly DependencyProperty BrightnessProperty = DependencyProperty.Register("BrightnessProperty", typeof(double), typeof(HSVEffect), new UIPropertyMetadata(0.0, PixelShaderConstantCallback(0), CoerceBrightness));
-		public static readonly DependencyProperty SaturationProperty = DependencyProperty.Register("SaturationProperty", typeof(double), typeof(HSVEffect), new UIPropertyMetadata(0.0, PixelShaderConstantCallback(0), CoerceSaturation));
+		public static readonly DependencyProperty BrightnessProperty = DependencyProperty.Register("BrightnessProperty", typeof(double), typeof(HSVEffect), new UIPropertyMetadata(0.0, PixelShaderConstantCallback(1), CoerceBrightness));
+		public static readonly DependencyProperty SaturationProperty = DependencyProperty.Register("SaturationProperty", typeof(double), typeof(HSVEffect), new UIPropertyMetadata(0.0, PixelShaderConstantCallback(2), CoerceSaturation));
+		public static readonly DependencyProperty ContrastProperty = DependencyProperty.Register("ContrastProperty", typeof(double), typeof(HSVEffect), new UIPropertyMetadata(0.0, PixelShaderConstantCallback(3), CoerceContrast));
 
 		#endregion
 
@@ -37,6 +38,7 @@ namespace MMBizHawkTool.Tools.Effects
 			UpdateShaderValue(HueProperty);
 			UpdateShaderValue(BrightnessProperty);
 			UpdateShaderValue(SaturationProperty);
+			UpdateShaderValue(ContrastProperty);
 		}
 
 		#endregion
@@ -95,6 +97,25 @@ namespace MMBizHawkTool.Tools.Effects
 			if (newValue < 0 || newValue > 100)
 			{
 				return effect.Saturation;
+			}
+
+			return newValue;
+		}
+
+		/// <summary>
+		/// Parse the saturation propery and make sure the value is correct
+		/// </summary>
+		/// <param name="d">The dependency property</param>
+		/// <param name="value">Value set to the property</param>
+		/// <returns>New value for saturation if between 0 and 100, otherwise current value</returns>
+		private static object CoerceContrast(DependencyObject d, object value)
+		{
+			HSVEffect effect = (HSVEffect)d;
+			double newValue = (double)value;
+
+			if (newValue < -127 || newValue > 127)
+			{
+				return effect.Contrast;
 			}
 
 			return newValue;
@@ -161,6 +182,21 @@ namespace MMBizHawkTool.Tools.Effects
 			set
 			{
 				SetValue(SaturationProperty, value);
+			}
+		}
+
+		/// <summary>
+		/// Get or set Contrast
+		/// </summary>
+		public double Contrast
+		{
+			get
+			{
+				return (double)GetValue(ContrastProperty);
+			}
+			set
+			{
+				SetValue(ContrastProperty, value);
 			}
 		}
 

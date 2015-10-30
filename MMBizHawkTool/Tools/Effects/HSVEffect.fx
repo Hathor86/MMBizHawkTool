@@ -29,15 +29,15 @@ float4 main(float2 uv : TEXCOORD) : COLOR
     float4 outputColor = tex2D(implicitInput, uv);
     float3 hsv; 
     float3 intensity;           
-        float3 root3 = float3(0.57735, 0.57735, 0.57735);
-        float half_angle = 0.5 * radians(Hue); // Hue is radians of 0 tp 360 degree
-        float4 rot_quat = float4( (root3 * sin(half_angle)), cos(half_angle));
-        float3x3 rot_Matrix = QuaternionToMatrix(rot_quat);     
-        outputColor.rgb = mul(rot_Matrix, outputColor.rgb);
-        outputColor.rgb = (outputColor.rgb - 0.5) *(Contrast + 1.0) + 0.5;  
-        outputColor.rgb = outputColor.rgb + Brightness;         
-        intensity = float(dot(outputColor.rgb, lumCoeff));
-        outputColor.rgb = lerp(intensity, outputColor.rgb, Saturation );            
+    float3 root3 = float3(0.57735, 0.57735, 0.57735);
+    float half_angle = 0.5 * radians(Hue); // Hue is radians of 0 tp 360 degree
+    float4 rot_quat = float4( (root3 * sin(half_angle)), cos(half_angle));
+    float3x3 rot_Matrix = QuaternionToMatrix(rot_quat);     
+    outputColor.rgb = mul(rot_Matrix, outputColor.rgb);
+    outputColor.rgb = (outputColor.rgb - 0.5) *(Contrast + 1.0) + 0.5;  
+    outputColor.rgb = outputColor.rgb + Brightness / 100;         
+    intensity = float(dot(outputColor.rgb, lumCoeff));
+    outputColor.rgb = lerp(intensity, outputColor.rgb, Saturation / 100 );            
 
     return outputColor;
 }

@@ -63,14 +63,31 @@
   <Panel Type="Quest">
     <RamWatch Item="questStatus" Address="1EF72C" WatchSize="DWord" DisplayType="Unsigned" />
   </Panel>
+  <Panel Type="HiddenQuest">
+    <RamWatch Item="bombersCode" Address="1F066B" WatchSize="Byte"  DisplayType="Signed" Length="5" />
+    <RamWatch Item="skulltulaCode" Address="1F0665" WatchSize="Byte"  DisplayType="Signed" Length="6" />
+    <RamWatch Item="lotteryCode" Address="1F0665" WatchSize="Byte"  DisplayType="Signed" Length="9" />
+    <RamWatch Item="swampSkulltulaToken" Address="1F0531" WatchSize="Byte"  DisplayType="Signed" />
+    <RamWatch Item="oceansideSkulltulaToken" Address="1F0533" WatchSize="Byte"  DisplayType="Signed" />
+    <RamWatch Item="woodfallSmallKeys" Address="1EF73A" WatchSize="Byte"  DisplayType="Signed" />
+    <RamWatch Item="snowheadSmallKeys" Address="1EF73B" WatchSize="Byte"  DisplayType="Signed" />
+    <RamWatch Item="greatBaySmallKeys" Address="1EF73C" WatchSize="Byte"  DisplayType="Signed" />
+    <RamWatch Item="stoneTowerSmallKeys" Address="1EF73D" WatchSize="Byte"  DisplayType="Signed" />
+    <RamWatch Item="woodfallFairies" Address="1EF744" WatchSize="Byte"  DisplayType="Signed" />
+    <RamWatch Item="snowheadFairies" Address="1EF745" WatchSize="Byte"  DisplayType="Signed" />
+    <RamWatch Item="greatBayFairies" Address="1EF746" WatchSize="Byte"  DisplayType="Signed" />
+    <RamWatch Item="stoneTowerFairies" Address="1EF747" WatchSize="Byte"  DisplayType="Signed" />
+  </Panel>
   <Panel Type="Map">
     <RamWatch Item="owlStatus" Address="1EF6B6" WatchSize="Word" DisplayType="Unsigned" />
   </Panel>
   <Panel Type="Common">
     <RamWatch Item="magicAmount" Address="1EF6A9" WatchSize="Byte" DisplayType="Unsigned" />
+    <RamWatch Item="currentDay" Address="1EF68B" WatchSize="Byte" DisplayType="Unsigned" />
     <RamWatch Item="xVelocity" Address="3FFE14" WatchSize="DWord" DisplayType="Float" />
     <RamWatch Item="yVelocity" Address="3FFE18" WatchSize="DWord" DisplayType="Float" />
     <RamWatch Item="zVelocity" Address="3FFE1C" WatchSize="DWord" DisplayType="Float" />
     <RamWatch Item="overallVelocity" Address="3FFE20" WatchSize="DWord" DisplayType="Float" />
+    <RamWatch Item="soarCursor" Address="3FDA91" WatchSize="Byte" DisplayType="Signed" />
   </Panel>
 </Param>
