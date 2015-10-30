@@ -112,6 +112,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\DataDictionnary.cs" />
+    <Compile Include="Tools\Effects\HSVEffect.cs" />
     <Compile Include="Tools\Enums\Owl.cs" />
     <Compile Include="Tools\Enums\QuestStatus.cs" />
     <Compile Include="Tools\Effects\GrayscaleEffect.cs" />
@@ -165,6 +166,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Tools\Effects\HSVEffect.ps" />
+    <None Include="Tools\Effects\HSVEffect.fx" />
     <Resource Include="Resources\Fonts\DejaVuSansMono-Bold.ttf" />
     <Resource Include="Resources\Fonts\DejaVuSans.ttf" />
     <None Include="Resources\Licenses\DejaVu-Fonts\AUTHORS">
@@ -328,7 +331,8 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.ps" "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.fx"</PreBuildEvent>
+    <PreBuildEvent>"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.ps" "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.fx"
+"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo "$(SolutionDir)MMBizHawkTool/Tools/Effects/HSVEffect.ps" "$(SolutionDir)MMBizHawkTool/Tools/Effects/HSVEffect.fx"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
