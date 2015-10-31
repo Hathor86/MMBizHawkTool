@@ -22,7 +22,7 @@ float3x3 QuaternionToMatrix(float4 quat)
     2.0 * float3(b.y, a.x, diag.z));
 }
 
-const float3 lumCoeff = float3(0.2125, 0.7154, 0.0721);
+static const float3 lumCoeff = float3(0.2125, 0.7154, 0.0721);
 
 float4 main(float2 uv : TEXCOORD) : COLOR
 {

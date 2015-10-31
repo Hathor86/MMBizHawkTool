@@ -78,6 +78,7 @@ namespace BizHawk.Client.EmuHawk
 			paneList.Add(elementHost3.Child as IMMPanel);
 			paneList.Add(elementHost4.Child as IMMPanel);
 			paneList.Add(elementHost5.Child as IMMPanel);
+			paneList.Add(elementHost6.Child as IMMPanel);
 
 			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			path = Path.Combine(path, "MMBizHawkTool", "param.xml");
@@ -101,6 +102,10 @@ namespace BizHawk.Client.EmuHawk
 						PopulatePanel<QuestStatusPanel>(panelNode.ChildNodes);
 						break;
 
+					case "HiddenQuest":
+						PopulatePanel<HiddenQuestStatusPanel>(panelNode.ChildNodes);
+						break;
+
 					case "Map":
 						PopulatePanel<MapPanel>(panelNode.ChildNodes);
 						break;
@@ -117,11 +122,13 @@ namespace BizHawk.Client.EmuHawk
 								&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 							{
 								watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
+								BasePanel.CommonAdresses.Add(watchNode.Attributes["Item"].Value, address);
+
 								switch (watchNode.Attributes["Item"].Value)
 								{
 									case "magicAmount":
-										ItemsPanel.MagicAmountAddress = address;
-										break;
+										ItemsPanel.MagicAmountAddress = address;										
+                                        break;
 
 									case "xVelocity":
 									case "yVelocity":

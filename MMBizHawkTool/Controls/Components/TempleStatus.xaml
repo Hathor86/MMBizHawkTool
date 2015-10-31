@@ -16,18 +16,11 @@
             <RowDefinition Height="30*" />
             <RowDefinition Height="30*" />
             <RowDefinition Height="30*" />
-        </Grid.RowDefinitions>
-        <Border BorderThickness="1,1,1,1" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" CornerRadius="8,8,8,8" BorderBrush="#BF000000" Background="#BF000000">
-            <Border.Effect>
-                <BlurEffect />
-            </Border.Effect>
-        </Border>
-        <Label x:Name="locationLabel" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Foreground="White" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <AccessText x:Name="locationText" TextWrapping="WrapWithOverflow" Text="Location with a very long name"/>
-        </Label>
+        </Grid.RowDefinitions>      
+        <local:BorderedLabel x:Name="locationLabel" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  Text="Location with a very long name"/>
         <Image x:Name="fairy" Grid.Column="0" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Stray Fairy (middle).png" />
-        <Label x:Name="fairyCount" Content="00" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono" />
+        <Label x:Name="fairyCounter" Content="00" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono" />
         <Image x:Name="smallKey" Grid.Column="0" Grid.Row="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Small Key.png" />
-        <Label x:Name="keyCount" Content="00" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono" />
+        <Label x:Name="keyCounter" Content="00" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono" />
     </Grid>
 </UserControl>

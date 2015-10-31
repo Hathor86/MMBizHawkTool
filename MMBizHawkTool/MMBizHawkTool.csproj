@@ -77,12 +77,19 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Components\BorderedLabel.xaml.cs">
+      <DependentUpon>BorderedLabel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Components\MapOwl.xaml.cs">
       <DependentUpon>MapOwl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Components\SkulltulaCodeViewer.xaml.cs">
+      <DependentUpon>SkulltulaCodeViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Components\TempleStatus.xaml.cs">
       <DependentUpon>TempleStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Panels\BasePanel.cs" />
     <Compile Include="Controls\Panels\HiddenQuestStatusPanel.xaml.cs">
       <DependentUpon>HiddenQuestStatusPanel.xaml</DependentUpon>
     </Compile>
@@ -128,7 +135,15 @@
     <Resource Include="Resources\Images\Backgrounds\Quest.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\Components\BorderedLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Components\MapOwl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Components\SkulltulaCodeViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -32,9 +32,9 @@ namespace MMBizHawkTool.Controls.Components
 
 		static TempleStatus()
 		{
-			themes.Add("Snowhead", new double[4] { 120, 2, 50, 0 });
-			themes.Add("Great Bay", new double[4] { 227, 2, 50, 0 });
-			themes.Add("Stone Tower", new double[4] { 30, 2, 50, 0 });
+			themes.Add("Snowhead", new double[4] { 120, 0, 50, 0 });
+			themes.Add("Great Bay", new double[4] { 227, 0, 50, 0 });
+			themes.Add("Stone Tower", new double[4] { 30, 0, 50, 0 });
 		}
 
 		public TempleStatus()
@@ -75,45 +75,15 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			get
 			{
-				return locationText.Text;
+				return locationLabel.Text;
 			}
 			set
 			{
-				locationText.Text = value;
+				locationLabel.Text = value;
 				ApplyTheme(value);
             }
 		}
-
-		/// <summary>
-		/// Get or set the number of fairy collected
-		/// </summary>
-		public int FairyCount
-		{
-			get
-			{
-				return (int)fairyCount.Content;
-			}
-			set
-			{
-				fairyCount.Content = value;
-			}
-		}
-
-		/// <summary>
-		/// Get or set the number of fairy collected
-		/// </summary>
-		public int SamllKeyCount
-		{
-			get
-			{
-				return (int)keyCount.Content;
-			}
-			set
-			{
-				keyCount.Content = value;
-			}
-		}
-
+		
 		#endregion
 	}
 }

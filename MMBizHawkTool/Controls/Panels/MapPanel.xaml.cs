@@ -24,7 +24,7 @@ namespace MMBizHawkTool.Controls.Panels
 	/// </summary>
 	public partial class MapPanel : UserControl, IMMPanel
 	{
-		#region Field
+		#region Fields
 
 		private static long owlAddress = 0;
 

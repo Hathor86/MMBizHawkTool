@@ -15,14 +15,7 @@
             <RowDefinition Height="65*" />
             <RowDefinition Height="35*" />
         </Grid.RowDefinitions>
-        <Image x:Name="owl" Grid.Column="0" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Maps/Owl.png" />
-        <Border BorderThickness="1,1,1,1" Grid.Column="0" Grid.Row="1" CornerRadius="8,8,8,8" BorderBrush="#BF000000" Background="#BF000000">
-            <Border.Effect>
-                <BlurEffect />
-            </Border.Effect>
-        </Border>
-        <Label x:Name="locationLabel" Grid.Column="0" Grid.Row="1" Foreground="White" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <AccessText x:Name="locationText" TextWrapping="WrapWithOverflow" Text="Location with a very long name"/>
-        </Label>
+        <Image x:Name="owl" Grid.Column="0" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Maps/Owl.png" />       
+        <local:BorderedLabel x:Name="locationLabel" Grid.Column="0" Grid.Row="1" Text="Location with a very long name" />
     </Grid>
 </UserControl>

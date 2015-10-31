@@ -17,10 +17,20 @@
             <RowDefinition Height="25*" />
             <RowDefinition Height="25*" />
             <RowDefinition Height="25*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="25*" />
         </Grid.RowDefinitions>
-        <Components:TempleStatus x:Name="woodfall" Location="Woodfall" Grid.Column="1" Grid.Row="0" />
-        <Components:TempleStatus x:Name="snowhead" Location="Snowhead" Grid.Column="1" Grid.Row="1" />
-        <Components:TempleStatus x:Name="greatBay" Location="Great Bay" Grid.Column="1" Grid.Row="2" />
-        <Components:TempleStatus x:Name="stoneTower" Location="Stone Tower" Grid.Column="1" Grid.Row="3" />
+        <Components:BorderedLabel Text="Bombers Code" Grid.Column="0" Grid.Row="0"/>
+        <Label x:Name="bombersCode" Content="00000" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono" />
+        <Components:TempleStatus x:Name="woodfall" Location="Woodfall" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"/>
+        <Components:BorderedLabel Text="Skulltula Code" Grid.Column="0" Grid.Row="2"/>
+        <Components:SkulltulaCodeViewer x:Name="skulltulaCode" Grid.Column="0" Grid.Row="3"/>
+        <Components:TempleStatus x:Name="snowhead" Location="Snowhead" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"/>
+        <Components:BorderedLabel Text="Lottery Code" Grid.Column="0" Grid.Row="4"/>
+        <Label x:Name="lotteryCode" Content="000" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono" />
+        <Components:TempleStatus x:Name="greatBay" Location="Great Bay" Grid.Column="1" Grid.Row="4" Grid.RowSpan="2"/>
+        <Components:TempleStatus x:Name="stoneTower" Location="Stone Tower" Grid.Column="1" Grid.Row="6" Grid.RowSpan="2"/>
     </Grid>
 </UserControl>

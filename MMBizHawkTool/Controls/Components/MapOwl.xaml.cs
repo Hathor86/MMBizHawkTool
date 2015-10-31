@@ -52,11 +52,11 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			get
 			{
-				return locationText.Text;				
+				return locationLabel.Text;				
 			}
 			set
 			{
-				locationText.Text = value;               
+				locationLabel.Text = value;               
 			}
 		}	
 

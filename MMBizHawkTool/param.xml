@@ -66,7 +66,7 @@
   <Panel Type="HiddenQuest">
     <RamWatch Item="bombersCode" Address="1F066B" WatchSize="Byte"  DisplayType="Signed" Length="5" />
     <RamWatch Item="skulltulaCode" Address="1F0665" WatchSize="Byte"  DisplayType="Signed" Length="6" />
-    <RamWatch Item="lotteryCode" Address="1F0665" WatchSize="Byte"  DisplayType="Signed" Length="9" />
+    <RamWatch Item="lotteryCode" Address="1F065C" WatchSize="Byte"  DisplayType="Signed" Length="9" />
     <RamWatch Item="swampSkulltulaToken" Address="1F0531" WatchSize="Byte"  DisplayType="Signed" />
     <RamWatch Item="oceansideSkulltulaToken" Address="1F0533" WatchSize="Byte"  DisplayType="Signed" />
     <RamWatch Item="woodfallSmallKeys" Address="1EF73A" WatchSize="Byte"  DisplayType="Signed" />

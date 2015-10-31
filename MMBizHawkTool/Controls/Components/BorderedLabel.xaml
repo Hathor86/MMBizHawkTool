@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="MMBizHawkTool.Controls.Components.BorderedLabel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMBizHawkTool.Controls.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="300">
+    <Grid>
+        <Border BorderThickness="1,1,1,1" Grid.Column="0" Grid.Row="1" CornerRadius="8,8,8,8" BorderBrush="#BF000000" Background="#BF000000">
+            <Border.Effect>
+                <BlurEffect />
+            </Border.Effect>
+        </Border>
+        <Label x:Name="label" Grid.Column="0" Grid.Row="1" Foreground="White" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <AccessText x:Name="text" TextWrapping="WrapWithOverflow" Text="Location with a very long name"/>
+        </Label>
+    </Grid>
+</UserControl>
