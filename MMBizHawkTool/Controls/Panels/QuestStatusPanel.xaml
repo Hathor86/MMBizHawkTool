@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<local:BasePanel
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -247,4 +247,4 @@
         </Image>
         <TextBox x:Name="otherStatus" Grid.ColumnSpan="4" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,0,0,0" Grid.Row="7" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="Transparent" Foreground="White"/>
     </Grid>
-</UserControl>
+</local:BasePanel>

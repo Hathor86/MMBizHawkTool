@@ -1,5 +1,4 @@
-﻿using MMBizHawkTool.Tools.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +20,11 @@ namespace MMBizHawkTool.Controls.Panels
 	/// <summary>
 	/// Interaction logic for SpeedPanel.xaml
 	/// </summary>
-	public partial class SpeedPanel : UserControl, IMMPanel
+	public partial class SpeedPanel : BasePanel
 	{
 		#region Fields
 
-		private Dictionary<long, SpeedViewer> _HandledItems = new Dictionary<long, SpeedViewer>();
+		//private Dictionary<long, SpeedViewer> _HandledItems = new Dictionary<long, SpeedViewer>();
 
 		#endregion
 
@@ -34,17 +33,13 @@ namespace MMBizHawkTool.Controls.Panels
 			InitializeComponent();
 		}
 
-		public void AddToDictionnary(long address, string imageName)
+		/// <inheritdoc />
+		public override void UpdateItems(IEnumerable<Watch> itemsAdresses)
 		{
-			_HandledItems.Add(address, (SpeedViewer)FindName(imageName));
-		}
-
-		public void UpdateItems(IEnumerable<Watch> itemsAdresses)
-		{
-			IEnumerable<Watch> updatedValues = itemsAdresses.Where<Watch>(w => _HandledItems.ContainsKey((long)w.Address));
+			IEnumerable<Watch> updatedValues = itemsAdresses.Where<Watch>(w => handledItems.ContainsKey((long)w.Address));
 			foreach(Watch w in updatedValues)
 			{
-				_HandledItems[(long)w.Address].UpdateSpeed(double.Parse(w.ValueString));
+				((SpeedViewer)handledItems[(long)w.Address]).UpdateSpeed(double.Parse(w.ValueString));
 			}
 		}
 	}

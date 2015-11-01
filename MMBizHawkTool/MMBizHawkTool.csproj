@@ -123,7 +123,6 @@
     <Compile Include="Tools\Enums\Owl.cs" />
     <Compile Include="Tools\Enums\QuestStatus.cs" />
     <Compile Include="Tools\Effects\GrayscaleEffect.cs" />
-    <Compile Include="Tools\Interfaces\IMMPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomMainForm.resx">
@@ -343,7 +342,9 @@
     <Resource Include="Resources\Icons\Items\Gold Dust.png" />
     <Resource Include="Resources\Icons\Items\Deku Princess.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Tools\Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.ps" "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.fx"

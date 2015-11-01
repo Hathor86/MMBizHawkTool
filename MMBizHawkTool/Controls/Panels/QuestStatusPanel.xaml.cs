@@ -1,5 +1,4 @@
-﻿using MMBizHawkTool.Tools.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +22,7 @@ namespace MMBizHawkTool.Controls.Panels
 	/// <summary>
 	/// Interaction logic for QuestStatusPanel.xaml
 	/// </summary>
-	public partial class QuestStatusPanel : UserControl, IMMPanel
+	public partial class QuestStatusPanel : BasePanel
 	{
 		#region Fields
 
@@ -66,12 +65,14 @@ namespace MMBizHawkTool.Controls.Panels
 
 		#region Methods
 
-		public void AddToDictionnary(long address, string imageName)
+		/// <inheritdoc />
+		public override void AddToDictionnary(long address, string controlName)
 		{
 			QuestStatusPanel.address = address;
 		}
 
-		public void UpdateItems(IEnumerable<Watch> itemsAdresses)
+		/// <inheritdoc />
+		public override void UpdateItems(IEnumerable<Watch> itemsAdresses)
 		{
 			IEnumerable<Watch> statusWatch = itemsAdresses.Where<Watch>(w => ((long)w.Address) == QuestStatusPanel.address);			
             if (statusWatch.Any<Watch>())

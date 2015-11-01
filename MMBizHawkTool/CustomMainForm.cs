@@ -20,7 +20,6 @@ using BizHawk.Client.Common;
 using BizHawk.Emulation.Common;
 using MMBizHawkTool.Controls;
 using MMBizHawkTool.Controls.Panels;
-using MMBizHawkTool.Tools.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -47,7 +46,7 @@ namespace BizHawk.Client.EmuHawk
 		private bool editMode = false;
 
 		private List<Watch> watchList = new List<Watch>();
-		private List<IMMPanel> paneList = new List<IMMPanel>();
+		private List<BasePanel> paneList = new List<BasePanel>();
 
 		#endregion
 
@@ -73,12 +72,12 @@ namespace BizHawk.Client.EmuHawk
 
 		public void Restart()
 		{
-			paneList.Add(elementHost1.Child as IMMPanel);
-			paneList.Add(elementHost2.Child as IMMPanel);
-			paneList.Add(elementHost3.Child as IMMPanel);
-			paneList.Add(elementHost4.Child as IMMPanel);
-			paneList.Add(elementHost5.Child as IMMPanel);
-			paneList.Add(elementHost6.Child as IMMPanel);
+			paneList.Add(elementHost1.Child as BasePanel);
+			paneList.Add(elementHost2.Child as BasePanel);
+			paneList.Add(elementHost3.Child as BasePanel);
+			paneList.Add(elementHost4.Child as BasePanel);
+			paneList.Add(elementHost5.Child as BasePanel);
+			paneList.Add(elementHost6.Child as BasePanel);
 
 			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			path = Path.Combine(path, "MMBizHawkTool", "param.xml");
@@ -91,7 +90,7 @@ namespace BizHawk.Client.EmuHawk
 				switch (panelNode.Attributes["Type"].Value)
 				{
 					case "Item":
-						PopulatePanel<ItemsPanel>(panelNode.ChildNodes);
+						//PopulatePanel<ItemsPanel>(panelNode.ChildNodes);
 						break;
 
 					case "Mask":
@@ -126,10 +125,6 @@ namespace BizHawk.Client.EmuHawk
 
 								switch (watchNode.Attributes["Item"].Value)
 								{
-									case "magicAmount":
-										ItemsPanel.MagicAmountAddress = address;										
-                                        break;
-
 									case "xVelocity":
 									case "yVelocity":
 									case "zVelocity":
@@ -148,7 +143,7 @@ namespace BizHawk.Client.EmuHawk
 			}
 
 			Parallel.ForEach<Watch>(watchList, w => w.Update());
-			foreach (IMMPanel panel in paneList)
+			foreach (BasePanel panel in paneList)
 			{
 				panel.UpdateItems(watchList);
 			}
@@ -161,7 +156,7 @@ namespace BizHawk.Client.EmuHawk
 			IEnumerable<Watch> changes = from w in watchList
 										 where w.Previous != w.Value
 										 select w;
-			foreach (IMMPanel panel in paneList)
+			foreach (BasePanel panel in paneList)
 			{
 				panel.UpdateItems(changes);
 			}
@@ -180,7 +175,7 @@ namespace BizHawk.Client.EmuHawk
 		/// </summary>
 		/// <typeparam name="T">An IMMPanel</typeparam>
 		/// <param name="panelNode">Panel XmlNodes from param.xml</param>
-		private void PopulatePanel<T>(XmlNodeList panelNode) where T : IMMPanel
+		private void PopulatePanel<T>(XmlNodeList panelNode) where T : BasePanel
 		{
 			long address;
 			Watch.WatchSize wSize;
@@ -194,7 +189,7 @@ namespace BizHawk.Client.EmuHawk
 					&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 				{
 					watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
-					foreach (IMMPanel panel in paneList)
+					foreach (BasePanel panel in paneList)
 					{
 						if (panel is T)
 						{

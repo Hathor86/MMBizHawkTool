@@ -1,6 +1,5 @@
 ﻿using BizHawk.Client.Common;
 using MMBizHawkTool.Tools;
-using MMBizHawkTool.Tools.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +20,12 @@ namespace MMBizHawkTool.Controls.Panels
 	/// <summary>
 	/// Interaction logic for ItemsPanel.xaml
 	/// </summary>
-	public partial class ItemsPanel : UserControl, IMMPanel
+	public partial class ItemsPanel : BasePanel
 	{
 		#region Fields
 
 		private Dictionary<long, Image> _HandledItems = new Dictionary<long, Image>();
 		private Dictionary<long, TextBox> _AmmoTextBoxes = new Dictionary<long, TextBox>();
-
-		private bool editMode = false;
 
 		#endregion
 
@@ -43,16 +40,11 @@ namespace MMBizHawkTool.Controls.Panels
 
 		#region Methods
 
-		/// <summary>
-		/// Add address to the panel's dictionnary.
-		/// It helps to control the corresponding image behavior
-		/// </summary>
-		/// <param name="address">Ram adress (it's in fact the unique key)</param>
-		/// <param name="imageName">Name of the Image Control</param>
-		public void AddToDictionnary(long address, string imageName)
+		/// <inheritdoc />
+		public override void AddToDictionnary(long address, string controlName)
 		{
-			object c = FindName(imageName);
-			if(c.GetType() == typeof(Image))
+			object c = FindName(controlName);
+			if (c.GetType() == typeof(Image))
 			{
 				_HandledItems.Add(address, (Image)c);
 			}
@@ -60,29 +52,16 @@ namespace MMBizHawkTool.Controls.Panels
 			{
 				_AmmoTextBoxes.Add(address, (TextBox)c);
 			}
-            
 		}
 
-		/// <summary>
-		/// Switch the panel between edit and read only mode
-		/// </summary>
-		public void SwitchMode()
-		{
-			editMode = !editMode;
-		}
-
-		/// <summary>
-		/// Update items passed in parameters
-		/// </summary>
-		/// <param name="itemsAdresses">RAM watch address</param>
-		public void UpdateItems(IEnumerable<Watch> itemsAdresses)
+		/// <inheritdoc />
+		public override void UpdateItems(IEnumerable<Watch> itemsAdresses)
 		{
 			foreach (Watch z in itemsAdresses.Where<Watch>(w => _HandledItems.ContainsKey((long)w.Address)))
 			{
 				if (DataDictionnary.ResourceIndex.ContainsKey((int)z.Value))
 				{
 					_HandledItems[(long)z.Address].Source = new BitmapImage(new Uri(string.Format(@"pack://application:,,,{0}", DataDictionnary.ResourceIndex[(int)z.Value])));
-					_HandledItems[(long)z.Address].Effect = null;
 				}
 				else
 				{
@@ -94,9 +73,9 @@ namespace MMBizHawkTool.Controls.Panels
 				_AmmoTextBoxes[(long)z.Address].Text = z.ValueString;
             }
 
-			if(itemsAdresses.Any<Watch>(z => z.Address == MagicAmountAddress))
+			if(itemsAdresses.Any<Watch>(z => z.Address == CommonAdresses["magicAmount"]))
 			{
-				int magic = (int)itemsAdresses.Where<Watch>(z => z.Address == MagicAmountAddress).First<Watch>().Value;
+				int magic = (int)itemsAdresses.Where<Watch>(z => z.Address == CommonAdresses["magicAmount"]).First<Watch>().Value;
 				if(magic == 0)
 				{
 					magic = 1;
@@ -110,20 +89,6 @@ namespace MMBizHawkTool.Controls.Panels
 		#endregion
 
 		#region Properties
-
-		/// <summary>
-		/// The RAM address of Magic
-		/// </summary>
-		public static long MagicAmountAddress { get; set; }
-
-		public IEnumerable<long> HandledItems
-		{
-			get
-			{
-				return _HandledItems.Keys.AsEnumerable<long>();
-			}
-		}
-
 		#endregion
 	}
 }

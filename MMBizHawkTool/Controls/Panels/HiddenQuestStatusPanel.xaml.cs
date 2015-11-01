@@ -1,5 +1,4 @@
-﻿using MMBizHawkTool.Tools.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +20,9 @@ namespace MMBizHawkTool.Controls.Panels
 	/// <summary>
 	/// Interaction logic for HiddenQuestStatusPanel.xaml
 	/// </summary>
-	public partial class HiddenQuestStatusPanel : UserControl, IMMPanel
+	public partial class HiddenQuestStatusPanel : BasePanel
 	{
 		#region Fields
-
-		private Dictionary<long, Control> handledItems = new Dictionary<long, Control>();
-
 		#endregion
 
 		#region cTor(s)
@@ -41,9 +37,10 @@ namespace MMBizHawkTool.Controls.Panels
 
 		#region Methods
 
-		public void AddToDictionnary(long address, string imageName)
+		/// <inheritdoc />
+		public override void AddToDictionnary(long address, string controlName)
 		{
-			Control c = FindName(imageName) as Control;
+			FrameworkElement c = FindName(controlName) as FrameworkElement;
 
 			if (c != null)
 			{
@@ -51,7 +48,7 @@ namespace MMBizHawkTool.Controls.Panels
 			}
 			else
 			{
-				switch (imageName)
+				switch (controlName)
 				{
 					case "woodfallSmallKeys":
 						handledItems.Add(address, woodfall.keyCounter);
@@ -88,7 +85,8 @@ namespace MMBizHawkTool.Controls.Panels
 			}
 		}
 
-		public void UpdateItems(IEnumerable<Watch> itemsAdresses)
+		/// <inheritdoc />
+		public override void UpdateItems(IEnumerable<Watch> itemsAdresses)
 		{
 			foreach (Watch z in itemsAdresses.Where<Watch>(w => handledItems.ContainsKey((long)w.Address)))
 			{
