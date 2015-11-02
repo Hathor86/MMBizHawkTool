@@ -23,9 +23,6 @@ namespace MMBizHawkTool.Controls.Panels
 	public partial class SpeedPanel : BasePanel
 	{
 		#region Fields
-
-		//private Dictionary<long, SpeedViewer> _HandledItems = new Dictionary<long, SpeedViewer>();
-
 		#endregion
 
 		public SpeedPanel()

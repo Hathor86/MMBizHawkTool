@@ -47,7 +47,6 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			RotateTransform r = ((TransformGroup)arrow.RenderTransform).Children[2] as RotateTransform;
 
-			//double currentspeed = double.Parse(updated.First<Watch>().ValueString);
 			speedText.Content = string.Format("{0:0.00}", speed);
 			speed /= MaxSpeed;
 
@@ -60,7 +59,7 @@ namespace MMBizHawkTool.Controls.Components
 		#region Properties
 
 		/// <summary>
-		/// Get or set the speedviwer's label
+		/// Get or set the speedviewer's label
 		/// </summary>
 		public string Label
 		{

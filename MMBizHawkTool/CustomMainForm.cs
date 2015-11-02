@@ -43,8 +43,6 @@ namespace BizHawk.Client.EmuHawk
 		[RequiredService]
 		private IEmulator _emu { get; set; }
 
-		private bool editMode = false;
-
 		private List<Watch> watchList = new List<Watch>();
 		private List<BasePanel> paneList = new List<BasePanel>();
 
@@ -56,6 +54,7 @@ namespace BizHawk.Client.EmuHawk
 		{
 			InitializeComponent();
 		}
+
 		#endregion
 
 		#region Methods		
@@ -90,7 +89,7 @@ namespace BizHawk.Client.EmuHawk
 				switch (panelNode.Attributes["Type"].Value)
 				{
 					case "Item":
-						//PopulatePanel<ItemsPanel>(panelNode.ChildNodes);
+						PopulatePanel<ItemsPanel>(panelNode.ChildNodes);
 						break;
 
 					case "Mask":
@@ -173,7 +172,7 @@ namespace BizHawk.Client.EmuHawk
 		/// <summary>
 		/// Initialize a type of panel with content passed in parameters
 		/// </summary>
-		/// <typeparam name="T">An IMMPanel</typeparam>
+		/// <typeparam name="T">A BasePanel</typeparam>
 		/// <param name="panelNode">Panel XmlNodes from param.xml</param>
 		private void PopulatePanel<T>(XmlNodeList panelNode) where T : BasePanel
 		{
