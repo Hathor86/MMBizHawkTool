@@ -43,10 +43,8 @@ namespace BizHawk.Client.EmuHawk
 		[RequiredService]
 		private IEmulator _emu { get; set; }
 
-		private List<Watch> watchList = new List<Watch>();
-		private List<BasePanel> paneList = new List<BasePanel>();
-
-		private bool initialized = false;
+		private HashSet<Watch> watchList = new HashSet<Watch>();
+		private HashSet<BasePanel> paneList = new HashSet<BasePanel>();
 
 		#endregion
 
@@ -73,77 +71,73 @@ namespace BizHawk.Client.EmuHawk
 
 		public void Restart()
 		{
-			if (!initialized)
+			paneList.Add(elementHost1.Child as BasePanel);
+			paneList.Add(elementHost2.Child as BasePanel);
+			paneList.Add(elementHost3.Child as BasePanel);
+			paneList.Add(elementHost4.Child as BasePanel);
+			paneList.Add(elementHost5.Child as BasePanel);
+			paneList.Add(elementHost6.Child as BasePanel);
+
+			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+			path = Path.Combine(path, "MMBizHawkTool", "param.xml");
+
+			XmlDocument param = new XmlDocument();
+			param.Load(path);
+
+			foreach (XmlElement panelNode in param.DocumentElement.ChildNodes)
 			{
-				initialized = true;
-                paneList.Add(elementHost1.Child as BasePanel);
-				paneList.Add(elementHost2.Child as BasePanel);
-				paneList.Add(elementHost3.Child as BasePanel);
-				paneList.Add(elementHost4.Child as BasePanel);
-				paneList.Add(elementHost5.Child as BasePanel);
-				paneList.Add(elementHost6.Child as BasePanel);
-
-				string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-				path = Path.Combine(path, "MMBizHawkTool", "param.xml");
-
-				XmlDocument param = new XmlDocument();
-				param.Load(path);
-
-				foreach (XmlElement panelNode in param.DocumentElement.ChildNodes)
+				switch (panelNode.Attributes["Type"].Value)
 				{
-					switch (panelNode.Attributes["Type"].Value)
-					{
-						case "Item":
-							PopulatePanel<ItemsPanel>(panelNode.ChildNodes);
-							break;
+					case "Item":
+						PopulatePanel<ItemsPanel>(panelNode.ChildNodes);
+						break;
 
-						case "Mask":
-							PopulatePanel<MasksPanel>(panelNode.ChildNodes);
-							break;
+					case "Mask":
+						PopulatePanel<MasksPanel>(panelNode.ChildNodes);
+						break;
 
-						case "Quest":
-							PopulatePanel<QuestStatusPanel>(panelNode.ChildNodes);
-							break;
+					case "Quest":
+						PopulatePanel<QuestStatusPanel>(panelNode.ChildNodes);
+						break;
 
-						case "HiddenQuest":
-							PopulatePanel<HiddenQuestStatusPanel>(panelNode.ChildNodes);
-							break;
+					case "HiddenQuest":
+						PopulatePanel<HiddenQuestStatusPanel>(panelNode.ChildNodes);
+						break;
 
-						case "Map":
-							PopulatePanel<MapPanel>(panelNode.ChildNodes);
-							break;
+					case "Map":
+						PopulatePanel<MapPanel>(panelNode.ChildNodes);
+						break;
 
-						case "Common":
-							long address;
-							Watch.WatchSize wSize;
-							Watch.DisplayType dType;
-							CultureInfo ci = new CultureInfo("en-US");
-							foreach (XmlElement watchNode in panelNode.ChildNodes)
+					case "Common":
+						long address;
+						Watch.WatchSize wSize;
+						Watch.DisplayType dType;
+						CultureInfo ci = new CultureInfo("en-US");
+						foreach (XmlElement watchNode in panelNode.ChildNodes)
+						{
+							if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
+								&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+								&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 							{
-								if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
-									&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
-									&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+								watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
+								BasePanel.CommonAdresses.Add(watchNode.Attributes["Item"].Value, address);
+
+								switch (watchNode.Attributes["Item"].Value)
 								{
-									watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
-									BasePanel.CommonAdresses.Add(watchNode.Attributes["Item"].Value, address);
-
-									switch (watchNode.Attributes["Item"].Value)
-									{
-										case "xVelocity":
-										case "yVelocity":
-										case "zVelocity":
-										case "overallVelocity":
-											((SpeedPanel)elementHost5.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
-											break;
-									}
-
+									case "xVelocity":
+									case "yVelocity":
+									case "zVelocity":
+									case "overallVelocity":
+										((SpeedPanel)elementHost5.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
+										break;
 								}
-							}
-							break;
 
-						default:
-							break;
-					}
+							}
+						}
+						break;
+
+					default:
+						break;
 				}
 			}
 
@@ -156,7 +150,7 @@ namespace BizHawk.Client.EmuHawk
 
 		public void UpdateValues()
 		{
-			Parallel.ForEach<Watch>(watchList, w => w.Update());			
+			Parallel.ForEach<Watch>(watchList, w => w.Update());
 
 			IEnumerable<Watch> changes = from w in watchList
 										 where w.Previous != w.Value

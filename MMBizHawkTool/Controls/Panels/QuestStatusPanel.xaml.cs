@@ -92,24 +92,54 @@ namespace MMBizHawkTool.Controls.Panels
 				}
 			}
 
-			//Just help to indentify unknow status
-			foreach (QuestStatus status in Enum.GetValues(typeof(QuestStatus)).Cast<QuestStatus>())
+			//In fact, this ugly shit runs faster than the loop I wrote previously
+			if ((currentStatus & QuestStatus.Unknow1) == QuestStatus.Unknow1)
 			{
-				if (status == QuestStatus.Unknow1
-					|| status == QuestStatus.Unknow2
-					|| status == QuestStatus.Unknow3
-					|| status == QuestStatus.Unknow4
-					|| status == QuestStatus.Unknow5
-					|| status == QuestStatus.Unknow6
-					|| status == QuestStatus.Unknow7
-					|| status == QuestStatus.Unknow8
-					|| status == QuestStatus.Unknow9
-					|| status == QuestStatus.Unknow10
-					|| status == QuestStatus.Unknow11
-					|| status == QuestStatus.Unknow12)
-				{
-					otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, status.ToString());
-				}
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow1.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow2) == QuestStatus.Unknow2)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow2.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow3) == QuestStatus.Unknow3)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow3.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow4) == QuestStatus.Unknow4)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow4.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow5) == QuestStatus.Unknow5)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow5.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow6) == QuestStatus.Unknow6)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow6.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow7) == QuestStatus.Unknow7)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow7.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow8) == QuestStatus.Unknow8)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow8.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow9) == QuestStatus.Unknow9)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow9.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow10) == QuestStatus.Unknow10)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow10.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow11) == QuestStatus.Unknow11)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow11.ToString());
+			}
+			if ((currentStatus & QuestStatus.Unknow12) == QuestStatus.Unknow12)
+			{
+				otherStatus.Text = string.Format("{0},{1}", otherStatus.Text, QuestStatus.Unknow12.ToString());
 			}
 		}
 
