@@ -199,6 +199,7 @@
     <None Include="Resources\Licenses\DejaVu-Fonts\README">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Resources\Images\Misc\DirectionPointer.png" />
     <Content Include="Resources\Licenses\Licence.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
