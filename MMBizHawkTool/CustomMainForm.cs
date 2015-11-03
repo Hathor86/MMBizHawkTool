@@ -76,7 +76,11 @@ namespace BizHawk.Client.EmuHawk
 			{
 				InitializePanels();
 				isInitialized = true;
-            }		
+            }
+			else
+			{
+				Parallel.ForEach<Watch>(watchList, w => w.Domain = _memoryDomains.MainMemory);
+			}
 
 			Parallel.ForEach<Watch>(watchList, w => w.Update());
 			foreach (BasePanel panel in paneList)
