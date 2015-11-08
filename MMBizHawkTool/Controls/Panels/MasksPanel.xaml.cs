@@ -1,4 +1,5 @@
 ﻿using BizHawk.Client.Common;
+using MMBizHawkTool.Controls.Components;
 using MMBizHawkTool.Tools;
 using System;
 using System.Collections.Generic;
@@ -43,11 +44,11 @@ namespace MMBizHawkTool.Controls.Panels
 			{
 				if (DataDictionnary.ResourceIndex.ContainsKey((int)z.Value))
 				{
-					((Image)handledItems[(long)z.Address]).Source = new BitmapImage(new Uri(string.Format(@"pack://application:,,,{0}", DataDictionnary.ResourceIndex[(int)z.Value])));
+					((Item)handledItems[(long)z.Address]).Source = new BitmapImage(new Uri(string.Format(@"pack://application:,,,{0}", DataDictionnary.ResourceIndex[(int)z.Value])));
 				}
 				else
 				{
-					((Image)handledItems[(long)z.Address]).Source = null;
+					((Item)handledItems[(long)z.Address]).Source = null;
 				}
 			}			
 		}

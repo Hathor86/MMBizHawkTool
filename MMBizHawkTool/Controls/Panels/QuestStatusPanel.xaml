@@ -11,6 +11,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="/MMBizHawkTool;component/Resources/Images/Backgrounds/Quest.png"/>
         </Grid.Background>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
@@ -35,87 +36,88 @@
             <RowDefinition Height="12.5*"/>
             <RowDefinition Height="12.5*"/>
         </Grid.RowDefinitions>
-        <Image x:Name="bombersNotebbok" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Bombers' Notebook.png" RenderTransformOrigin="0.5,0.5" >
+
+        <Image x:Name="bombersNotebbok" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Bombers' Notebook.png" >
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="0.7" ScaleY="0.7"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-22"/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="hp1" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Images/Misc/HP_Up.png" RenderTransformOrigin="0.5,0.5" >
+        <Image x:Name="hp1" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Images/Misc/HP_Up.png" >
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-10"/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="odolwaRemains" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Odolwa's Remains.png" RenderTransformOrigin="0.5,0.5" >
+        <Image x:Name="odolwaRemains" Grid.Column="8" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Odolwa's Remains.png" >
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-18"/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="hp3" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Images/Misc/HP_Down.png" RenderTransformOrigin="0.5,0.5" >
+        <Image x:Name="hp3" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Images/Misc/HP_Down.png" >
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleY="0.8" ScaleX="-0.8"/>
-                    <SkewTransform AngleY="0" AngleX="0"/>
-                    <RotateTransform Angle="0"/>
-                    <TranslateTransform X="-2" Y="-15"/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="hp2" Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Images/Misc/HP_Down.png" RenderTransformOrigin="0.5,0.5" >
+        <Image x:Name="hp2" Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Images/Misc/HP_Down.png" >
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-6" Y="-15"/>
+                    <ScaleTransform ScaleY="1" ScaleX="-1" />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="gyorgRemains" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Gyorg's Remains.png" RenderTransformOrigin="0.5,0.5" >
+        <Image x:Name="gyorgRemains" Grid.Column="6" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Gyorg's Remains.png" >
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-18" X="9"/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="gohtRemains" Grid.Column="10" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Goht's Remains.png" RenderTransformOrigin="0.5,0.5" >
+        <Image x:Name="gohtRemains" Grid.Column="10" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Goht's Remains.png" >
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-8" Y="-14"/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="twinmoldRemains" Grid.Column="8" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Twinmold's Remains.png" RenderTransformOrigin="0.5,0.5" >
+        <Image x:Name="twinmoldRemains" Grid.Column="8" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="2" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Twinmold's Remains.png" >
             <Image.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="-3" Y="-13"/>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="songOfTime" Grid.Column="0" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Time (Edit).png" ToolTip="Song of Time" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="songOfTime" Grid.Column="0" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Time (Edit).png" ToolTip="Song of Time" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -125,7 +127,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="songOfHealing" Grid.Column="1" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Healing (Edit).png" ToolTip="Song of Healing" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="songOfHealing" Grid.Column="1" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Healing (Edit).png" ToolTip="Song of Healing" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -135,7 +137,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="eponaSong" Grid.Column="2" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Epona's Song (Edit).png" ToolTip="Epona's Song" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="eponaSong" Grid.Column="2" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Epona's Song (Edit).png" ToolTip="Epona's Song" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -145,7 +147,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="songOfSoaring" Grid.Column="4" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Soaring (Edit).png" ToolTip="Song of Soaring" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="songOfSoaring" Grid.Column="4" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Soaring (Edit).png" ToolTip="Song of Soaring" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -155,7 +157,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="songOfStorm" Grid.Column="5" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Storms (Edit).png" ToolTip="Song of Storm" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="songOfStorm" Grid.Column="5" Grid.Row="4" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Storms (Edit).png" ToolTip="Song of Storm" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -165,7 +167,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="sonataOfAwakening" Grid.Column="0" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Sonata of Awakening.png" ToolTip="Sonata of Awakening" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="sonataOfAwakening" Grid.Column="0" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Sonata of Awakening.png" ToolTip="Sonata of Awakening" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -175,7 +177,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="goronLullaby" Grid.Column="1" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Goron Lullaby.png" ToolTip="Goron Lullaby" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="goronLullaby" Grid.Column="1" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Goron Lullaby.png" ToolTip="Goron Lullaby" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -185,7 +187,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="newWaveBossaNova" Grid.Column="2" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/New Wave Bossa Nova.png" ToolTip="New Wave Bossa Nova" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="newWaveBossaNova" Grid.Column="2" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/New Wave Bossa Nova.png" ToolTip="New Wave Bossa Nova" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -195,7 +197,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="elegyOfEmptiness" Grid.Column="4" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Elegy of Emptiness.png" ToolTip="Elegy of Emptiness" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="elegyOfEmptiness" Grid.Column="4" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Elegy of Emptiness.png" ToolTip="Elegy of Emptiness" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -205,7 +207,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="oathToOrder" Grid.Column="5" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Oath to Order.png" ToolTip="Oath to Order" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="oathToOrder" Grid.Column="5" Grid.Row="5" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Oath to Order.png" ToolTip="Oath to Order" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -215,7 +217,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="lullabyIntro" Grid.Column="1" Grid.Row="6" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Lullaby Intro (Edit).png" ToolTip="Lullaby Intro" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="lullabyIntro" Grid.Column="1" Grid.Row="6" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Lullaby Intro (Edit).png" ToolTip="Lullaby Intro" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -225,7 +227,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="sariaSong" Grid.Column="2" Grid.Row="6" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Sonata of Awakening.png" ToolTip="Saria's Song" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="sariaSong" Grid.Column="2" Grid.Row="6" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Sonata of Awakening.png" ToolTip="Saria's Song" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
@@ -235,7 +237,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image x:Name="songOfSun" Grid.Column="3" Grid.Row="6" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Soaring (Edit).png" ToolTip="Song of Sun" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="songOfSun" Grid.Column="3" Grid.Row="6" Source="/MMBizHawkTool;component/Resources/Icons/Quest/Song of Soaring (Edit).png" ToolTip="Song of Sun" >
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>

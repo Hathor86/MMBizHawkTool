@@ -1,4 +1,5 @@
 ﻿using BizHawk.Client.Common;
+using MMBizHawkTool.Controls.Components;
 using MMBizHawkTool.Tools;
 using System;
 using System.Collections.Generic;
@@ -24,8 +25,7 @@ namespace MMBizHawkTool.Controls.Panels
 	{
 		#region Fields
 
-		private Dictionary<long, Image> _HandledItems = new Dictionary<long, Image>();
-		private Dictionary<long, TextBox> _AmmoTextBoxes = new Dictionary<long, TextBox>();
+		private Dictionary<long, Item> ammo = new Dictionary<long, Item>();
 
 		#endregion
 
@@ -43,48 +43,65 @@ namespace MMBizHawkTool.Controls.Panels
 		/// <inheritdoc />
 		public override void AddToDictionnary(long address, string controlName)
 		{
-			object c = FindName(controlName);
-			if (c.GetType() == typeof(Image))
+			switch (controlName)
 			{
-				_HandledItems.Add(address, (Image)c);
-			}
-			else if (c.GetType() == typeof(TextBox))
-			{
-				_AmmoTextBoxes.Add(address, (TextBox)c);
+				case "arrows":
+					ammo.Add(address, heroBow);
+					break;
+				case "bombCount":
+					ammo.Add(address, bomb);
+					break;
+				case "bombchuCount":
+					ammo.Add(address, bombchu);
+					break;
+				case "dekuStickuCount":
+					ammo.Add(address, dekuStick);
+					break;
+				case "dekuNutCount":
+					ammo.Add(address, dekuNut);
+					break;
+				case "magicBeanCount":
+					ammo.Add(address, magicBean);
+					break;
+				case "powderKegCount":
+					ammo.Add(address, powderKeg);
+					break;
+
+				default:
+					base.AddToDictionnary(address, controlName);
+					break;
 			}
 		}
 
 		/// <inheritdoc />
 		public override void UpdateItems(IEnumerable<Watch> itemsAdresses)
 		{
-			foreach (Watch z in itemsAdresses.Where<Watch>(w => _HandledItems.ContainsKey((long)w.Address)))
+			foreach (Watch z in itemsAdresses.Where<Watch>(w => handledItems.ContainsKey((long)w.Address)))
 			{
 				if (DataDictionnary.ResourceIndex.ContainsKey((int)z.Value))
 				{
-					_HandledItems[(long)z.Address].Source = new BitmapImage(new Uri(string.Format(@"pack://application:,,,{0}", DataDictionnary.ResourceIndex[(int)z.Value])));
+					((Item)handledItems[(long)z.Address]).Source = new BitmapImage(new Uri(string.Format(@"pack://application:,,,{0}", DataDictionnary.ResourceIndex[(int)z.Value])));
 				}
 				else
 				{
-					_HandledItems[(long)z.Address].Source = null;
+					((Item)handledItems[(long)z.Address]).Source = null;
 				}
 			}
-			foreach (Watch z in itemsAdresses.Where<Watch>(w => _AmmoTextBoxes.ContainsKey((long)w.Address)))
-			{
-				_AmmoTextBoxes[(long)z.Address].Text = z.ValueString;
-            }
 
-			if(itemsAdresses.Any<Watch>(z => z.Address == CommonAdresses["magicAmount"]))
+			foreach (Watch z in itemsAdresses.Where<Watch>(w => ammo.ContainsKey((long)w.Address)))
+			{
+				((Item)ammo[(long)z.Address]).Ammo = z.ValueString;
+			}
+
+			if (itemsAdresses.Any<Watch>(z => z.Address == CommonAdresses["magicAmount"]))
 			{
 				int magic = (int)itemsAdresses.Where<Watch>(z => z.Address == CommonAdresses["magicAmount"]).First<Watch>().Value;
-				if(magic == 0)
-				{
-					magic = 1;
-				}
-				fireArrowsCount.Text = Math.Floor(magic / 4f).ToString();
-				iceArrowsCount.Text = Math.Floor(magic / 4f).ToString();
-				lightArrowsCount.Text = Math.Floor(magic / 8f).ToString();
+
+				fireArrow.Ammo = Math.Floor(magic / 4f).ToString();
+				iceArrow.Ammo = Math.Floor(magic / 4f).ToString();
+				lightArrow.Ammo = Math.Floor(magic / 8f).ToString();
 			}
-        }
+		}
 
 		#endregion
 

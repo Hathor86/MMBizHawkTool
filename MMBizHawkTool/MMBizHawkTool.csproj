@@ -80,6 +80,9 @@
     <Compile Include="Controls\Components\BorderedLabel.xaml.cs">
       <DependentUpon>BorderedLabel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Components\ItemWithCounter.xaml.cs">
+      <DependentUpon>ItemWithCounter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Components\MapOwl.xaml.cs">
       <DependentUpon>MapOwl.xaml</DependentUpon>
     </Compile>
@@ -135,6 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\Components\BorderedLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Components\ItemWithCounter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
