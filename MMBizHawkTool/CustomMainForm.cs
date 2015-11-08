@@ -20,7 +20,6 @@ using BizHawk.Client.Common;
 using BizHawk.Emulation.Common;
 using MMBizHawkTool.Controls;
 using MMBizHawkTool.Controls.Panels;
-using MMBizHawkTool.Tools.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -44,10 +43,9 @@ namespace BizHawk.Client.EmuHawk
 		[RequiredService]
 		private IEmulator _emu { get; set; }
 
-		private bool editMode = false;
-
-		private List<Watch> watchList = new List<Watch>();
-		private List<IMMPanel> paneList = new List<IMMPanel>();
+		private HashSet<Watch> watchList = new HashSet<Watch>();
+		private HashSet<BasePanel> paneList = new HashSet<BasePanel>();
+		private bool isInitialized = false;
 
 		#endregion
 
@@ -57,6 +55,7 @@ namespace BizHawk.Client.EmuHawk
 		{
 			InitializeComponent();
 		}
+
 		#endregion
 
 		#region Methods		
@@ -73,12 +72,86 @@ namespace BizHawk.Client.EmuHawk
 
 		public void Restart()
 		{
-			paneList.Add(elementHost1.Child as IMMPanel);
-			paneList.Add(elementHost2.Child as IMMPanel);
-			paneList.Add(elementHost3.Child as IMMPanel);
-			paneList.Add(elementHost4.Child as IMMPanel);
-			paneList.Add(elementHost5.Child as IMMPanel);
-			paneList.Add(elementHost6.Child as IMMPanel);
+			if(!isInitialized)
+			{
+				InitializePanels();
+				isInitialized = true;
+            }
+			else
+			{
+				Parallel.ForEach<Watch>(watchList, w => w.Domain = _memoryDomains.MainMemory);
+			}
+
+			Parallel.ForEach<Watch>(watchList, w => w.Update());
+			foreach (BasePanel panel in paneList)
+			{
+				panel.UpdateItems(watchList);
+			}
+		}
+
+		public void UpdateValues()
+		{
+			Parallel.ForEach<Watch>(watchList, w => w.Update());
+
+			IEnumerable<Watch> changes = from w in watchList
+										 where w.Previous != w.Value
+										 select w;
+			foreach (BasePanel panel in paneList)
+			{
+				panel.UpdateItems(changes);
+			}
+		}
+
+		public string GetDisclaimer()
+		{
+			return string.Format(@"MMBizhawkTool version {0}, Copyright (C) 2015 François Guiot
+    MMBizhawkTool comes with ABSOLUTELY NO WARRANTY; for details double clic on title bar.
+    This is free software, and you are welcome to redistribute it
+    under certain conditions; double clic on title bar for details.", Assembly.GetExecutingAssembly().GetName().Version);
+		}
+
+		/// <summary>
+		/// Initialize a type of panel with content passed in parameters
+		/// </summary>
+		/// <typeparam name="T">A BasePanel</typeparam>
+		/// <param name="panelNode">Panel XmlNodes from param.xml</param>
+		private void PopulatePanel<T>(XmlNodeList panelNode) where T : BasePanel
+		{
+			long address;
+			Watch.WatchSize wSize;
+			Watch.DisplayType dType;
+			CultureInfo ci = new CultureInfo("en-US");
+
+			foreach (XmlElement watchNode in panelNode)
+			{
+				if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
+					&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+					&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+				{
+					watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
+					foreach (BasePanel panel in paneList)
+					{
+						if (panel is T)
+						{
+							panel.AddToDictionnary(address, watchNode.Attributes["Item"].Value);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Load config from xml file
+		/// And initialize panels
+		/// </summary>
+		private void InitializePanels()
+		{
+			paneList.Add(elementHost1.Child as BasePanel);
+			paneList.Add(elementHost2.Child as BasePanel);
+			paneList.Add(elementHost3.Child as BasePanel);
+			paneList.Add(elementHost4.Child as BasePanel);
+			paneList.Add(elementHost5.Child as BasePanel);
+			paneList.Add(elementHost6.Child as BasePanel);
 
 			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			path = Path.Combine(path, "MMBizHawkTool", "param.xml");
@@ -126,16 +199,12 @@ namespace BizHawk.Client.EmuHawk
 
 								switch (watchNode.Attributes["Item"].Value)
 								{
-									case "magicAmount":
-										ItemsPanel.MagicAmountAddress = address;										
-                                        break;
-
 									case "xVelocity":
 									case "yVelocity":
 									case "zVelocity":
 									case "overallVelocity":
 										((SpeedPanel)elementHost5.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
-                                        break;
+										break;
 								}
 
 							}
@@ -144,63 +213,6 @@ namespace BizHawk.Client.EmuHawk
 
 					default:
 						break;
-				}
-			}
-
-			Parallel.ForEach<Watch>(watchList, w => w.Update());
-			foreach (IMMPanel panel in paneList)
-			{
-				panel.UpdateItems(watchList);
-			}
-		}
-
-		public void UpdateValues()
-		{
-			Parallel.ForEach<Watch>(watchList, w => w.Update());
-
-			IEnumerable<Watch> changes = from w in watchList
-										 where w.Previous != w.Value
-										 select w;
-			foreach (IMMPanel panel in paneList)
-			{
-				panel.UpdateItems(changes);
-			}
-		}
-
-		public string GetDisclaimer()
-		{
-			return string.Format(@"MMBizhawkTool version {0}, Copyright (C) 2015 François Guiot
-    MMBizhawkTool comes with ABSOLUTELY NO WARRANTY; for details double clic on title bar.
-    This is free software, and you are welcome to redistribute it
-    under certain conditions; double clic on title bar for details.", Assembly.GetExecutingAssembly().GetName().Version);
-		}
-
-		/// <summary>
-		/// Initialize a type of panel with content passed in parameters
-		/// </summary>
-		/// <typeparam name="T">An IMMPanel</typeparam>
-		/// <param name="panelNode">Panel XmlNodes from param.xml</param>
-		private void PopulatePanel<T>(XmlNodeList panelNode) where T : IMMPanel
-		{
-			long address;
-			Watch.WatchSize wSize;
-			Watch.DisplayType dType;
-			CultureInfo ci = new CultureInfo("en-US");
-
-			foreach (XmlElement watchNode in panelNode)
-			{
-				if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
-					&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
-					&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
-				{
-					watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
-					foreach (IMMPanel panel in paneList)
-					{
-						if (panel is T)
-						{
-							panel.AddToDictionnary(address, watchNode.Attributes["Item"].Value);
-						}
-					}
 				}
 			}
 		}
@@ -222,6 +234,6 @@ namespace BizHawk.Client.EmuHawk
 			}
 		}
 
-		#endregion		
+		#endregion
 	}
 }

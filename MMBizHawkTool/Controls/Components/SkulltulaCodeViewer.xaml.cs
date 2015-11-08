@@ -53,7 +53,10 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			for (int i = 0; i < 6; i++)
 			{
-				((Ellipse)FindName(string.Format("_{0}", i))).Fill = colorCode[code[i]];
+				if (colorCode.ContainsKey(code[i]))
+				{
+					((Ellipse)FindName(string.Format("_{0}", i))).Fill = colorCode[code[i]];
+				}
 			}
 		}
 

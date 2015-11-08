@@ -80,6 +80,9 @@
     <Compile Include="Controls\Components\BorderedLabel.xaml.cs">
       <DependentUpon>BorderedLabel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Components\ItemWithCounter.xaml.cs">
+      <DependentUpon>ItemWithCounter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Components\MapOwl.xaml.cs">
       <DependentUpon>MapOwl.xaml</DependentUpon>
     </Compile>
@@ -123,7 +126,6 @@
     <Compile Include="Tools\Enums\Owl.cs" />
     <Compile Include="Tools\Enums\QuestStatus.cs" />
     <Compile Include="Tools\Effects\GrayscaleEffect.cs" />
-    <Compile Include="Tools\Interfaces\IMMPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CustomMainForm.resx">
@@ -136,6 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\Components\BorderedLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Components\ItemWithCounter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,6 +206,7 @@
     <None Include="Resources\Licenses\DejaVu-Fonts\README">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Resources\Images\Misc\DirectionPointer.png" />
     <Content Include="Resources\Licenses\Licence.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -343,7 +350,9 @@
     <Resource Include="Resources\Icons\Items\Gold Dust.png" />
     <Resource Include="Resources\Icons\Items\Deku Princess.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Tools\Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>"$(DXSDK_DIR)Utilities\Bin\x86\fxc.exe" /T ps_2_0 /E main /Fo "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.ps" "$(SolutionDir)MMBizHawkTool/Tools/Effects/GrayscaleEffect.fx"
