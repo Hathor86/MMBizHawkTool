@@ -20,10 +20,47 @@ namespace MMBizHawkTool.Controls.Components
 	/// </summary>
 	public partial class BorderedLabel : UserControl
 	{
+		#region Fields
+
+		public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(BorderedLabel), new FrameworkPropertyMetadata(string.Empty, OnTextChange));
+		public static readonly DependencyProperty TextColorProperty = DependencyProperty.Register("TextColor", typeof(Brush), typeof(BorderedLabel), new FrameworkPropertyMetadata(new SolidColorBrush(Colors.White), OnTextColorChange));
+
+		#endregion
+
+		#region cTor(s)
+
 		public BorderedLabel()
 		{
 			InitializeComponent();
 		}
+
+		#endregion
+
+		#region Methods
+
+		/// <summary>
+		/// Raised when we change the text
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnTextChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+
+			((BorderedLabel)source).text.Text = (string)e.NewValue;
+		}
+
+		/// <summary>
+		/// Raised when we change the text color
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnTextColorChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+
+			((BorderedLabel)source).text.Foreground = (Brush)e.NewValue;
+		}
+
+		#endregion
 
 		#region Properties
 
@@ -34,11 +71,26 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			get
 			{
-				return text.Text;
+				return (string)GetValue(TextProperty);
 			}
 			set
 			{
-				text.Text = value;
+				SetValue(TextProperty, value);				
+            }
+		}
+
+		/// <summary>
+		/// Get or set Text Color
+		/// </summary>
+		public Brush TextColor
+		{
+			get
+			{
+				return (Brush)GetValue(TextColorProperty);
+            }
+			set
+			{
+				SetValue(TextColorProperty, value);
             }
 		}
 

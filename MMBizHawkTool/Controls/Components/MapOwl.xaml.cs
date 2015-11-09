@@ -21,17 +21,31 @@ namespace MMBizHawkTool.Controls.Components
 	/// </summary>
 	public partial class MapOwl : UserControl
 	{
+		#region Fields
+
+		public static readonly DependencyProperty IsDestinationProperty = DependencyProperty.Register("IsDestination", typeof(bool), typeof(MapOwl), new FrameworkPropertyMetadata(false, OnIsDestinationChange));
+		public static readonly DependencyProperty LocationProperty = DependencyProperty.Register("Location", typeof(string), typeof(MapOwl), new FrameworkPropertyMetadata(string.Empty, OnLocationChange));		
+
+		private static readonly SolidColorBrush WhiteColor = new SolidColorBrush(Colors.White);
+		private static readonly SolidColorBrush GreenColor = new SolidColorBrush(Colors.Lime);
+
+		#endregion
+
 		#region cTor(s)
 
 		public MapOwl()
 		{
 			InitializeComponent();
-			this.IsEnabledChanged += MapOwl_IsEnabledChanged;
+			IsEnabledChanged += MapOwl_IsEnabledChanged;
 		}
+
+		#endregion
+
+		#region Methods
 
 		private void MapOwl_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
 		{
-			if((bool)e.NewValue)
+			if ((bool)e.NewValue)
 			{
 				owl.Effect = null;
 			}
@@ -41,9 +55,52 @@ namespace MMBizHawkTool.Controls.Components
 			}
 		}
 
+		/// <summary>
+		/// Raised when we change the location
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnIsDestinationChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+			if ((bool)e.NewValue)
+			{
+				((MapOwl)source).locationLabel.TextColor = GreenColor;
+			}
+			else
+			{
+				((MapOwl)source).locationLabel.TextColor = WhiteColor;
+			}
+		}
+
+		/// <summary>
+		/// Raised when we change the location
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnLocationChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+
+			((MapOwl)source).locationLabel.Text = (string)e.NewValue;
+		}		
+
 		#endregion
 
 		#region Properties
+
+		/// <summary>
+		/// Get or set this owl as soaring destination
+		/// </summary>
+		public bool IsDestination
+		{
+			get
+			{
+				return (bool)GetValue(IsDestinationProperty);
+			}
+			set
+			{
+				SetValue(IsDestinationProperty, value);
+			}
+		}
 
 		/// <summary>
 		/// Get or set owl's location
@@ -52,13 +109,13 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			get
 			{
-				return locationLabel.Text;				
+				return (string)GetValue(LocationProperty);
 			}
 			set
 			{
-				locationLabel.Text = value;               
+				SetValue(LocationProperty, value);
 			}
-		}	
+		}
 
 		#endregion
 	}

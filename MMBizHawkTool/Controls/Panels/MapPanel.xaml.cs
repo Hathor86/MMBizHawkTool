@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using BizHawk.Client.Common;
 using MMBizHawkTool.Tools.Enums;
 using MMBizHawkTool.Controls.Components;
+using MMBizHawkTool.Tools.Effects;
 
 namespace MMBizHawkTool.Controls.Panels
 {
@@ -25,9 +26,12 @@ namespace MMBizHawkTool.Controls.Panels
 	{
 		#region Fields
 
+		private static readonly Owl[] IndexWarp = { Owl.GreatBay, Owl.ZoraCape, Owl.Snowhead, Owl.MountainVillage, Owl.ClockTown, Owl.MilkRoad, Owl.Woodfall, Owl.SouthernSwamp, Owl.IkanaCanyon, Owl.StoneTower };
+
 		private static long owlAddress = 0;
 
 		private Owl owlsStatus = 0;
+		private Owl lastDestination = Owl.ZoraCape;
 		private Dictionary<Owl, MapOwl> handledStatus = new Dictionary<Owl, MapOwl>();
 
 		#endregion
@@ -80,8 +84,24 @@ namespace MMBizHawkTool.Controls.Panels
 					handledStatus[status].IsEnabled = false;
 				}
 			}
-		}
 
-		#endregion
+			if (owlsStatus == Owl.HiddenOwl && itemsAdresses.Any<Watch>(z => z.Address == CommonAdresses["soarCursor"]))
+			{
+				int cursor = (int)itemsAdresses.Where<Watch>(z => z.Address == CommonAdresses["soarCursor"]).First<Watch>().Value;
+				if (cursor < 10)
+				{
+					handledStatus[IndexWarp[cursor]].IsDestination = true;
+					handledStatus[lastDestination].IsDestination = false;
+					lastDestination = IndexWarp[cursor];
+                }
+				else
+				{
+					//Sofltlock
+				}
+			}
+		}
 	}
+
+	#endregion
 }
+
