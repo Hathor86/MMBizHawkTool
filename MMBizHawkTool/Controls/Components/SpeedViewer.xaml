@@ -11,22 +11,26 @@
             <ColumnDefinition Width="30px" />
             <ColumnDefinition Width="90*" />
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*" />
+            <RowDefinition Height="30px" />
+        </Grid.RowDefinitions>
         
-        <Label x:Name="label" Content="Title" Grid.Column="0" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans">
+        <Label x:Name="label" Content="Title" Grid.Column="0" Grid.RowSpan="2" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans">
             <Label.LayoutTransform>
                 <RotateTransform Angle="-90" />
             </Label.LayoutTransform>
         </Label>
-        <Image x:Name="arrow" Width="65" Height="109" Grid.Column="1" Source="/MMBizHawkTool;component/Resources/Images/Misc/Arrow.png" RenderTransformOrigin="0.5,1">
+        <Image x:Name="arrow" Width="65" Height="109" Grid.Column="1" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Images/Misc/Arrow.png" RenderTransformOrigin="0.5,1" StretchDirection="DownOnly" Stretch="Fill">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform Angle="1"/>
-                    <TranslateTransform Y="-20"/>
+                    <TranslateTransform />
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label x:Name="speedText" Content="00.00"  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono"/>
+        <Label x:Name="speedText" Content="00.00"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans Mono"/>
     </Grid>
 </UserControl>

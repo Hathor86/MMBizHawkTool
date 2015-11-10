@@ -25,6 +25,7 @@ namespace MMBizHawkTool.Controls.Components
 		#region Fields
 
 		private static readonly Dictionary<string, double[]> themes = new Dictionary<string, double[]>();
+		public static readonly DependencyProperty LocationProperty = DependencyProperty.Register("Location", typeof(string), typeof(TempleStatus), new FrameworkPropertyMetadata(string.Empty, OnLocationChange));
 
 		#endregion
 
@@ -64,6 +65,17 @@ namespace MMBizHawkTool.Controls.Components
 			}
 		}
 
+		/// <summary>
+		/// Raised when we change the amount of ammo
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnLocationChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+			((TempleStatus)source).locationLabel.Text = (string)e.NewValue;
+			((TempleStatus)source).ApplyTheme((string)e.NewValue);
+		}
+
 		#endregion
 
 		#region Properties
@@ -75,12 +87,11 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			get
 			{
-				return locationLabel.Text;
+				return (string)GetValue(LocationProperty);
 			}
 			set
 			{
-				locationLabel.Text = value;
-				ApplyTheme(value);
+				SetValue(LocationProperty, value);
             }
 		}
 		

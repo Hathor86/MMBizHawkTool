@@ -26,6 +26,9 @@ namespace MMBizHawkTool.Controls.Components
 		private const double MaxSpeed = 18;
 		private const double MaxAngle = 90f;
 
+		public static readonly DependencyProperty LabelProperty = DependencyProperty.Register("Label", typeof(string), typeof(SpeedViewer), new FrameworkPropertyMetadata(string.Empty, OnLabelChange));
+		public static readonly DependencyProperty SpeedProperty = DependencyProperty.Register("Speed", typeof(double), typeof(SpeedViewer), new FrameworkPropertyMetadata(0d, OnSpeedChange));
+
 		#endregion
 
 		#region cTor(s)
@@ -40,19 +43,29 @@ namespace MMBizHawkTool.Controls.Components
 		#region Methods
 
 		/// <summary>
-		/// Update the current speed viewer depending of the specified speed
+		/// Raised when we change the label
 		/// </summary>
-		/// <param name="speed">Speed value</param>
-		public void UpdateSpeed(double speed)
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnLabelChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
 		{
-			RotateTransform r = ((TransformGroup)arrow.RenderTransform).Children[2] as RotateTransform;
-
-			speedText.Content = string.Format("{0:0.00}", speed);
-			speed /= MaxSpeed;
-
-			double angle = MaxAngle * speed;
-			r.Angle = angle;
+			((SpeedViewer)source).label.Content = (string)e.NewValue;
 		}
+
+		/// <summary>
+		/// Raised when we change the label
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnSpeedChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+
+			RotateTransform r = ((TransformGroup)((SpeedViewer)source).arrow.RenderTransform).Children[2] as RotateTransform;
+
+			((SpeedViewer)source).speedText.Content = string.Format("{0:0.00}", (double)e.NewValue);
+
+			r.Angle = MaxAngle * (double)e.NewValue / MaxSpeed;
+		}		
 
 		#endregion
 
@@ -65,11 +78,26 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			get
 			{
-				return label.Content.ToString();
+				return (string)GetValue(LabelProperty);
 			}
 			set
 			{
-				label.Content = value;
+				SetValue(LabelProperty, value);
+			}
+		}
+
+		/// <summary>
+		/// Get or set speed
+		/// </summary>
+		public double Speed
+		{
+			get
+			{
+				return (double)GetValue(SpeedProperty);
+			}
+            set
+			{
+				SetValue(SpeedProperty, value);
 			}
 		}
 

@@ -21,6 +21,11 @@ namespace MMBizHawkTool.Controls.Components
 	public partial class Item : UserControl
 	{
 		#region Fields
+
+		public static readonly DependencyProperty AmmoProperty = DependencyProperty.Register("Ammo", typeof(string), typeof(Item), new FrameworkPropertyMetadata("99", OnAmmoChange));
+		public static readonly DependencyProperty AmmoVisibilityProperty = DependencyProperty.Register("AmmoVisibility", typeof(bool), typeof(Item), new FrameworkPropertyMetadata(false, OnAmmoVisibilityChange));
+		public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register("ImageSource", typeof(ImageSource), typeof(Item), new FrameworkPropertyMetadata(new BitmapImage(), OnImageSourceChange));
+
 		#endregion
 
 		#region cTor(s)
@@ -28,6 +33,48 @@ namespace MMBizHawkTool.Controls.Components
 		public Item()
 		{
 			InitializeComponent();
+			ammo.Visibility = Visibility.Hidden;
+		}
+
+		#endregion
+
+		#region Methods
+
+		/// <summary>
+		/// Raised when we change the amount of ammo
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnAmmoChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+			((Item)source).ammo.Text = (string)e.NewValue;
+		}
+
+		/// <summary>
+		/// Raised when we change the visibility of ammo counter
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnAmmoVisibilityChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+			if ((bool)e.NewValue)
+			{
+				((Item)source).ammo.Visibility = Visibility.Visible;
+			}
+			else
+			{
+				((Item)source).ammo.Visibility = Visibility.Hidden;
+			}
+		}
+
+		/// <summary>
+		/// Raised when we change the image
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnImageSourceChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+			((Item)source).itemImage.Source = (ImageSource)e.NewValue;
 		}
 
 		#endregion
@@ -41,11 +88,11 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			get
 			{
-				return ammo.Text;
+				return (string)GetValue(AmmoProperty);
 			}
 			set
 			{
-				ammo.Text = value;
+				SetValue(AmmoProperty, value);
 			}
 		}
 
@@ -56,14 +103,11 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			get
 			{
-				return ammo.Visibility == Visibility.Visible;
+				return (bool)GetValue(AmmoVisibilityProperty);
 			}
 			set
 			{
-				if(!value)
-				{
-					ammo.Visibility = Visibility.Hidden;
-                }
+				SetValue(AmmoVisibilityProperty, value);
 			}
 		}
 
@@ -74,12 +118,12 @@ namespace MMBizHawkTool.Controls.Components
 		{
 			get
 			{
-				return itemImage.Source;
-            }
+				return (ImageSource)GetValue(ImageSourceProperty);
+			}
 			set
 			{
-				itemImage.Source = value;
-            }
+				SetValue(ImageSourceProperty, value);
+			}
 		}
 
 		#endregion

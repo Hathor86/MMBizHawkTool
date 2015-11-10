@@ -27,30 +27,30 @@
             <RowDefinition Height="70*" />
         </Grid.RowDefinitions>
         
-        <Components:Item x:Name="ocarina" Grid.Column="0" Grid.Row="0" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Ocarina of Time.png" />
-        <Components:Item x:Name="heroBow" Grid.Column="1" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hero's Bow.png" />
-        <Components:Item x:Name="fireArrow" Grid.Column="2" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Fire Arrow.png" />
-        <Components:Item x:Name="iceArrow" Grid.Column="3" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Ice Arrow.png" />
-        <Components:Item x:Name="lightArrow" Grid.Column="4" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Light Arrow.png" />
-        <Components:Item x:Name="questItem1" Grid.Column="5" Grid.Row="0" AmmoVisibility="False" />
-        <Components:Item x:Name="bomb" Grid.Column="0" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Bomb.png" />
-        <Components:Item x:Name="bombchu" Grid.Column="1" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Bombchu.png" />
-        <Components:Item x:Name="dekuStick" Grid.Column="2" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Deku Stick.png" />
-        <Components:Item x:Name="dekuNut" Grid.Column="3" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Deku Nut.png" />
-        <Components:Item x:Name="magicBean" Grid.Column="4" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Magic Beans.png" />
-        <Components:Item x:Name="questItem2" Grid.Column="5" Grid.Row="1" AmmoVisibility="False" />
-        <Components:Item x:Name="powderKeg" Grid.Column="0" Grid.Row="2" Source="/MMBizHawkTool;component/Resources/Icons/Items/Powder Keg.png" />
-        <Components:Item x:Name="pictoBox" Grid.Column="1" Grid.Row="2" Source="/MMBizHawkTool;component/Resources/Icons/Items/Pictograph Box.png" />
-        <Components:Item x:Name="lensOfTruth" Grid.Column="2" Grid.Row="2" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Lens of Truth.png" />
-        <Components:Item x:Name="hookshot" Grid.Column="3" Grid.Row="2" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hookshot.png" />
-        <Components:Item x:Name="greatFairySword" Grid.Column="4" Grid.Row="2" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Great Fairy's Sword.png" />
-        <Components:Item x:Name="questItem3" Grid.Column="5" Grid.Row="2" AmmoVisibility="False" />
-        <Components:Item x:Name="bottle1" Grid.Column="0" Grid.Row="3" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
-        <Components:Item x:Name="bottle2" Grid.Column="1" Grid.Row="3" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
-        <Components:Item x:Name="bottle3" Grid.Column="2" Grid.Row="3" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
-        <Components:Item x:Name="bottle4" Grid.Column="3" Grid.Row="3" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
-        <Components:Item x:Name="bottle5" Grid.Column="4" Grid.Row="3" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
-        <Components:Item x:Name="bottle6" Grid.Column="5" Grid.Row="3" AmmoVisibility="False" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
+        <Components:Item x:Name="ocarina" Grid.Column="0" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Ocarina of Time.png" />
+        <Components:Item x:Name="heroBow" Grid.Column="1" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hero's Bow.png" AmmoVisibility="True" />
+        <Components:Item x:Name="fireArrow" Grid.Column="2" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Fire Arrow.png" AmmoVisibility="True" />
+        <Components:Item x:Name="iceArrow" Grid.Column="3" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Ice Arrow.png" AmmoVisibility="True" />
+        <Components:Item x:Name="lightArrow" Grid.Column="4" Grid.Row="0" Source="/MMBizHawkTool;component/Resources/Icons/Items/Light Arrow.png" AmmoVisibility="True" />
+        <Components:Item x:Name="questItem1" Grid.Column="5" Grid.Row="0" />
+        <Components:Item x:Name="bomb" Grid.Column="0" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Bomb.png" AmmoVisibility="True" />
+        <Components:Item x:Name="bombchu" Grid.Column="1" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Bombchu.png" AmmoVisibility="True" />
+        <Components:Item x:Name="dekuStick" Grid.Column="2" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Deku Stick.png" AmmoVisibility="True" />
+        <Components:Item x:Name="dekuNut" Grid.Column="3" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Deku Nut.png" AmmoVisibility="True" />
+        <Components:Item x:Name="magicBean" Grid.Column="4" Grid.Row="1" Source="/MMBizHawkTool;component/Resources/Icons/Items/Magic Beans.png" AmmoVisibility="True" />
+        <Components:Item x:Name="questItem2" Grid.Column="5" Grid.Row="1" />
+        <Components:Item x:Name="powderKeg" Grid.Column="0" Grid.Row="2" Source="/MMBizHawkTool;component/Resources/Icons/Items/Powder Keg.png" AmmoVisibility="True" />
+        <Components:Item x:Name="pictoBox" Grid.Column="1" Grid.Row="2" Source="/MMBizHawkTool;component/Resources/Icons/Items/Pictograph Box.png" AmmoVisibility="True" />
+        <Components:Item x:Name="lensOfTruth" Grid.Column="2" Grid.Row="2" Source="/MMBizHawkTool;component/Resources/Icons/Items/Lens of Truth.png" />
+        <Components:Item x:Name="hookshot" Grid.Column="3" Grid.Row="2" Source="/MMBizHawkTool;component/Resources/Icons/Items/Hookshot.png" />
+        <Components:Item x:Name="greatFairySword" Grid.Column="4" Grid.Row="2" Source="/MMBizHawkTool;component/Resources/Icons/Items/Great Fairy's Sword.png" />
+        <Components:Item x:Name="questItem3" Grid.Column="5" Grid.Row="2" />
+        <Components:Item x:Name="bottle1" Grid.Column="0" Grid.Row="3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
+        <Components:Item x:Name="bottle2" Grid.Column="1" Grid.Row="3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
+        <Components:Item x:Name="bottle3" Grid.Column="2" Grid.Row="3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
+        <Components:Item x:Name="bottle4" Grid.Column="3" Grid.Row="3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
+        <Components:Item x:Name="bottle5" Grid.Column="4" Grid.Row="3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
+        <Components:Item x:Name="bottle6" Grid.Column="5" Grid.Row="3" Source="/MMBizHawkTool;component/Resources/Icons/Items/Empty Bottle.png" />
         
     </Grid>
 </local:BasePanel>

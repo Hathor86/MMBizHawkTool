@@ -36,7 +36,7 @@ namespace MMBizHawkTool.Controls.Panels
 			IEnumerable<Watch> updatedValues = itemsAdresses.Where<Watch>(w => handledItems.ContainsKey((long)w.Address));
 			foreach(Watch w in updatedValues)
 			{
-				((SpeedViewer)handledItems[(long)w.Address]).UpdateSpeed(double.Parse(w.ValueString));
+				((SpeedViewer)handledItems[(long)w.Address]).Speed = double.Parse(w.ValueString);
 			}
 		}
 	}
