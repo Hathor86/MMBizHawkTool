@@ -77,6 +77,15 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Buttons\PanelLoaderButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Components\BorderedLabel.xaml.cs">
       <DependentUpon>BorderedLabel.xaml</DependentUpon>
     </Compile>
@@ -120,6 +129,12 @@
     <Compile Include="CustomMainForm.Designer.cs">
       <DependentUpon>CustomMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PanelHolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PanelHolder.Designer.cs">
+      <DependentUpon>PanelHolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\DataDictionnary.cs" />
     <Compile Include="Tools\Effects\HSVEffect.cs" />
@@ -128,8 +143,14 @@
     <Compile Include="Tools\Effects\GrayscaleEffect.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Forms\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomMainForm.resx">
       <DependentUpon>CustomMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PanelHolder.resx">
+      <DependentUpon>PanelHolder.cs</DependentUpon>
     </EmbeddedResource>
     <Resource Include="Resources\Images\Backgrounds\Items.png" />
     <Resource Include="Resources\Images\Backgrounds\Map.png" />
@@ -207,9 +228,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Resource Include="Resources\Images\Misc\DirectionPointer.png" />
-    <Content Include="Resources\Licenses\Licence.txt">
+    <EmbeddedResource Include="Resources\Licenses\Licence.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
     <None Include="Tools\Effects\GrayscaleEffect.fx" />
     <Resource Include="Resources\Images\Misc\Arrow.png" />
     <Resource Include="Tools\Effects\GrayscaleEffect.ps" />

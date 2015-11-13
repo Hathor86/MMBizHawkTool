@@ -43,5 +43,11 @@ namespace MMBizHawkTool.Controls.Panels
 		public abstract void UpdateItems(IEnumerable<Watch> itemsAdresses);
 
 		#endregion
+
+		#region Properties
+
+		public bool IsActive { get; set; }
+
+		#endregion
 	}
 }

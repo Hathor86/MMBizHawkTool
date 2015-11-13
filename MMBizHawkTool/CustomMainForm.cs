@@ -1,25 +1,18 @@
 ﻿/*
-	MMBizHawkTool, a BizHawk plugin specific to The Legend of Zelda: Majora's Mask
-    Copyright (C) 2015  François Guiot
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License along
-    with this program; if not, write to the Free Software Foundation, Inc.,
-    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+This Source Code Form is subject to the
+terms of the Mozilla Public License, v.
+2.0. If a copy of the MPL was not
+distributed with this file, You can
+obtain one at
+http://mozilla.org/MPL/2.0/.
 */
 using BizHawk.Client.Common;
 using BizHawk.Emulation.Common;
+using MMBizHawkTool;
 using MMBizHawkTool.Controls;
+using MMBizHawkTool.Controls.Buttons;
 using MMBizHawkTool.Controls.Panels;
+using MMBizHawkTool.Forms;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -44,7 +37,7 @@ namespace BizHawk.Client.EmuHawk
 		private IEmulator _emu { get; set; }
 
 		private HashSet<Watch> watchList = new HashSet<Watch>();
-		private HashSet<BasePanel> paneList = new HashSet<BasePanel>();
+		//private HashSet<BasePanel> paneList = new HashSet<BasePanel>();
 		private bool isInitialized = false;
 
 		#endregion
@@ -54,6 +47,7 @@ namespace BizHawk.Client.EmuHawk
 		public CustomMainForm()
 		{
 			InitializeComponent();
+			//panelLoaderButton1.PanelHolderType = typeof(PanelHolder<MapPanel>);
 		}
 
 		#endregion
@@ -67,7 +61,7 @@ namespace BizHawk.Client.EmuHawk
 
 		public void FastUpdate()
 		{
-
+			
 		}
 
 		public void Restart()
@@ -79,41 +73,33 @@ namespace BizHawk.Client.EmuHawk
             }
 			else
 			{
-				Parallel.ForEach<Watch>(watchList, w => w.Domain = _memoryDomains.MainMemory);
+				Parallel.ForEach<Watch>(watchList, w => w.Domain = _memoryDomains.MainMemory);			
 			}
 
 			Parallel.ForEach<Watch>(watchList, w => w.Update());
-			foreach (BasePanel panel in paneList)
+			foreach (BasePanel panel in PanelHolder.Panels)
 			{
 				panel.UpdateItems(watchList);
 			}
 		}
 
 		public void UpdateValues()
-		{
-			Parallel.ForEach<Watch>(watchList, w => w.Update());
+		{	
+			Parallel.ForEach<Watch>(watchList, w => w.Update());			
 
 			IEnumerable<Watch> changes = from w in watchList
 										 where w.Previous != w.Value
 										 select w;
-			foreach (BasePanel panel in paneList)
+			foreach (BasePanel panel in PanelHolder.Panels)
 			{
 				panel.UpdateItems(changes);
 			}
 		}
 
-		public string GetDisclaimer()
-		{
-			return string.Format(@"MMBizhawkTool version {0}, Copyright (C) 2015 François Guiot
-    MMBizhawkTool comes with ABSOLUTELY NO WARRANTY; for details double clic on title bar.
-    This is free software, and you are welcome to redistribute it
-    under certain conditions; double clic on title bar for details.", Assembly.GetExecutingAssembly().GetName().Version);
-		}
-
 		/// <summary>
 		/// Initialize a type of panel with content passed in parameters
 		/// </summary>
-		/// <typeparam name="T">A BasePanel</typeparam>
+		/// <typeparam name="T">A <see cref="BasePanel"/></typeparam>
 		/// <param name="panelNode">Panel XmlNodes from param.xml</param>
 		private void PopulatePanel<T>(XmlNodeList panelNode) where T : BasePanel
 		{
@@ -129,7 +115,7 @@ namespace BizHawk.Client.EmuHawk
 					&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 				{
 					watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
-					foreach (BasePanel panel in paneList)
+					foreach (BasePanel panel in PanelHolder.Panels)
 					{
 						if (panel is T)
 						{
@@ -146,13 +132,6 @@ namespace BizHawk.Client.EmuHawk
 		/// </summary>
 		private void InitializePanels()
 		{
-			paneList.Add(elementHost1.Child as BasePanel);
-			paneList.Add(elementHost2.Child as BasePanel);
-			paneList.Add(elementHost3.Child as BasePanel);
-			paneList.Add(elementHost4.Child as BasePanel);
-			paneList.Add(elementHost5.Child as BasePanel);
-			paneList.Add(elementHost6.Child as BasePanel);
-
 			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 			path = Path.Combine(path, "MMBizHawkTool", "param.xml");
 
@@ -203,7 +182,7 @@ namespace BizHawk.Client.EmuHawk
 									case "yVelocity":
 									case "zVelocity":
 									case "overallVelocity":
-										((SpeedPanel)elementHost5.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
+										//((SpeedPanel)elementHost5.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
 										break;
 								}
 
@@ -215,12 +194,14 @@ namespace BizHawk.Client.EmuHawk
 						break;
 				}
 			}
-		}
+		}		
 
-		private void CustomMainForm_MouseDoubleClick(object sender, MouseEventArgs e)
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			System.Windows.MessageBox.Show(new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("MMBizhawkTool.Resources.Liences.Lence.txt")).ReadToEnd());
-		}
+			AboutForm about = new AboutForm();
+			about.aboutText.Text = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("MMBizHawkTool.Resources.Licenses.Licence.txt")).ReadToEnd();
+			about.ShowDialog();
+        }
 
 		#endregion
 
@@ -230,7 +211,7 @@ namespace BizHawk.Client.EmuHawk
 		{
 			get
 			{
-				return true;
+				return false;
 			}
 		}
 
