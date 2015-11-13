@@ -1,4 +1,5 @@
-﻿using MMBizHawkTool.Controls.Panels;
+﻿using BizHawk.Client.EmuHawk;
+using MMBizHawkTool.Controls.Panels;
 using MMBizHawkTool.Forms;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace MMBizHawkTool.Controls.Buttons
 	{
 		#region Fields
 
-		private Form panelHandeld;
+		private PanelHolder panelHolder;
 
 		#endregion
 
@@ -37,30 +38,27 @@ namespace MMBizHawkTool.Controls.Buttons
 
 		protected override void OnClick(EventArgs e)
 		{
-			base.OnClick(e);
-			if (CheckState == CheckState.Checked)
+			if (CheckState == CheckState.Unchecked)
 			{
-				panelHandeld = (Form)Activator.CreateInstance(PanelHolderType);
-				panelHandeld.FormClosed += delegate { this.CheckState = CheckState.Unchecked; };
-				panelHandeld.Show();
+				panelHolder = new PanelHolder(PanelType, (CustomMainForm)this.Parent);
+				panelHolder.FormClosed += delegate { this.CheckState = CheckState.Unchecked; };
+				panelHolder.Show();
 			}
 			else
 			{
-				panelHandeld.Dispose();
-				panelHandeld = null;
+				panelHolder.Dispose();
+				panelHolder = null;
 			}
+			base.OnClick(e);
 		}
 
 		#endregion
 
 		#region Properties
 
-		public Type PanelHolderType
-		{
-			get;
-			set;
-		}
-		
+		public string PanelType
+		{ get; set; }
+
 		#endregion
 	}
 }

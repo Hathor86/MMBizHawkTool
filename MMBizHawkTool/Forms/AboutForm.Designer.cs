@@ -34,7 +34,6 @@
 			// aboutText
 			// 
 			this.aboutText.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.aboutText.Enabled = false;
 			this.aboutText.Location = new System.Drawing.Point(0, 0);
 			this.aboutText.Multiline = true;
 			this.aboutText.Name = "aboutText";

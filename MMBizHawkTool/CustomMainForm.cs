@@ -32,11 +32,11 @@ namespace BizHawk.Client.EmuHawk
 		#region Fields
 
 		[RequiredService]
-		private IMemoryDomains _memoryDomains { get; set; }
+		internal IMemoryDomains _memoryDomains { get; set; }
 		[RequiredService]
 		private IEmulator _emu { get; set; }
 
-		private HashSet<Watch> watchList = new HashSet<Watch>();
+		internal HashSet<Watch> watchList = new HashSet<Watch>();
 		//private HashSet<BasePanel> paneList = new HashSet<BasePanel>();
 		private bool isInitialized = false;
 
@@ -47,7 +47,12 @@ namespace BizHawk.Client.EmuHawk
 		public CustomMainForm()
 		{
 			InitializeComponent();
-			//panelLoaderButton1.PanelHolderType = typeof(PanelHolder<MapPanel>);
+			panelLoader_Items.PanelType = "Item";
+			panelLoader_Masks.PanelType = "Mask";
+			panelLoader_QuestStatus.PanelType = "Quest";
+			panelLoader_HiddenQuestStatus.PanelType = "HiddenQuest";
+			panelLoader_Map.PanelType = "Map";
+			panelLoader_Speed.PanelType = "Speed";
 		}
 
 		#endregion
@@ -140,58 +145,34 @@ namespace BizHawk.Client.EmuHawk
 
 			foreach (XmlElement panelNode in param.DocumentElement.ChildNodes)
 			{
-				switch (panelNode.Attributes["Type"].Value)
+				if (panelNode.Attributes["Type"].Value == "Common")
 				{
-					case "Item":
-						PopulatePanel<ItemsPanel>(panelNode.ChildNodes);
-						break;
-
-					case "Mask":
-						PopulatePanel<MasksPanel>(panelNode.ChildNodes);
-						break;
-
-					case "Quest":
-						PopulatePanel<QuestStatusPanel>(panelNode.ChildNodes);
-						break;
-
-					case "HiddenQuest":
-						PopulatePanel<HiddenQuestStatusPanel>(panelNode.ChildNodes);
-						break;
-
-					case "Map":
-						PopulatePanel<MapPanel>(panelNode.ChildNodes);
-						break;
-
-					case "Common":
-						long address;
-						Watch.WatchSize wSize;
-						Watch.DisplayType dType;
-						CultureInfo ci = new CultureInfo("en-US");
-						foreach (XmlElement watchNode in panelNode.ChildNodes)
+					long address;
+					Watch.WatchSize wSize;
+					Watch.DisplayType dType;
+					CultureInfo ci = new CultureInfo("en-US");
+					foreach (XmlElement watchNode in panelNode.ChildNodes)
+					{
+						if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
+							&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+							&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 						{
-							if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
-								&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
-								&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+							watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
+							BasePanel.CommonAdresses.Add(watchNode.Attributes["Item"].Value, address);
+
+							switch (watchNode.Attributes["Item"].Value)
 							{
-								watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
-								BasePanel.CommonAdresses.Add(watchNode.Attributes["Item"].Value, address);
-
-								switch (watchNode.Attributes["Item"].Value)
-								{
-									case "xVelocity":
-									case "yVelocity":
-									case "zVelocity":
-									case "overallVelocity":
-										//((SpeedPanel)elementHost5.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
-										break;
-								}
-
+								case "xVelocity":
+								case "yVelocity":
+								case "zVelocity":
+								case "overallVelocity":
+									//((SpeedPanel)elementHost5.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
+									break;
 							}
-						}
-						break;
 
-					default:
-						break;
+						}
+					}
+					break;
 				}
 			}
 		}		
@@ -200,7 +181,7 @@ namespace BizHawk.Client.EmuHawk
 		{
 			AboutForm about = new AboutForm();
 			about.aboutText.Text = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("MMBizHawkTool.Resources.Licenses.Licence.txt")).ReadToEnd();
-			about.ShowDialog();
+			about.Show();
         }
 
 		#endregion

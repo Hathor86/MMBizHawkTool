@@ -10,13 +10,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
 using System.Linq.Expressions;
+using System.Globalization;
+using BizHawk.Client.Common;
+using System.Xml;
+using System.IO;
+using System.Reflection;
+using BizHawk.Client.EmuHawk;
+using BizHawk.Emulation.Common;
+using System.Windows.Media.Imaging;
+using MMBizHawkTool.Tools;
 
 namespace MMBizHawkTool.Forms
 {
 	/// <summary>
 	/// A form that hold a <see cref="BasePanel"/>
 	/// </summary>
-	public partial class PanelHolder : Form 
+	public partial class PanelHolder : Form
 	{
 		#region Fields
 
@@ -26,14 +35,84 @@ namespace MMBizHawkTool.Forms
 
 		#region cTors()
 
-		public PanelHolder()
+		public PanelHolder(string panelType, CustomMainForm form)
 		{
-			InitializeComponent();		
+			InitializeComponent();
+
+			switch (panelType)
+			{
+				case "Item":
+					panelHost.Child = new ItemsPanel();
+					this.Text = "Items";
+                    break;
+
+				case "Mask":
+					panelHost.Child = new MasksPanel();
+					this.Text = "Masks";
+					break;
+
+				case "Quest":
+					panelHost.Child = new QuestStatusPanel();
+					this.Text = "Quest Status";
+					break;
+
+				case "HiddenQuest":
+					panelHost.Child = new HiddenQuestStatusPanel();
+					this.Text = "Hidden Quest Status";
+					break;
+
+				case "Map":
+					panelHost.Child = new MapPanel();
+					this.Text = "Map";
+					break;
+
+				case "Speed":
+					SpeedPanel s = new SpeedPanel();
+					s.AddToDictionnary(BasePanel.CommonAdresses["xVelocity"], "xVelocity");
+					s.AddToDictionnary(BasePanel.CommonAdresses["yVelocity"], "yVelocity");
+					s.AddToDictionnary(BasePanel.CommonAdresses["zVelocity"], "zVelocity");
+					s.AddToDictionnary(BasePanel.CommonAdresses["overallVelocity"], "overallVelocity");
+					panelHost.Child = s;
+					this.Text = "Speed";
+					break;
+			}
+
+			panelList.Add((BasePanel)panelHost.Child);
+
+			string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+			path = Path.Combine(path, "MMBizHawkTool", "param.xml");
+
+			XmlDocument param = new XmlDocument();
+			param.Load(path);
+
+			foreach (XmlElement panelNode in param.DocumentElement.ChildNodes)
+			{
+				if (panelNode.Attributes["Type"].Value == panelType)
+				{
+					long address;
+					Watch.WatchSize wSize;
+					Watch.DisplayType dType;
+					CultureInfo ci = new CultureInfo("en-US");
+
+					foreach (XmlElement watchNode in panelNode.ChildNodes)
+					{
+						if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
+							&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+							&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+						{
+							form.watchList.Add(Watch.GenerateWatch(form._memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));							
+							((BasePanel)panelHost.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
+						}
+					}
+					((BasePanel)panelHost.Child).UpdateItems(form.watchList);
+                    break;
+				}
+			}
 		}
 
 		#endregion
 
-		#region Methods	
+		#region Methods			
 
 		protected override void OnClosed(EventArgs e)
 		{
@@ -43,27 +122,14 @@ namespace MMBizHawkTool.Forms
 
 		#endregion
 
-		#region Properties
-
-		public BasePanel Panel
-		{
-			get
-			{
-				return (BasePanel)panelHost.Child;
-			}
-			set
-			{	
-				panelHost.Child = value;
-				panelList.Add(value);
-            }
-		}
+		#region Properties		
 
 		public static IEnumerable<BasePanel> Panels
 		{
 			get
 			{
 				return panelList;
-            }
+			}
 		}
 
 		#endregion
