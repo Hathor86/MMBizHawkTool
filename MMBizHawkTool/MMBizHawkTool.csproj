@@ -80,6 +80,9 @@
     <Compile Include="Controls\Buttons\PanelLoaderButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\Components\SkulltulaTokenCounter.xaml.cs">
+      <DependentUpon>SkulltulaTokenCounter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Components\SkulltulaCodeViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Components\SkulltulaTokenCounter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -359,6 +366,7 @@
     <Resource Include="Resources\Icons\Quest\Lullaby Intro %28Edit%29.png" />
     <Resource Include="Resources\Icons\Quest\Oath to Order.png" />
     <Resource Include="Resources\Icons\Maps\Owl.png" />
+    <Resource Include="Resources\Icons\Quest\Gold Skulltula Token.png" />
     <Content Include="Resources\Licenses\DejaVu-Fonts\langcover.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

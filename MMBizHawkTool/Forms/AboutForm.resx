@@ -117,4 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox.Text" xml:space="preserve">
+    <value>This library is licencied under Mozilla Public License 2.0.
+You can find it above, in the License.txt file or at the following URL: https://www.mozilla.org/media/MPL/2.0/index.txt
+Source code is available here: https://github.com/Hathor86/MMBizHawkTool</value>
+  </data>
 </root>

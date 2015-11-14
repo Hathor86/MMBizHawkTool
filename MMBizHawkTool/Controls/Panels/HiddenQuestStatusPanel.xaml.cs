@@ -40,48 +40,59 @@ namespace MMBizHawkTool.Controls.Panels
 		/// <inheritdoc />
 		public override void AddToDictionnary(long address, string controlName)
 		{
-			FrameworkElement c = FindName(controlName) as FrameworkElement;
-
-			if (c != null)
+			switch (controlName)
 			{
-				handledItems.Add(address, c);
-			}
-			else
-			{
-				switch (controlName)
-				{
-					case "woodfallSmallKeys":
-						handledItems.Add(address, woodfall.keyCounter);
-						break;
+				case "bombersCode":
+					handledItems.Add(address, bombersCode);
+					break;
 
-					case "woodfallFairies":
-						handledItems.Add(address, woodfall.fairyCounter);
-						break;
+				case "skulltulaCode":
+					handledItems.Add(address, skulltulaCode);
+                    break;
 
-					case "snowheadSmallKeys":
-						handledItems.Add(address, snowhead.keyCounter);
-						break;
+				case "lotteryCode":
+					handledItems.Add(address, lotteryCode);
+                    break;
 
-					case "snowheadFairies":
-						handledItems.Add(address, snowhead.fairyCounter);
-						break;
+				case "woodfallSmallKeys":
+					handledItems.Add(address, woodfall.keyCounter);
+					break;
 
-					case "greatBaySmallKeys":
-						handledItems.Add(address, greatBay.keyCounter);
-						break;
+				case "woodfallFairies":
+					handledItems.Add(address, woodfall.fairyCounter);
+					break;
 
-					case "greatBayFairies":
-						handledItems.Add(address, greatBay.fairyCounter);
-						break;
+				case "snowheadSmallKeys":
+					handledItems.Add(address, snowhead.keyCounter);
+					break;
 
-					case "stoneTowerSmallKeys":
-						handledItems.Add(address, stoneTower.keyCounter);
-						break;
+				case "snowheadFairies":
+					handledItems.Add(address, snowhead.fairyCounter);
+					break;
 
-					case "stoneTowerFairies":
-						handledItems.Add(address, stoneTower.fairyCounter);
-						break;
-				}
+				case "greatBaySmallKeys":
+					handledItems.Add(address, greatBay.keyCounter);
+					break;
+
+				case "greatBayFairies":
+					handledItems.Add(address, greatBay.fairyCounter);
+					break;
+
+				case "stoneTowerSmallKeys":
+					handledItems.Add(address, stoneTower.keyCounter);
+					break;
+
+				case "stoneTowerFairies":
+					handledItems.Add(address, stoneTower.fairyCounter);
+					break;
+
+				case "swampSkulltulaToken":
+					handledItems.Add(address, swampSkulltulaCounter.tokenCounter);
+					break;
+
+				case "oceansideSkulltulaToken":
+					handledItems.Add(address, oceanSkulltulaCounter.tokenCounter);
+					break;
 			}
 		}
 
