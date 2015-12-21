@@ -90,17 +90,17 @@ namespace MMBizHawkTool.Forms
 				if (panelNode.Attributes["Type"].Value == panelType)
 				{
 					long address;
-					Watch.WatchSize wSize;
-					Watch.DisplayType dType;
+					WatchSize wSize;
+					BizHawk.Client.Common.DisplayType dType;
 					CultureInfo ci = new CultureInfo("en-US");
 
 					foreach (XmlElement watchNode in panelNode.ChildNodes)
 					{
 						if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
-							&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
-							&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+							&& Enum.TryParse<WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+							&& Enum.TryParse<BizHawk.Client.Common.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 						{
-							form.watchList.Add(Watch.GenerateWatch(form._memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));							
+							form.watchList.Add(Watch.GenerateWatch(form._memoryDomains.MainMemory, address, wSize, dType, true));							
 							((BasePanel)panelHost.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
 						}
 					}

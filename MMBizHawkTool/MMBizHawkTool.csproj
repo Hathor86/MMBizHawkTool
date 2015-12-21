@@ -48,16 +48,17 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BizHawk.Client.Common, Version=1.11.2.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="BizHawk.Client.ApiHawk, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\BizHawk\output\BizHawk.Client.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Programs\Emulators\BizHawk\dll\BizHawk.Client.ApiHawk.dll</HintPath>
     </Reference>
-    <Reference Include="BizHawk.Emulation.Common, Version=1.11.2.0, Culture=neutral, processorArchitecture=x86">
+    <Reference Include="BizHawk.Client.Common, Version=1.11.3.9903, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\BizHawk\output\BizHawk.Emulation.Common.dll</HintPath>
+      <HintPath>..\..\..\..\..\Programs\Emulators\BizHawk\dll\BizHawk.Client.Common.dll</HintPath>
     </Reference>
-    <Reference Include="EmuHawk">
-      <HintPath>..\..\BizHawk\output\EmuHawk.exe</HintPath>
+    <Reference Include="BizHawk.Emulation.Common, Version=1.11.3.9903, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Programs\Emulators\BizHawk\dll\BizHawk.Emulation.Common.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />

@@ -27,7 +27,7 @@ using System.Xml;
 
 namespace BizHawk.Client.EmuHawk
 {
-	public partial class CustomMainForm : Form, ICustomGameTool
+	public partial class CustomMainForm : Form, IExternalToolForm
 	{
 		#region Fields
 
@@ -36,7 +36,8 @@ namespace BizHawk.Client.EmuHawk
 		[RequiredService]
 		private IEmulator _emu { get; set; }
 
-		internal HashSet<Watch> watchList = new HashSet<Watch>();
+		//internal HashSet<Watch> watchList = new HashSet<Watch>();
+		internal WatchList watchList;
 		//private HashSet<BasePanel> paneList = new HashSet<BasePanel>();
 		private bool isInitialized = false;
 
@@ -52,7 +53,7 @@ namespace BizHawk.Client.EmuHawk
 			panelLoader_QuestStatus.PanelType = "Quest";
 			panelLoader_HiddenQuestStatus.PanelType = "HiddenQuest";
 			panelLoader_Map.PanelType = "Map";
-			panelLoader_Speed.PanelType = "Speed";
+			panelLoader_Speed.PanelType = "Speed";			
 		}
 
 		#endregion
@@ -73,15 +74,16 @@ namespace BizHawk.Client.EmuHawk
 		{
 			if(!isInitialized)
 			{
-				InitializePanels();
+				watchList = new WatchList(_memoryDomains, "N64");
+				InitializePanels();				
 				isInitialized = true;
             }
 			else
 			{
-				Parallel.ForEach<Watch>(watchList, w => w.Domain = _memoryDomains.MainMemory);			
+				watchList.RefreshDomains(_memoryDomains);
 			}
 
-			Parallel.ForEach<Watch>(watchList, w => w.Update());
+			watchList.UpdateValues();
 			foreach (BasePanel panel in PanelHolder.Panels)
 			{
 				panel.UpdateItems(watchList);
@@ -89,8 +91,8 @@ namespace BizHawk.Client.EmuHawk
 		}
 
 		public void UpdateValues()
-		{	
-			Parallel.ForEach<Watch>(watchList, w => w.Update());			
+		{
+			watchList.UpdateValues();
 
 			IEnumerable<Watch> changes = from w in watchList
 										 where w.Previous != w.Value
@@ -109,17 +111,17 @@ namespace BizHawk.Client.EmuHawk
 		private void PopulatePanel<T>(XmlNodeList panelNode) where T : BasePanel
 		{
 			long address;
-			Watch.WatchSize wSize;
-			Watch.DisplayType dType;
+			WatchSize wSize;
+			Client.Common.DisplayType dType;
 			CultureInfo ci = new CultureInfo("en-US");
 
 			foreach (XmlElement watchNode in panelNode)
 			{
 				if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
-					&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
-					&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+					&& Enum.TryParse<WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+					&& Enum.TryParse<Client.Common.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 				{
-					watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
+					watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, true));
 					foreach (BasePanel panel in PanelHolder.Panels)
 					{
 						if (panel is T)
@@ -148,16 +150,16 @@ namespace BizHawk.Client.EmuHawk
 				if (panelNode.Attributes["Type"].Value == "Common")
 				{
 					long address;
-					Watch.WatchSize wSize;
-					Watch.DisplayType dType;
+					WatchSize wSize;
+					Client.Common.DisplayType dType;
 					CultureInfo ci = new CultureInfo("en-US");
 					foreach (XmlElement watchNode in panelNode.ChildNodes)
 					{
 						if (long.TryParse(watchNode.Attributes["Address"].Value, NumberStyles.HexNumber, ci, out address)
-							&& Enum.TryParse<Watch.WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
-							&& Enum.TryParse<Watch.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
+							&& Enum.TryParse<WatchSize>(watchNode.Attributes["WatchSize"].Value, out wSize)
+							&& Enum.TryParse<Client.Common.DisplayType>(watchNode.Attributes["DisplayType"].Value, out dType))
 						{
-							watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, string.Empty, true));
+							watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, true));
 							BasePanel.CommonAdresses.Add(watchNode.Attributes["Item"].Value, address);
 
 							switch (watchNode.Attributes["Item"].Value)

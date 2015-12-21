@@ -107,7 +107,7 @@ namespace MMBizHawkTool.Controls.Panels
 					string code = string.Empty;
 					for (int i = 0; i < 5; i++)
 					{
-						codeFetcher = Watch.GenerateWatch(z.Domain, (long)z.Address + i, z.Size, z.Type, string.Empty, true);
+						codeFetcher = Watch.GenerateWatch(z.Domain, (long)z.Address + i, z.Size, z.Type, true);
 						code = string.Format("{0}{1}", code, codeFetcher.ValueString);
 					}
 					((Label)handledItems[(long)z.Address]).Content = code;
@@ -118,7 +118,7 @@ namespace MMBizHawkTool.Controls.Panels
 					byte[] code = new byte[6];
 					for (int i = 0; i < 6; i++)
 					{
-						codeFetcher = Watch.GenerateWatch(z.Domain, (long)z.Address + i, z.Size, z.Type, string.Empty, true);
+						codeFetcher = Watch.GenerateWatch(z.Domain, (long)z.Address + i, z.Size, z.Type, true);
 						code[i] = (byte)codeFetcher.Value;
 					}
 					((SkulltulaCodeViewer)handledItems[(long)z.Address]).SetColorCode(code);
@@ -129,14 +129,14 @@ namespace MMBizHawkTool.Controls.Panels
 					string code = string.Empty;
 
 					//First we get the currentDay
-					Watch codeFetcher = Watch.GenerateWatch(z.Domain, CommonAdresses["currentDay"], Watch.WatchSize.Byte, Watch.DisplayType.Unsigned, string.Empty, true);
+					Watch codeFetcher = Watch.GenerateWatch(z.Domain, CommonAdresses["currentDay"], WatchSize.Byte, DisplayType.Unsigned, true);
 					int currentDay = (int)codeFetcher.Value;
 
 					if (currentDay == 1 || currentDay == 2 || currentDay == 3)
 					{
 						for (int i = 0; i < 3; i++)
 						{
-							codeFetcher = Watch.GenerateWatch(z.Domain, (long)z.Address + (currentDay - 1) * 3 + i, z.Size, z.Type, string.Empty, true);
+							codeFetcher = Watch.GenerateWatch(z.Domain, (long)z.Address + (currentDay - 1) * 3 + i, z.Size, z.Type, true);
 							code = string.Format("{0}{1}", code, codeFetcher.ValueString);
 						}
 						((Label)handledItems[(long)z.Address]).Content = code;
