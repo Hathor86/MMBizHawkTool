@@ -88,6 +88,9 @@
     <RamWatch Item="yVelocity" Address="3FFE18" WatchSize="DWord" DisplayType="Float" />
     <RamWatch Item="zVelocity" Address="3FFE1C" WatchSize="DWord" DisplayType="Float" />
     <RamWatch Item="overallVelocity" Address="3FFE20" WatchSize="DWord" DisplayType="Float" />
+    <RamWatch Item="xRotation" Address="3FFE6C" WatchSize="Word" DisplayType="Unsigned" />
+    <RamWatch Item="yRotation" Address="3FFE6E" WatchSize="Word" DisplayType="Unsigned" />
+    <RamWatch Item="zRotation" Address="3FFE70" WatchSize="Word" DisplayType="Unsigned" />
     <RamWatch Item="soarCursor" Address="3FDA91" WatchSize="Byte" DisplayType="Signed" />
   </Panel>
 </Param>

@@ -75,6 +75,15 @@ namespace MMBizHawkTool.Forms
 					panelHost.Child = s;
 					this.Text = "Speed";
 					break;
+
+				case "Rotation":
+					RotationPanel r = new RotationPanel();
+					r.AddToDictionnary(BasePanel.CommonAdresses["xRotation"], "xRotation");
+					r.AddToDictionnary(BasePanel.CommonAdresses["yRotation"], "yRotation");
+					r.AddToDictionnary(BasePanel.CommonAdresses["zRotation"], "zRotation");
+					panelHost.Child = r;
+					this.Text = "Rotation";
+					break;
 			}
 
 			panelList.Add((BasePanel)panelHost.Child);

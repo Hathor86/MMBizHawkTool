@@ -81,8 +81,14 @@
     <Compile Include="Controls\Buttons\PanelLoaderButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\Components\RotationViewer.xaml.cs">
+      <DependentUpon>RotationViewer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Components\SkulltulaTokenCounter.xaml.cs">
       <DependentUpon>SkulltulaTokenCounter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Panels\RotationPanel.xaml.cs">
+      <DependentUpon>RotationPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\AboutForm.cs">
       <SubType>Form</SubType>
@@ -174,6 +180,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Components\RotationViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Components\SkulltulaCodeViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -207,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Components\SpeedViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Panels\RotationPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

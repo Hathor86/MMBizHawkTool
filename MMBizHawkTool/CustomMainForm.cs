@@ -36,10 +36,10 @@ namespace BizHawk.Client.EmuHawk
 		[RequiredService]
 		private IEmulator _emu { get; set; }
 
-		//internal HashSet<Watch> watchList = new HashSet<Watch>();
 		internal WatchList watchList;
-		//private HashSet<BasePanel> paneList = new HashSet<BasePanel>();
 		private bool isInitialized = false;
+
+		private EventHandler panelBoutonClickEventHandler;
 
 		#endregion
 
@@ -48,12 +48,32 @@ namespace BizHawk.Client.EmuHawk
 		public CustomMainForm()
 		{
 			InitializeComponent();
+
 			panelLoader_Items.PanelType = "Item";
 			panelLoader_Masks.PanelType = "Mask";
 			panelLoader_QuestStatus.PanelType = "Quest";
 			panelLoader_HiddenQuestStatus.PanelType = "HiddenQuest";
 			panelLoader_Map.PanelType = "Map";
-			panelLoader_Speed.PanelType = "Speed";			
+			panelLoader_Speed.PanelType = "Speed";
+			panelLoader_Rotation.PanelType = "Rotation";
+
+			panelBoutonClickEventHandler = new EventHandler(
+				delegate
+				{
+					foreach (BasePanel panel in PanelHolder.Panels)
+					{
+						panel.UpdateItems(watchList);
+					}
+				}
+				);
+
+			panelLoader_Items.Click += panelBoutonClickEventHandler;
+			panelLoader_Masks.Click += panelBoutonClickEventHandler;
+			panelLoader_QuestStatus.Click += panelBoutonClickEventHandler;
+			panelLoader_HiddenQuestStatus.Click += panelBoutonClickEventHandler;
+			panelLoader_Map.Click += panelBoutonClickEventHandler;
+			panelLoader_Speed.Click += panelBoutonClickEventHandler;
+			panelLoader_Rotation.Click += panelBoutonClickEventHandler;
 		}
 
 		#endregion
@@ -67,17 +87,17 @@ namespace BizHawk.Client.EmuHawk
 
 		public void FastUpdate()
 		{
-			
+
 		}
 
 		public void Restart()
 		{
-			if(!isInitialized)
+			if (!isInitialized)
 			{
 				watchList = new WatchList(_memoryDomains, "N64");
-				InitializePanels();				
+				InitializePanels();
 				isInitialized = true;
-            }
+			}
 			else
 			{
 				watchList.RefreshDomains(_memoryDomains);
@@ -162,7 +182,7 @@ namespace BizHawk.Client.EmuHawk
 							watchList.Add(Watch.GenerateWatch(_memoryDomains.MainMemory, address, wSize, dType, true));
 							BasePanel.CommonAdresses.Add(watchNode.Attributes["Item"].Value, address);
 
-							switch (watchNode.Attributes["Item"].Value)
+							/*switch (watchNode.Attributes["Item"].Value)
 							{
 								case "xVelocity":
 								case "yVelocity":
@@ -170,21 +190,21 @@ namespace BizHawk.Client.EmuHawk
 								case "overallVelocity":
 									//((SpeedPanel)elementHost5.Child).AddToDictionnary(address, watchNode.Attributes["Item"].Value);
 									break;
-							}
+							}*/
 
 						}
 					}
 					break;
 				}
 			}
-		}		
+		}
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			AboutForm about = new AboutForm();
 			about.aboutText.Text = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("MMBizHawkTool.Resources.Licenses.Licence.txt")).ReadToEnd();
 			about.Show();
-        }
+		}
 
 		#endregion
 

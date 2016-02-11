@@ -36,6 +36,7 @@
 			this.panelLoader_Map = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
 			this.panelLoader_HiddenQuestStatus = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
 			this.panelLoader_Speed = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
+			this.panelLoader_Rotation = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -127,11 +128,24 @@
 			this.panelLoader_Speed.Text = "Speed";
 			this.panelLoader_Speed.UseVisualStyleBackColor = true;
 			// 
+			// panelLoader_Rotation
+			// 
+			this.panelLoader_Rotation.Appearance = System.Windows.Forms.Appearance.Button;
+			this.panelLoader_Rotation.AutoSize = true;
+			this.panelLoader_Rotation.Location = new System.Drawing.Point(115, 84);
+			this.panelLoader_Rotation.Name = "panelLoader_Rotation";
+			this.panelLoader_Rotation.PanelType = null;
+			this.panelLoader_Rotation.Size = new System.Drawing.Size(57, 23);
+			this.panelLoader_Rotation.TabIndex = 7;
+			this.panelLoader_Rotation.Text = "Rotation";
+			this.panelLoader_Rotation.UseVisualStyleBackColor = true;
+			// 
 			// CustomMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(521, 413);
+			this.Controls.Add(this.panelLoader_Rotation);
 			this.Controls.Add(this.panelLoader_Speed);
 			this.Controls.Add(this.panelLoader_HiddenQuestStatus);
 			this.Controls.Add(this.panelLoader_Map);
@@ -159,5 +173,6 @@
 		private MMBizHawkTool.Controls.Buttons.PanelLoaderButton panelLoader_Map;
 		private MMBizHawkTool.Controls.Buttons.PanelLoaderButton panelLoader_HiddenQuestStatus;
 		private MMBizHawkTool.Controls.Buttons.PanelLoaderButton panelLoader_Speed;
+		private MMBizHawkTool.Controls.Buttons.PanelLoaderButton panelLoader_Rotation;
 	}
 }

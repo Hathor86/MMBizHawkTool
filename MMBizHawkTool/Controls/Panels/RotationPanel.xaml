@@ -1,0 +1,23 @@
+﻿<local:BasePanel
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMBizHawkTool.Controls.Panels"
+             xmlns:Components="clr-namespace:MMBizHawkTool.Controls.Components" x:Class="MMBizHawkTool.Controls.Panels.RotationPanel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*" />
+            <RowDefinition Height="50*" />
+        </Grid.RowDefinitions>
+        <Components:RotationViewer x:Name="xRotation" Grid.Row="0" Grid.Column="0" Label="X Rotation"/>
+        <Components:RotationViewer x:Name="yRotation" Grid.Row="0" Grid.Column="1" Label="Y Rotation"/>
+        <Components:RotationViewer x:Name="zRotation" Grid.Row="1" Grid.Column="0" Label="Z Rotation"/>
+    </Grid>
+</local:BasePanel>
