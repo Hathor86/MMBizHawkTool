@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="MMBizHawkTool.Controls.Components.Needle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMBizHawkTool.Controls.Components"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="50">
+    <Grid x:Name="mainGrid">
+        <Viewbox>
+            <Grid Width="{Binding ActualWidth, ElementName=mainGrid}" Height="{Binding ActualHeight, ElementName=mainGrid}">
+                <Polygon x:Name="needle"
+                 Points="25,300 50,250 25,0 0,250" Stretch="Fill" StrokeThickness="2">
+                    <Polygon.Stroke>
+                        <SolidColorBrush x:Name="strokeBrush" Color="Black" />                        
+                    </Polygon.Stroke>
+                    <Polygon.Fill>
+                        <SolidColorBrush Color="{Binding Color, ElementName=strokeBrush}" />
+                    </Polygon.Fill>
+                </Polygon>                
+            </Grid>
+        </Viewbox>
+    </Grid>
+</UserControl>

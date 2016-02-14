@@ -81,6 +81,15 @@
     <Compile Include="Controls\Buttons\PanelLoaderButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\Components\Clock.xaml.cs">
+      <DependentUpon>Clock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Components\ClockNeedles.xaml.cs">
+      <DependentUpon>ClockNeedles.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Components\Needle.xaml.cs">
+      <DependentUpon>Needle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Components\RotationViewer.xaml.cs">
       <DependentUpon>RotationViewer.xaml</DependentUpon>
     </Compile>
@@ -151,6 +160,7 @@
     <Compile Include="Tools\Enums\Owl.cs" />
     <Compile Include="Tools\Enums\QuestStatus.cs" />
     <Compile Include="Tools\Effects\GrayscaleEffect.cs" />
+    <Compile Include="Tools\MathValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\AboutForm.resx">
@@ -169,6 +179,18 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Controls\Components\BorderedLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Components\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Components\ClockNeedles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Components\Needle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

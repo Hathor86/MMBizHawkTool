@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="MMBizHawkTool.Controls.Components.ClockNeedles"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MMBizHawkTool.Controls.Components"
+             xmlns:Tools="clr-namespace:MMBizHawkTool.Tools"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Tools:MathValueConverter x:Key="converter" />        
+    </UserControl.Resources>
+    <Grid x:Name="mainGrid">
+        <local:Needle x:Name="hour" Width="25" RenderTransformOrigin="0.5,1">
+            <local:Needle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1"/>
+                    <TranslateTransform Y="{Binding ActualHeight, ElementName=mainGrid, Converter={StaticResource converter}, ConverterParameter=x/-2}"/>
+                </TransformGroup>
+            </local:Needle.RenderTransform>            
+        </local:Needle>
+        <local:Needle x:Name="minutes" Width="25" RenderTransformOrigin="0.5,1">
+            <local:Needle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform Y="{Binding ActualHeight, ElementName=mainGrid, Converter={StaticResource converter}, ConverterParameter=x/-2}"/>
+                </TransformGroup>
+            </local:Needle.RenderTransform>
+        </local:Needle>
+        <local:Needle x:Name="second"  Width="12.5" RenderTransformOrigin="0.5,1">
+            <local:Needle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="270"/>
+                    <TranslateTransform Y="{Binding ActualHeight, ElementName=mainGrid, Converter={StaticResource converter}, ConverterParameter=x/-2}"/>
+                </TransformGroup>
+            </local:Needle.RenderTransform>
+        </local:Needle>
+    </Grid>
+</UserControl>
