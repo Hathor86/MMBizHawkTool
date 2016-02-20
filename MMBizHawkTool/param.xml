@@ -93,4 +93,7 @@
     <RamWatch Item="zRotation" Address="3FFE70" WatchSize="Word" DisplayType="Unsigned" />
     <RamWatch Item="soarCursor" Address="3FDA91" WatchSize="Byte" DisplayType="Signed" />
   </Panel>
+  <Panel Type="Clock">
+    <RamWatch Item="time" Address="1EF67C" WatchSize="Word" DisplayType="Unsigned" />
+  </Panel>
 </Param>

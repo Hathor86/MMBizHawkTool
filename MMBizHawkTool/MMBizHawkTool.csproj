@@ -96,6 +96,9 @@
     <Compile Include="Controls\Components\SkulltulaTokenCounter.xaml.cs">
       <DependentUpon>SkulltulaTokenCounter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Panels\ClockPanel.xaml.cs">
+      <DependentUpon>ClockPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Panels\RotationPanel.xaml.cs">
       <DependentUpon>RotationPanel.xaml</DependentUpon>
     </Compile>
@@ -215,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Components\TempleStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Panels\ClockPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

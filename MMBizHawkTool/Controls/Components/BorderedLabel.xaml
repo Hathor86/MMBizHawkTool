@@ -7,10 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="300">
     <Grid>
-        <Border BorderThickness="1,1,1,1" Grid.Column="0" Grid.Row="1" CornerRadius="8,8,8,8" BorderBrush="#BF000000" Background="#BF000000">
+        <Border x:Name="border" BorderThickness="1,1,1,1" Grid.Column="0" Grid.Row="1" CornerRadius="8,8,8,8" BorderBrush="#BF000000" Background="#BF000000" RenderTransformOrigin="0.5,0.5">
             <Border.Effect>
                 <BlurEffect />
             </Border.Effect>
+            <Border.RenderTransform>
+                <RotateTransform x:Name="borderRotation" Angle="0" />
+            </Border.RenderTransform>
         </Border>
         <Label x:Name="label" Grid.Column="0" Grid.Row="1" Foreground="White" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans" HorizontalAlignment="Center" VerticalAlignment="Center">
             <AccessText x:Name="text" TextWrapping="WrapWithOverflow" Text="Location with a very long name"/>

@@ -31,7 +31,7 @@
                 </TransformGroup>
             </local:Needle.RenderTransform>
         </local:Needle>
-        <local:Needle x:Name="second"  Width="12.5" RenderTransformOrigin="0.5,1">
+        <local:Needle x:Name="second"  Width="12.5" RenderTransformOrigin="0.5,1" >
             <local:Needle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

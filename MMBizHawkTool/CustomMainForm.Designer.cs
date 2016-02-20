@@ -30,15 +30,14 @@
         {
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.panelLoader_Items = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
-			this.panelLoader_Masks = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
-			this.panelLoader_QuestStatus = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
-			this.panelLoader_Map = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
-			this.panelLoader_HiddenQuestStatus = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
-			this.panelLoader_Speed = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
 			this.panelLoader_Rotation = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
-			this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-			this.clock1 = new MMBizHawkTool.Controls.Components.Clock();
+			this.panelLoader_Speed = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
+			this.panelLoader_HiddenQuestStatus = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
+			this.panelLoader_Map = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
+			this.panelLoader_QuestStatus = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
+			this.panelLoader_Masks = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
+			this.panelLoader_Items = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
+			this.panelLoader_Clock = new MMBizHawkTool.Controls.Buttons.PanelLoaderButton();
 			this.menuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -59,64 +58,17 @@
 			this.aboutToolStripMenuItem.Text = "About";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
-			// panelLoader_Items
+			// panelLoader_Rotation
 			// 
-			this.panelLoader_Items.Appearance = System.Windows.Forms.Appearance.Button;
-			this.panelLoader_Items.AutoSize = true;
-			this.panelLoader_Items.Location = new System.Drawing.Point(12, 27);
-			this.panelLoader_Items.Name = "panelLoader_Items";
-			this.panelLoader_Items.PanelType = null;
-			this.panelLoader_Items.Size = new System.Drawing.Size(42, 23);
-			this.panelLoader_Items.TabIndex = 1;
-			this.panelLoader_Items.Text = "Items";
-			this.panelLoader_Items.UseVisualStyleBackColor = true;
-			// 
-			// panelLoader_Masks
-			// 
-			this.panelLoader_Masks.Appearance = System.Windows.Forms.Appearance.Button;
-			this.panelLoader_Masks.Location = new System.Drawing.Point(60, 27);
-			this.panelLoader_Masks.Name = "panelLoader_Masks";
-			this.panelLoader_Masks.PanelType = null;
-			this.panelLoader_Masks.Size = new System.Drawing.Size(42, 23);
-			this.panelLoader_Masks.TabIndex = 2;
-			this.panelLoader_Masks.Text = "Masks";
-			this.panelLoader_Masks.UseVisualStyleBackColor = true;
-			// 
-			// panelLoader_QuestStatus
-			// 
-			this.panelLoader_QuestStatus.Appearance = System.Windows.Forms.Appearance.Button;
-			this.panelLoader_QuestStatus.AutoSize = true;
-			this.panelLoader_QuestStatus.Location = new System.Drawing.Point(12, 56);
-			this.panelLoader_QuestStatus.Name = "panelLoader_QuestStatus";
-			this.panelLoader_QuestStatus.PanelType = null;
-			this.panelLoader_QuestStatus.Size = new System.Drawing.Size(78, 23);
-			this.panelLoader_QuestStatus.TabIndex = 3;
-			this.panelLoader_QuestStatus.Text = "Quest Status";
-			this.panelLoader_QuestStatus.UseVisualStyleBackColor = true;
-			// 
-			// panelLoader_Map
-			// 
-			this.panelLoader_Map.Appearance = System.Windows.Forms.Appearance.Button;
-			this.panelLoader_Map.AutoSize = true;
-			this.panelLoader_Map.Location = new System.Drawing.Point(12, 85);
-			this.panelLoader_Map.Name = "panelLoader_Map";
-			this.panelLoader_Map.PanelType = null;
-			this.panelLoader_Map.Size = new System.Drawing.Size(38, 23);
-			this.panelLoader_Map.TabIndex = 4;
-			this.panelLoader_Map.Text = "Map";
-			this.panelLoader_Map.UseVisualStyleBackColor = true;
-			// 
-			// panelLoader_HiddenQuestStatus
-			// 
-			this.panelLoader_HiddenQuestStatus.Appearance = System.Windows.Forms.Appearance.Button;
-			this.panelLoader_HiddenQuestStatus.AutoSize = true;
-			this.panelLoader_HiddenQuestStatus.Location = new System.Drawing.Point(96, 56);
-			this.panelLoader_HiddenQuestStatus.Name = "panelLoader_HiddenQuestStatus";
-			this.panelLoader_HiddenQuestStatus.PanelType = null;
-			this.panelLoader_HiddenQuestStatus.Size = new System.Drawing.Size(115, 23);
-			this.panelLoader_HiddenQuestStatus.TabIndex = 5;
-			this.panelLoader_HiddenQuestStatus.Text = "Hidden Quest Status";
-			this.panelLoader_HiddenQuestStatus.UseVisualStyleBackColor = true;
+			this.panelLoader_Rotation.Appearance = System.Windows.Forms.Appearance.Button;
+			this.panelLoader_Rotation.AutoSize = true;
+			this.panelLoader_Rotation.Location = new System.Drawing.Point(115, 84);
+			this.panelLoader_Rotation.Name = "panelLoader_Rotation";
+			this.panelLoader_Rotation.PanelType = null;
+			this.panelLoader_Rotation.Size = new System.Drawing.Size(57, 23);
+			this.panelLoader_Rotation.TabIndex = 7;
+			this.panelLoader_Rotation.Text = "Rotation";
+			this.panelLoader_Rotation.UseVisualStyleBackColor = true;
 			// 
 			// panelLoader_Speed
 			// 
@@ -130,33 +82,83 @@
 			this.panelLoader_Speed.Text = "Speed";
 			this.panelLoader_Speed.UseVisualStyleBackColor = true;
 			// 
-			// panelLoader_Rotation
+			// panelLoader_HiddenQuestStatus
 			// 
-			this.panelLoader_Rotation.Appearance = System.Windows.Forms.Appearance.Button;
-			this.panelLoader_Rotation.AutoSize = true;
-			this.panelLoader_Rotation.Location = new System.Drawing.Point(115, 84);
-			this.panelLoader_Rotation.Name = "panelLoader_Rotation";
-			this.panelLoader_Rotation.PanelType = null;
-			this.panelLoader_Rotation.Size = new System.Drawing.Size(57, 23);
-			this.panelLoader_Rotation.TabIndex = 7;
-			this.panelLoader_Rotation.Text = "Rotation";
-			this.panelLoader_Rotation.UseVisualStyleBackColor = true;
+			this.panelLoader_HiddenQuestStatus.Appearance = System.Windows.Forms.Appearance.Button;
+			this.panelLoader_HiddenQuestStatus.AutoSize = true;
+			this.panelLoader_HiddenQuestStatus.Location = new System.Drawing.Point(96, 56);
+			this.panelLoader_HiddenQuestStatus.Name = "panelLoader_HiddenQuestStatus";
+			this.panelLoader_HiddenQuestStatus.PanelType = null;
+			this.panelLoader_HiddenQuestStatus.Size = new System.Drawing.Size(115, 23);
+			this.panelLoader_HiddenQuestStatus.TabIndex = 5;
+			this.panelLoader_HiddenQuestStatus.Text = "Hidden Quest Status";
+			this.panelLoader_HiddenQuestStatus.UseVisualStyleBackColor = true;
 			// 
-			// elementHost1
+			// panelLoader_Map
 			// 
-			this.elementHost1.Location = new System.Drawing.Point(238, 192);
-			this.elementHost1.Name = "elementHost1";
-			this.elementHost1.Size = new System.Drawing.Size(180, 154);
-			this.elementHost1.TabIndex = 8;
-			this.elementHost1.Text = "elementHost1";
-			this.elementHost1.Child = this.clock1;
+			this.panelLoader_Map.Appearance = System.Windows.Forms.Appearance.Button;
+			this.panelLoader_Map.AutoSize = true;
+			this.panelLoader_Map.Location = new System.Drawing.Point(12, 85);
+			this.panelLoader_Map.Name = "panelLoader_Map";
+			this.panelLoader_Map.PanelType = null;
+			this.panelLoader_Map.Size = new System.Drawing.Size(38, 23);
+			this.panelLoader_Map.TabIndex = 4;
+			this.panelLoader_Map.Text = "Map";
+			this.panelLoader_Map.UseVisualStyleBackColor = true;
+			// 
+			// panelLoader_QuestStatus
+			// 
+			this.panelLoader_QuestStatus.Appearance = System.Windows.Forms.Appearance.Button;
+			this.panelLoader_QuestStatus.AutoSize = true;
+			this.panelLoader_QuestStatus.Location = new System.Drawing.Point(12, 56);
+			this.panelLoader_QuestStatus.Name = "panelLoader_QuestStatus";
+			this.panelLoader_QuestStatus.PanelType = null;
+			this.panelLoader_QuestStatus.Size = new System.Drawing.Size(78, 23);
+			this.panelLoader_QuestStatus.TabIndex = 3;
+			this.panelLoader_QuestStatus.Text = "Quest Status";
+			this.panelLoader_QuestStatus.UseVisualStyleBackColor = true;
+			// 
+			// panelLoader_Masks
+			// 
+			this.panelLoader_Masks.Appearance = System.Windows.Forms.Appearance.Button;
+			this.panelLoader_Masks.Location = new System.Drawing.Point(60, 27);
+			this.panelLoader_Masks.Name = "panelLoader_Masks";
+			this.panelLoader_Masks.PanelType = null;
+			this.panelLoader_Masks.Size = new System.Drawing.Size(42, 23);
+			this.panelLoader_Masks.TabIndex = 2;
+			this.panelLoader_Masks.Text = "Masks";
+			this.panelLoader_Masks.UseVisualStyleBackColor = true;
+			// 
+			// panelLoader_Items
+			// 
+			this.panelLoader_Items.Appearance = System.Windows.Forms.Appearance.Button;
+			this.panelLoader_Items.AutoSize = true;
+			this.panelLoader_Items.Location = new System.Drawing.Point(12, 27);
+			this.panelLoader_Items.Name = "panelLoader_Items";
+			this.panelLoader_Items.PanelType = null;
+			this.panelLoader_Items.Size = new System.Drawing.Size(42, 23);
+			this.panelLoader_Items.TabIndex = 1;
+			this.panelLoader_Items.Text = "Items";
+			this.panelLoader_Items.UseVisualStyleBackColor = true;
+			// 
+			// panelLoader_Clock
+			// 
+			this.panelLoader_Clock.Appearance = System.Windows.Forms.Appearance.Button;
+			this.panelLoader_Clock.AutoSize = true;
+			this.panelLoader_Clock.Location = new System.Drawing.Point(178, 84);
+			this.panelLoader_Clock.Name = "panelLoader_Clock";
+			this.panelLoader_Clock.PanelType = null;
+			this.panelLoader_Clock.Size = new System.Drawing.Size(44, 23);
+			this.panelLoader_Clock.TabIndex = 8;
+			this.panelLoader_Clock.Text = "Clock";
+			this.panelLoader_Clock.UseVisualStyleBackColor = true;
 			// 
 			// CustomMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(521, 413);
-			this.Controls.Add(this.elementHost1);
+			this.Controls.Add(this.panelLoader_Clock);
 			this.Controls.Add(this.panelLoader_Rotation);
 			this.Controls.Add(this.panelLoader_Speed);
 			this.Controls.Add(this.panelLoader_HiddenQuestStatus);
@@ -186,7 +188,6 @@
 		private MMBizHawkTool.Controls.Buttons.PanelLoaderButton panelLoader_HiddenQuestStatus;
 		private MMBizHawkTool.Controls.Buttons.PanelLoaderButton panelLoader_Speed;
 		private MMBizHawkTool.Controls.Buttons.PanelLoaderButton panelLoader_Rotation;
-		private System.Windows.Forms.Integration.ElementHost elementHost1;
-		private MMBizHawkTool.Controls.Components.Clock clock1;
+		private MMBizHawkTool.Controls.Buttons.PanelLoaderButton panelLoader_Clock;
 	}
 }

@@ -19,7 +19,9 @@
                 </RadialGradientBrush>
             </Ellipse.Fill>
         </Ellipse>
-        <Ellipse x:Name="background_plain" Width="{Binding ActualWidth, ElementName=background, Converter={StaticResource converter}, ConverterParameter=85%}" Height="{Binding ActualHeight, ElementName=background, Converter={StaticResource converter}, ConverterParameter=85%}">
+        <Ellipse x:Name="background_plain" 
+                 Width="{Binding ActualWidth, ElementName=background, Converter={StaticResource converter}, ConverterParameter=85%}" 
+                 Height="{Binding ActualHeight, ElementName=background, Converter={StaticResource converter}, ConverterParameter=85%}">
             <Ellipse.Fill>
                 <SolidColorBrush Color="{Binding Color, ElementName=background_color2}" />
             </Ellipse.Fill>
@@ -27,7 +29,9 @@
                 <SolidColorBrush Color="Black" />
             </Ellipse.Stroke>
         </Ellipse>
-        <Ellipse x:Name="background_plain2" Width="{Binding ActualWidth, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=95%}" Height="{Binding ActualHeight, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=95%}">
+        <Ellipse x:Name="background_plain2" 
+                 Width="{Binding ActualWidth, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=95%}" 
+                 Height="{Binding ActualHeight, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=95%}">
             <Ellipse.Fill>
                 <SolidColorBrush Color="{Binding Color, ElementName=background_color1}" />
             </Ellipse.Fill>
@@ -35,9 +39,11 @@
                 <SolidColorBrush Color="Black" />
             </Ellipse.Stroke>
         </Ellipse>
-        <local:ClockNeedles x:Name="gameTime" Height="150" Time="23:30:15" />
-        <local:ClockNeedles x:Name="alternateTime" Height="150" Time="14:42:19" />
-        <Rectangle x:Name="diamondBackground" RenderTransformOrigin="0.5,0.5" Height="{Binding ActualWidth, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=30%}" Width="{Binding ActualWidth, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=30%}">
+        <local:ClockNeedles x:Name="gameTime" Height="120"/>
+        <local:ClockNeedles x:Name="alternateTime" Height="120" />
+        <Rectangle x:Name="diamondBackground" RenderTransformOrigin="0.5,0.5" 
+                   Height="{Binding ActualWidth, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=30%}" 
+                   Width="{Binding ActualWidth, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=30%}">
             <Rectangle.RenderTransform>
                 <RotateTransform Angle="45" />
             </Rectangle.RenderTransform>
@@ -48,6 +54,11 @@
                 <BlurEffect KernelType="Gaussian" Radius="2" />
             </Rectangle.Effect>
         </Rectangle>
-        <local:BorderedLabel x:Name="dayLabel" Text="Day 1" Width="{Binding ActualWidth, ElementName=diamondBackground}" Height="{Binding ActualHeight, ElementName=diamondBackground}" />
+        <local:BorderedLabel x:Name="dayLabel" 
+                             Text="Day 1" 
+                             Width="{Binding ActualWidth, ElementName=diamondBackground, Converter={StaticResource converter}, ConverterParameter=90%}" 
+                             Height="{Binding ActualHeight, ElementName=diamondBackground, Converter={StaticResource converter}, ConverterParameter=90%}" 
+                             BackgroundOriention="45" 
+                             BackgroundColor="{Binding Color, ElementName=background_color2}" />
     </Grid>
 </UserControl>

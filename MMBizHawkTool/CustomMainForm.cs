@@ -56,6 +56,7 @@ namespace BizHawk.Client.EmuHawk
 			panelLoader_Map.PanelType = "Map";
 			panelLoader_Speed.PanelType = "Speed";
 			panelLoader_Rotation.PanelType = "Rotation";
+			panelLoader_Clock.PanelType = "Clock";
 
 			panelBoutonClickEventHandler = new EventHandler(
 				delegate
@@ -67,13 +68,13 @@ namespace BizHawk.Client.EmuHawk
 				}
 				);
 
-			panelLoader_Items.Click += panelBoutonClickEventHandler;
+			/*panelLoader_Items.Click += panelBoutonClickEventHandler;
 			panelLoader_Masks.Click += panelBoutonClickEventHandler;
 			panelLoader_QuestStatus.Click += panelBoutonClickEventHandler;
 			panelLoader_HiddenQuestStatus.Click += panelBoutonClickEventHandler;
 			panelLoader_Map.Click += panelBoutonClickEventHandler;
 			panelLoader_Speed.Click += panelBoutonClickEventHandler;
-			panelLoader_Rotation.Click += panelBoutonClickEventHandler;
+			panelLoader_Rotation.Click += panelBoutonClickEventHandler;*/
 		}
 
 		#endregion

@@ -84,6 +84,12 @@ namespace MMBizHawkTool.Forms
 					panelHost.Child = r;
 					this.Text = "Rotation";
 					break;
+
+				case "Clock":
+					ClockPanel c = new ClockPanel();
+					panelHost.Child = c;
+					this.Text = "Clock";
+					break;
 			}
 
 			panelList.Add((BasePanel)panelHost.Child);
