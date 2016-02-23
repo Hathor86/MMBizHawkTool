@@ -47,7 +47,7 @@ namespace MMBizHawkTool.Tools
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			throw new NotSupportedException("Connot convert back");
+			throw new NotSupportedException("Cannot convert back");
 		}
 	}
 }

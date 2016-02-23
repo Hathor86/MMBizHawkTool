@@ -40,7 +40,7 @@
             </Ellipse.Stroke>
         </Ellipse>
         <local:ClockNeedles x:Name="gameTime" Height="120"/>
-        <local:ClockNeedles x:Name="alternateTime" Height="120" />
+        <local:ClockNeedles x:Name="alternateTime" Height="120" Opacity="50" Visibility="Hidden" />
         <Rectangle x:Name="diamondBackground" RenderTransformOrigin="0.5,0.5" 
                    Height="{Binding ActualWidth, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=30%}" 
                    Width="{Binding ActualWidth, ElementName=background_plain, Converter={StaticResource converter}, ConverterParameter=30%}">

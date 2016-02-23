@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MMBizHawkTool.Tools;
 
 namespace MMBizHawkTool.Controls.Components
 {
@@ -25,8 +26,6 @@ namespace MMBizHawkTool.Controls.Components
 
 		private const double OneHourAngle = 15;
 		private const double OneMinuteAngle = 6;
-
-		private static readonly Regex timeRegex = new Regex(@"(?<Hours>((0|1)[0-9])|2[0-3]):(?<Minutes>[0-5][0-9]):(?<Seconds>[0-5][0-9])", RegexOptions.Compiled);
 
 		public static readonly DependencyProperty TimeProperty = DependencyProperty.Register("Time", typeof(string), typeof(ClockNeedles), new FrameworkPropertyMetadata("00:00:00", OnTimeChange), ValidateTime);
 
@@ -50,7 +49,7 @@ namespace MMBizHawkTool.Controls.Components
 		/// <returns>True if value is formated as following: hh24:mi:ss; otherwise, false</returns>
 		private static bool ValidateTime(object o)
 		{
-			return timeRegex.IsMatch((string)o);
+			return GameTimeValueConverter.TimeRegex.IsMatch((string)o);
 		}
 
 		/// <summary>
@@ -97,7 +96,7 @@ namespace MMBizHawkTool.Controls.Components
 			{
 				SetValue(TimeProperty, value);
 			}
-		}
+		}	
 
 		#endregion
 	}

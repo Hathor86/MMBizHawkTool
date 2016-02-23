@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:MMBizHawkTool.Controls.Components"
              xmlns:Tools="clr-namespace:MMBizHawkTool.Tools"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" >
     <UserControl.Resources>
-        <Tools:MathValueConverter x:Key="converter" />        
+        <Tools:MathValueConverter x:Key="converter" />
     </UserControl.Resources>
     <Grid x:Name="mainGrid">
         <local:Needle x:Name="hour" Width="25" RenderTransformOrigin="0.5,1">
@@ -19,7 +19,7 @@
                     <RotateTransform Angle="1"/>
                     <TranslateTransform Y="{Binding ActualHeight, ElementName=mainGrid, Converter={StaticResource converter}, ConverterParameter=x/-2}"/>
                 </TransformGroup>
-            </local:Needle.RenderTransform>            
+            </local:Needle.RenderTransform>
         </local:Needle>
         <local:Needle x:Name="minutes" Width="25" RenderTransformOrigin="0.5,1">
             <local:Needle.RenderTransform>

@@ -81,6 +81,11 @@
   <Panel Type="Map">
     <RamWatch Item="owlStatus" Address="1EF6B6" WatchSize="Word" DisplayType="Unsigned" />
   </Panel>
+  <Panel Type="Clock">
+    <RamWatch Item="time" Address="1EF67C" WatchSize="Word" DisplayType="Unsigned" />
+    <RamWatch Item="timeSpeed" Address="1EF686" WatchSize="Word" DisplayType="Signed" />
+    <RamWatch Item="currentDay" Address="1EF68B" WatchSize="Byte" DisplayType="Unsigned" />
+  </Panel>
   <Panel Type="Common">
     <RamWatch Item="magicAmount" Address="1EF6A9" WatchSize="Byte" DisplayType="Unsigned" />
     <RamWatch Item="currentDay" Address="1EF68B" WatchSize="Byte" DisplayType="Unsigned" />
@@ -92,8 +97,5 @@
     <RamWatch Item="yRotation" Address="3FFE6E" WatchSize="Word" DisplayType="Unsigned" />
     <RamWatch Item="zRotation" Address="3FFE70" WatchSize="Word" DisplayType="Unsigned" />
     <RamWatch Item="soarCursor" Address="3FDA91" WatchSize="Byte" DisplayType="Signed" />
-  </Panel>
-  <Panel Type="Clock">
-    <RamWatch Item="time" Address="1EF67C" WatchSize="Word" DisplayType="Unsigned" />
   </Panel>
 </Param>

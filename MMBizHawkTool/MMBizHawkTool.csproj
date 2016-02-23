@@ -87,6 +87,7 @@
     <Compile Include="Controls\Components\ClockNeedles.xaml.cs">
       <DependentUpon>ClockNeedles.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Components\MaskedTextBox.cs" />
     <Compile Include="Controls\Components\Needle.xaml.cs">
       <DependentUpon>Needle.xaml</DependentUpon>
     </Compile>
@@ -163,6 +164,7 @@
     <Compile Include="Tools\Enums\Owl.cs" />
     <Compile Include="Tools\Enums\QuestStatus.cs" />
     <Compile Include="Tools\Effects\GrayscaleEffect.cs" />
+    <Compile Include="Tools\GameTimeValueConverter.cs" />
     <Compile Include="Tools\MathValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>

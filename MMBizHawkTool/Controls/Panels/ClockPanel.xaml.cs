@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BizHawk.Client.Common;
+using MMBizHawkTool.Controls.Components;
+using MMBizHawkTool.Tools;
 
 namespace MMBizHawkTool.Controls.Panels
 {
@@ -21,23 +23,84 @@ namespace MMBizHawkTool.Controls.Panels
 	/// </summary>
 	public partial class ClockPanel : BasePanel
 	{
-		private const double OneGameSecond = 86400d / 65535d; //Number of real seconds / IG seconds.FF FF (65535) is midnight
+		#region Fields
+
+		private GameTimeValueConverter gameTimeConverter = new GameTimeValueConverter();
+
+		#endregion
+
+		#region cTor(s)
 
 		public ClockPanel()
 		{
 			InitializeComponent();
+			timeLimit.LostFocus += new RoutedEventHandler(TimeLimit_LostFocus);
+			timeLimit.KeyUp += new KeyEventHandler(TimeLimit_KeyUp);
+		}
+
+		#endregion
+
+		#region Methods		
+
+		public override void AddToDictionnary(long address, string controlName)
+		{
+			if (controlName == "currentDay")
+			{
+				handledItems.Add(address, time);
+			}
+			else
+			{
+				base.AddToDictionnary(address, controlName);
+			}
+		}
+
+		private void TimeLimit_KeyUp(object sender, KeyEventArgs e)
+		{
+			if(e.Key == Key.Enter)
+			{
+				TimeLimit_LostFocus(null, null);
+			}
+		}
+
+		private void TimeLimit_LostFocus(object sender, RoutedEventArgs e)
+		{
+			if (GameTimeValueConverter.TimeRegex.IsMatch(timeLimit.Text))
+			{
+				time.AlternateTime = timeLimit.Text;
+				time.EnableAlternateTime = true;
+			}
+			else
+			{
+				time.EnableAlternateTime = false;
+				remainingFrames.Text = string.Empty;
+			}
 		}
 
 		public override void UpdateItems(IEnumerable<Watch> itemsAdresses)
 		{
-			if (itemsAdresses.Any())
+			IEnumerable<Watch> updatedValues = itemsAdresses.Where<Watch>(w => handledItems.ContainsKey(w.Address));
+			foreach (Watch w in updatedValues)
 			{
-				ushort time = (ushort)itemsAdresses.ToArray()[0].Value;
-				double hour = Math.Floor(time * OneGameSecond / 3600d);
-				double minute = Math.Floor((time * OneGameSecond / 3600d - hour) * 60);
-				double second = Math.Floor(((((time * OneGameSecond / 3600d) - hour) * 60) - minute) * 60);
-				Clock.Time = string.Format("{0:00}:{1:00}:{2:00}", hour, minute, second);
+				if (handledItems[w.Address] == time && w.Size == WatchSize.Word)
+				{
+					time.Time = (string)gameTimeConverter.Convert(w.Value);
+					if(time.EnableAlternateTime)
+					{
+						remainingFrames.Text = string.Format("{0} frames remaining", (double)gameTimeConverter.ConvertBack(time.AlternateTime) - w.Value / (3 + timeSpeed.Value));
+					}
+				}
+				else if (handledItems[w.Address] == time && w.Size == WatchSize.Byte)
+				{
+					time.Day = w.ValueString;
+				}
+				else
+				{
+					((Slider)handledItems[w.Address]).Value = Convert.ToInt16(w.ValueString);
+					time.InvertedSongOfTime = (((Slider)handledItems[w.Address]).Value == -2);
+				}
 			}
 		}
+
+		#endregion
 	}
 }

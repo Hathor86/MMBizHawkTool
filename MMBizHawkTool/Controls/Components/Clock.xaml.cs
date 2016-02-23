@@ -28,6 +28,8 @@ namespace MMBizHawkTool.Controls.Components
 		public static readonly DependencyProperty EnableAlternateTimeProperty = DependencyProperty.Register("EnableAlternateTime", typeof(bool), typeof(Clock), new FrameworkPropertyMetadata(false, OnEnableAternateTimeChange));
 		public static readonly DependencyProperty InvertedSongOfTimeProperty = DependencyProperty.Register("InvertedSongOfTime", typeof(bool), typeof(Clock), new FrameworkPropertyMetadata(false, OnInvertedSongOfTimeChange));
 		public static readonly DependencyProperty TimeProperty = DependencyProperty.Register("Time", typeof(string), typeof(Clock), new FrameworkPropertyMetadata("00:00:00", OnTimeChange));
+		public static readonly DependencyProperty AlternateTimeProperty = DependencyProperty.Register("AlternateTime", typeof(string), typeof(Clock), new FrameworkPropertyMetadata("00:00:00", OnAlternateTimeChange));
+		public static readonly DependencyProperty DayProperty = DependencyProperty.Register("Day", typeof(string), typeof(Clock), new FrameworkPropertyMetadata("0", OnDayChange));
 
 		#endregion
 
@@ -40,7 +42,29 @@ namespace MMBizHawkTool.Controls.Components
 
 		#endregion
 
-		#region Methods
+		#region Methods		
+
+		/// <summary>
+		/// Raised when time changes (other clock)
+		/// (set the color to blue in fact)
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnAlternateTimeChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+			((Clock)source).alternateTime.Time = (string)e.NewValue;
+		}
+
+		/// <summary>
+		/// Raised when we reach dawn of another day :)
+		/// (set the color to blue in fact)
+		/// </summary>
+		/// <param name="source">Control who raised the event</param>
+		/// <param name="e">Event Argument (containts data)</param>
+		private static void OnDayChange(DependencyObject source, DependencyPropertyChangedEventArgs e)
+		{
+			((Clock)source).dayLabel.Text = string.Format("Day {0}", e.NewValue); 
+		}
 
 		/// <summary>
 		/// Raised when we enable/disable the inverted song of time
@@ -78,8 +102,7 @@ namespace MMBizHawkTool.Controls.Components
 		}
 
 		/// <summary>
-		/// Raised when we enable/disable the inverted song of time
-		/// (set the color to blue in fact)
+		/// Raised when time changes 
 		/// </summary>
 		/// <param name="source">Control who raised the event</param>
 		/// <param name="e">Event Argument (containts data)</param>
@@ -91,6 +114,36 @@ namespace MMBizHawkTool.Controls.Components
 		#endregion
 
 		#region Properties
+
+		/// <summary>
+		/// Gets or sets the alternate time
+		/// </summary>
+		public string AlternateTime
+		{
+			get
+			{
+				return (string)GetValue(AlternateTimeProperty);
+			}
+			set
+			{
+				SetValue(AlternateTimeProperty, value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets current day
+		/// </summary>
+		public string Day
+		{
+			get
+			{
+				return string.Format("Day {0}", GetValue(DayProperty));
+			}
+			set
+			{
+				SetValue(DayProperty, value);
+			}
+		}
 
 		/// <summary>
 		/// Enable or disable the secondary needles

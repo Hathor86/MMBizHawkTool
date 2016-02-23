@@ -16,7 +16,7 @@
             </Border.RenderTransform>
         </Border>
         <Label x:Name="label" Grid.Column="0" Grid.Row="1" Foreground="White" FontFamily="/MMBizHawkTool;component/Resources/Fonts/#DejaVu Sans" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <AccessText x:Name="text" TextWrapping="WrapWithOverflow" Text="Location with a very long name"/>
+            <AccessText x:Name="text" TextWrapping="WrapWithOverflow" />
         </Label>
     </Grid>
 </UserControl>
