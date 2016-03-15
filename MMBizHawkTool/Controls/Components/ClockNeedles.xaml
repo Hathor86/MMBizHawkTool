@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:MMBizHawkTool.Controls.Components"
              xmlns:Tools="clr-namespace:MMBizHawkTool.Tools"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" >
+             d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <Tools:MathValueConverter x:Key="converter" />
     </UserControl.Resources>
@@ -31,7 +31,7 @@
                 </TransformGroup>
             </local:Needle.RenderTransform>
         </local:Needle>
-        <local:Needle x:Name="second"  Width="12.5" RenderTransformOrigin="0.5,1" >
+        <local:Needle x:Name="second"  Width="12.5" RenderTransformOrigin="0.5,1" Color="Red">
             <local:Needle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

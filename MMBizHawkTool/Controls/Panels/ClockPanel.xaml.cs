@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,7 +87,7 @@ namespace MMBizHawkTool.Controls.Panels
 					time.Time = (string)gameTimeConverter.Convert(w.Value);
 					if(time.EnableAlternateTime)
 					{
-						remainingFrames.Text = string.Format("{0} frames remaining", (double)gameTimeConverter.ConvertBack(time.AlternateTime) - w.Value / (3 + timeSpeed.Value));
+						remainingFrames.Text = string.Format(CultureInfo.InvariantCulture, "{0:0} frames remaining", ((double)gameTimeConverter.ConvertBack(time.AlternateTime) - w.Value) / (3 + timeSpeed.Value));
 					}
 				}
 				else if (handledItems[w.Address] == time && w.Size == WatchSize.Byte)
